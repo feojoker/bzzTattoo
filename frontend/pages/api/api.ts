@@ -12,7 +12,7 @@ export function getStrapiURL(path: string = ""): string {
 //  * @param {Object} options Options passed to fetch
 //  * @returns Parsed API call response
 //  */
-export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = {}): Promise<T> {
+export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = {}) {
   // Merge default and user options
   const mergedOptions = {
     headers: {
@@ -36,9 +36,9 @@ export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = 
         console.error(response.statusText);
         throw new Error(`An error occured please try again`);
       }
-      return response.json() as Promise<{ data: T }>
+      return response.json()
     })
     .then(data => {
-      return data.data
+      return data.data as T
     })
 }
