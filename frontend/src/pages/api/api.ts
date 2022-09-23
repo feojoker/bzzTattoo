@@ -23,13 +23,11 @@ export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = 
 
   // Build request URL
   const queryString = qs.stringify(urlParamsObject);
-  console.log(queryString);
 
   const requestUrl = `${getStrapiURL(
     `/api${path}${queryString ? `?${queryString}` : ""}`
   )}`;
 
-  console.log(requestUrl);
   return fetch(requestUrl, mergedOptions)
     .then(response => {
       if (!response.ok) {
