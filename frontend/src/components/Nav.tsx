@@ -28,8 +28,8 @@ const Nav = ({ leftNavs, rightNavs, logo }: any) => {
 
   return (
     <nav className={`w-full h-[80px] sticky top-0 ${scrolled ? 'bg-black' : ''}`}>
-      <div className="flex items-center justify-around py-3 container mx-auto">
-        <ul className="items-center justify-center md:flex md:space-x-8 md:space-y-0">
+      <div className="flex flex-row items-center justify-center py-3 container mx-auto">
+        <ul className="basis-2/4 items-center justify-end md:flex md:space-x-8 md:space-y-0">
           {leftNavs.map((category: any) => {
             return (
               <li key={category.id}>
@@ -40,7 +40,7 @@ const Nav = ({ leftNavs, rightNavs, logo }: any) => {
             );
           })}
         </ul>
-        <div className="w-[200px] flex items-center justify-center">
+        <div className="basis-[200px] w-[200px] flex items-center justify-center">
           <div className={`relative transition-all ease ${scrolled ? 'w-[80px]' : 'w-[200px]'}`}>
             <Link href='/'>
               <a>
@@ -49,7 +49,7 @@ const Nav = ({ leftNavs, rightNavs, logo }: any) => {
             </Link>
           </div>
         </div>
-        <ul className="items-center justify-center md:flex md:space-x-8 md:space-y-0">
+        <ul className="basis-2/4 items-center justify-start md:flex md:space-x-8 md:space-y-0">
           {rightNavs.map((category: any) => {
             return (
               <li key={category.id}>
