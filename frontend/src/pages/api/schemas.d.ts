@@ -22,6 +22,7 @@ import {
   MediaAttribute,
   SingleTypeSchema,
   ComponentAttribute,
+  SetPluginOptions,
   ComponentSchema,
 } from '@strapi/strapi';
 
@@ -557,6 +558,11 @@ export interface ApiArticleArticle extends CollectionTypeSchema {
       'manyToOne',
       'api::writer.writer'
     >;
+    left_nav: RelationAttribute<
+      'api::article.article',
+      'manyToOne',
+      'api::left-nav.left-nav'
+    >;
     createdAt: DateTimeAttribute;
     updatedAt: DateTimeAttribute;
     publishedAt: DateTimeAttribute;
@@ -675,6 +681,109 @@ export interface ApiHomepageHomepage extends SingleTypeSchema {
   };
 }
 
+export interface ApiLeftNavLeftNav extends CollectionTypeSchema {
+  info: {
+    singularName: 'left-nav';
+    pluralName: 'left-navs';
+    displayName: 'LeftNav';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: StringAttribute &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: UIDAttribute<'api::left-nav.left-nav', 'name'>;
+    articles: RelationAttribute<
+      'api::left-nav.left-nav',
+      'oneToMany',
+      'api::article.article'
+    >;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::left-nav.left-nav',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::left-nav.left-nav',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    localizations: RelationAttribute<
+      'api::left-nav.left-nav',
+      'oneToMany',
+      'api::left-nav.left-nav'
+    >;
+    locale: StringAttribute;
+  };
+}
+
+export interface ApiRightNavRightNav extends CollectionTypeSchema {
+  info: {
+    singularName: 'right-nav';
+    pluralName: 'right-navs';
+    displayName: 'RightNav';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: StringAttribute &
+      RequiredAttribute &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: UIDAttribute<'api::right-nav.right-nav', 'name'> &
+      RequiredAttribute &
+      SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::right-nav.right-nav',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::right-nav.right-nav',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    localizations: RelationAttribute<
+      'api::right-nav.right-nav',
+      'oneToMany',
+      'api::right-nav.right-nav'
+    >;
+    locale: StringAttribute;
+  };
+}
+
 export interface ApiWriterWriter extends CollectionTypeSchema {
   info: {
     singularName: 'writer';
@@ -751,6 +860,8 @@ declare global {
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::left-nav.left-nav': ApiLeftNavLeftNav;
+      'api::right-nav.right-nav': ApiRightNavRightNav;
       'api::writer.writer': ApiWriterWriter;
       'sections.hero': SectionsHero;
       'shared.seo': SharedSeo;
