@@ -49,6 +49,12 @@
             "relation": "manyToOne",
             "target": "api::writer.writer",
             "inversedBy": "articles"
+        },
+        "left_nav": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::left-nav.left-nav",
+            "inversedBy": "articles"
         }
     }
 }

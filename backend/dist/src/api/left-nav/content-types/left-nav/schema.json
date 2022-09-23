@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "left_navs",
+    "info": {
+        "singularName": "left-nav",
+        "pluralName": "left-navs",
+        "displayName": "LeftNav",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": false
+    },
+    "pluginOptions": {
+        "i18n": {
+            "localized": true
+        }
+    },
+    "attributes": {
+        "name": {
+            "type": "string",
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            }
+        },
+        "slug": {
+            "type": "uid",
+            "targetField": "name"
+        },
+        "articles": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::article.article",
+            "mappedBy": "left_nav"
+        }
+    }
+}
