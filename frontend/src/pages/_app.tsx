@@ -6,7 +6,7 @@ import "../../styles/style.css";
 import { createContext } from "react";
 import { fetchAPI } from "./api/api";
 import { getStrapiMedia } from "./api/media";
-import { ApiGlobalGlobal } from "./api/schemas";
+import { Global } from "../types";
 
 type TProps = Pick<AppProps, "Component" | "pageProps">
 
@@ -14,7 +14,7 @@ type TProps = Pick<AppProps, "Component" | "pageProps">
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }: TProps) => {
-  const { global } = pageProps;
+  const global: Global = pageProps.global;
 
   return (
     <>
@@ -39,7 +39,7 @@ MyApp.getInitialProps = async (context: AppContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(context);
   // Fetch global site settings from Strapi
-  const globalRes = await fetchAPI<ApiGlobalGlobal>("/global", {
+  const globalRes = await fetchAPI<Global>("/global", {
     populate: {
       favicon: "*",
       defaultSeo: {
