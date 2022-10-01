@@ -16,7 +16,6 @@ nav {
   color: #d2a200;
   /* letter-spacing: 2px; */
   font-size: 35px;
-  /* font-weight: 700; */
   text-transform: uppercase;
 }
 
@@ -34,8 +33,12 @@ h1 {
   font-size: 80px;
 }
 
-#category {
-  font-family: 'Modernist', "Arial", sans-serif;
+#lang {
+  font-family: 'Mukta Mahee', "Arial", sans-serif;
+  line-height: 40px;
+  font-size: 16px;
+  /* color: #26262a; */
+  text-transform: none;
 }
 
 #title {
