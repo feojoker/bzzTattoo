@@ -7,7 +7,7 @@ type shareImage = {
       caption: string,
       width: number,
       height: number,
-      formats: {
+      formats?: {
         thumbnail: {
           name: string,
           hash: string,
@@ -153,5 +153,16 @@ export type Navs = {
     createdAt: string,
     updatedAt: string,
     locale: string
+  }
+}
+
+export type Lang = {
+  id: number,
+  attributes: {
+    name: string,
+    slug: string,
+    createdAt: string,
+    updatedAt: string,
+    icon: shareImage
   }
 }
