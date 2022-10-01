@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "language_icons",
+  "info": {
+    "singularName": "language-icon",
+    "pluralName": "language-icons",
+    "displayName": "Language Icons",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}
