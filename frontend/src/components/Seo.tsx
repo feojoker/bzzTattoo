@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useContext } from "react";
-import { GlobalContext } from "../pages/_app";
+import { GlobalDataContext } from "../context/GlobalDataContext";
 import { getStrapiMedia } from "../pages/api/media";
 import { Seo } from "../types";
 
@@ -9,10 +9,8 @@ type Props = {
 }
 
 const Seo = ({ seo }: Props) => {
-  console.log(seo);
-
   // @ts-ignore
-  const { defaultSeo, siteName } = useContext(GlobalContext);
+  const { defaultSeo, siteName } = useContext(GlobalDataContext);
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

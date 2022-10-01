@@ -3,15 +3,12 @@ import React from 'react';
 import App, { AppContext, AppProps } from "next/app";
 import Head from "next/head";
 import "../../styles/style.css";
-import { createContext } from "react";
 import { fetchAPI } from "./api/api";
 import { getStrapiMedia } from "./api/media";
 import { Global } from "../types";
+import { GlobalDataProvider } from "../context/GlobalDataContext"
 
 type TProps = Pick<AppProps, "Component" | "pageProps">
-
-// Store Strapi Global object in context
-export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }: TProps) => {
   const global: Global = pageProps.global;
@@ -24,9 +21,9 @@ const MyApp = ({ Component, pageProps }: TProps) => {
           href={getStrapiMedia(global.attributes.favicon)}
         />
       </Head>
-      <GlobalContext.Provider value={global.attributes}>
+      <GlobalDataProvider globalData={global}>
         <Component {...pageProps} />
-      </GlobalContext.Provider>
+      </GlobalDataProvider>
     </>
   );
 };
