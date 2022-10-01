@@ -1,16 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { getStrapiMedia } from "../pages/api/media";
-import { Navs, Global } from "../types";
+import { Navs, Global, Lang } from "../types";
+import LanguageSwitcher from './LanguageSwitcher';
 
 
 type Props = {
   leftNavs: Navs[],
   rightNavs: Navs[],
+  langs: Lang[],
   logo: Global
 }
 
-const Nav = ({ leftNavs, rightNavs, logo }: Props) => {
+const Nav = ({ leftNavs, rightNavs, logo, langs }: Props) => {
   const logoLink = getStrapiMedia(logo.attributes.favicon)
   const [scrolled, setScrolled] = useState(false);
 
@@ -33,7 +35,7 @@ const Nav = ({ leftNavs, rightNavs, logo }: Props) => {
   }, []);
 
   return (
-    <nav className={`flex justify-between items-center md:block w-full h-[80px] sticky top-0 ${scrolled ? 'bg-black' : ''}`}>
+    <nav className={`flex justify-between items-center w-full h-[80px] sticky top-0 ${scrolled ? 'bg-black' : ''}`}>
       <div className="flex flex-row justify-center py-3 container mx-auto">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
@@ -66,8 +68,10 @@ const Nav = ({ leftNavs, rightNavs, logo }: Props) => {
             );
           })}
         </ul>
-      </div>
+      </div >
+      <LanguageSwitcher langs={langs} />
     </nav >
+
   )
 };
 
