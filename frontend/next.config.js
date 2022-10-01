@@ -10,6 +10,10 @@ const nextConfig = {
     loader: "default",
     domains: ["localhost"],
   },
+  i18n: {
+    locales: ['en', 'ru', 'ka'],
+    defaultLocale: 'en',
+  },
 }
 
 module.exports = withBundleAnalyzer(nextConfig);
