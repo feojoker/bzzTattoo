@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
-import { useMediaQuery } from "../hooks/useMediaQuery";
 import { Global, Navs, Lang } from "../types";
+import { MediaQueryContext } from "../context/MediaQueryContext";
 
 
 type Props = {
@@ -14,11 +14,11 @@ type Props = {
 }
 
 const Layout = ({ rightNavs, leftNavs, logo, langs, children }: Props) => {
-  const tailwindMd = useMediaQuery(768)
+  const isDesktopMedia = useContext(MediaQueryContext);
 
   return (
     <>
-      {tailwindMd ? (
+      {isDesktopMedia ? (
         <Nav rightNavs={rightNavs} leftNavs={leftNavs} logo={logo} langs={langs} />
       ) : (
         <MobileNav rightNavs={rightNavs} leftNavs={leftNavs} logo={logo} />

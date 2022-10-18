@@ -7,6 +7,8 @@ import { fetchAPI } from "./api/api";
 import { getStrapiMedia } from "./api/media";
 import { Global } from "../types";
 import { GlobalDataProvider } from "../context/GlobalDataContext"
+import { MediaQueryProvider } from "../context/MediaQueryContext"
+import { useMediaQuery } from "../hooks/useMediaQuery";
 
 type TProps = Pick<AppProps, "Component" | "pageProps">
 
@@ -21,9 +23,11 @@ const MyApp = ({ Component, pageProps }: TProps) => {
           href={getStrapiMedia(global.attributes.favicon)}
         />
       </Head>
-      <GlobalDataProvider globalData={global}>
-        <Component {...pageProps} />
-      </GlobalDataProvider>
+      <MediaQueryProvider>
+        <GlobalDataProvider globalData={global}>
+          <Component {...pageProps} />
+        </GlobalDataProvider>
+      </MediaQueryProvider>
     </>
   );
 };
