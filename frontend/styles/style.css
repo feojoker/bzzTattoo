@@ -17,6 +17,7 @@ nav {
   /* letter-spacing: 2px; */
   font-size: 35px;
   text-transform: uppercase;
+  z-index: 20;
 }
 
 nav a:hover {
@@ -57,11 +58,6 @@ h1 {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.75;
-}
-
-.uk-navbar-container {
-  background: #fff !important;
-  font-family: Staatliches;
 }
 
 img:hover {
