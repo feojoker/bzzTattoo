@@ -4,8 +4,7 @@ import { fetchAPI } from './api/api';
 import Layout from "../layouts/Layout";
 import Seo from "../components/Seo";
 import { Global, Homepage, Navs, Lang } from "../types";
-import { useRouter } from "next/router";
-
+import VideoBanner from "../components/VideoBanner"
 
 type Props = {
   homepage: Homepage,
@@ -16,10 +15,10 @@ type Props = {
 }
 
 const Home = ({ leftNavs, rightNavs, logo, homepage, langs }: Props) => {
-
   return (
     <Layout rightNavs={rightNavs} leftNavs={leftNavs} logo={logo} langs={langs} >
       <Seo seo={homepage.attributes.seo} />
+      <VideoBanner src={homepage.attributes.videoBanner} />
       <div style={{ height: '1300px' }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae felis velit. Pellentesque et sapien vel diam iaculis venenatis in eget diam. Fusce mollis erat eget dui porta porta sed et velit. Pellentesque et faucibus felis. Ut ac finibus urna. Suspendisse blandit in odio nec vestibulum. Aliquam ultricies consectetur sem eu pulvinar. Integer blandit, tortor accumsan pulvinar finibus, elit arcu imperdiet mauris, vitae volutpat arcu magna et urna. Cras a vulputate est, sit amet feugiat elit. Mauris mi ex, accumsan vitae semper non, pretium non orci. Duis aliquet, magna at congue faucibus, neque elit rhoncus dolor, non facilisis turpis enim sed ante. In nec venenatis odio. Pellentesque sagittis sed arcu ut interdum. Nulla suscipit vulputate tincidunt. Quisque non finibus sapien, ac ornare orci. Cras mollis tincidunt eros sodales pretium.
 
@@ -43,13 +42,14 @@ export async function getStaticProps({ locale }: { locale: string }) {
     fetchAPI<Navs[]>("/right-navs", { populate: "*", locale: locale }),
     fetchAPI<Global>("/global", {
       populate: {
-        favicon: "*",
+        logo: "*",
       },
     }),
     fetchAPI<Homepage>("/homepage", {
       populate: {
         hero: "*",
         seo: { populate: "*" },
+        videoBanner: "*"
       },
     }),
     fetchAPI("/language-icons", { populate: "*" }),
