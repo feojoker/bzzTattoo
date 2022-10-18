@@ -44,12 +44,6 @@
             "type": "media",
             "multiple": false
         },
-        "author": {
-            "type": "relation",
-            "relation": "manyToOne",
-            "target": "api::writer.writer",
-            "inversedBy": "articles"
-        },
         "left_nav": {
             "type": "relation",
             "relation": "manyToOne",

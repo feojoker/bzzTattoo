@@ -25,6 +25,13 @@
             "repeatable": false,
             "component": "sections.hero",
             "required": true
+        },
+        "videoBanner": {
+            "allowedTypes": [
+                "videos"
+            ],
+            "type": "media",
+            "multiple": false
         }
     }
 }
