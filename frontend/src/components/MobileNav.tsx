@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { getStrapiMedia } from "../pages/api/media";
 import { Navs, Global } from "../types";
+import { useOnScroll } from "../hooks/useOnScroll";
 
 type Props = {
   leftNavs: Navs[],
@@ -10,7 +11,9 @@ type Props = {
 }
 
 const MobileNav = ({ leftNavs, rightNavs, logo }: Props) => {
-  const logoLink = getStrapiMedia(logo.attributes.favicon)
+  const logoLink = getStrapiMedia(logo.attributes.logo)
+
+  const scrolled = useOnScroll()
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -24,7 +27,7 @@ const MobileNav = ({ leftNavs, rightNavs, logo }: Props) => {
 
   return (
     <>
-      <div className="flex justify-between z-40 items-center w-full h-[50px] sticky top-0 bg-black">
+      <div className={`flex justify-between z-40 items-center w-full h-[50px] sticky top-0 bg-black ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
         <Link href='/'>
           <a>
             <img className="w-[50px]" src={logoLink} alt="logo" />
