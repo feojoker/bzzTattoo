@@ -1,12 +1,12 @@
-type shareImage = {
+export type shareMedia = {
   data: {
     id: number,
     attributes: {
       name: string,
       alternativeText: string,
       caption: string,
-      width: number,
-      height: number,
+      width: number | null,
+      height: number | null,
       formats?: {
         thumbnail: {
           name: string,
@@ -62,7 +62,7 @@ type shareImage = {
       provider: string,
       provider_metadata: string | null,
       createdAt: string,
-      updatedAt: string
+      updatedAt: string,
     }
   }
 }
@@ -71,7 +71,7 @@ export type Seo = {
   id: number,
   metaTitle: string,
   metaDescription: string,
-  shareImage?: shareImage
+  shareImage?: shareMedia,
 }
 
 export type Global = {
@@ -80,53 +80,9 @@ export type Global = {
     siteName: string,
     createdAt: string,
     updatedAt: string,
-    favicon: {
-      data: {
-        id: number,
-        attributes: {
-          name: string,
-          alternativeText: string,
-          caption: string,
-          width: number,
-          height: number,
-          formats: {
-            thumbnail: {
-              name: string,
-              hash: string,
-              ext: string,
-              mime: string,
-              path: string | null,
-              width: number,
-              height: number,
-              size: number,
-              url: string
-            },
-            small: {
-              name: string,
-              hash: string,
-              ext: string,
-              mime: string,
-              path: string | null,
-              width: number,
-              height: number,
-              size: number,
-              url: string
-            }
-          },
-          hash: string,
-          ext: string,
-          mime: string,
-          size: number,
-          url: string,
-          previewUrl: string | null,
-          provider: string,
-          provider_metadata: string | null,
-          createdAt: string,
-          updatedAt: string
-        }
-      }
-    },
-    defaultSeo: Seo
+    favicon: shareMedia,
+    defaultSeo: Seo,
+    logo: shareMedia,
   }
 }
 
@@ -140,7 +96,8 @@ export type Homepage = {
       id: number,
       title: string
     },
-    seo: Seo
+    seo: Seo,
+    videoBanner: shareMedia,
   }
 }
 
@@ -152,7 +109,7 @@ export type Navs = {
     slug: string,
     createdAt: string,
     updatedAt: string,
-    locale: string
+    locale: string,
   }
 }
 
@@ -163,6 +120,6 @@ export type Lang = {
     slug: string,
     createdAt: string,
     updatedAt: string,
-    icon: shareImage
+    icon: shareMedia,
   }
 }
