@@ -24,8 +24,8 @@ function LanguageSwitcher({ langs }: Props) {
 
 
   return (
-    <div id='lang' className="relative mr-8">
-      <div className="flex items-center justify-center w-[35px] h-[35px] rounded-full bg-[#d2a200]">
+    <div id='lang' className="relative ml-8">
+      <div className={`flex items-center justify-center w-[35px] h-[35px] rounded-full bg-primary hover:opacity-100 ${openSwitcher ? 'opacity-100' : 'opacity-70'}`}>
         <button onClick={() => setOpenSwitcher(!openSwitcher)} ref={buttonRef}>
           {langs.map((lang: Lang) => {
             return lang.attributes.slug === locale ? (
