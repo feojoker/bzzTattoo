@@ -1,0 +1,43 @@
+{
+    "kind": "singleType",
+    "collectionName": "global_datas",
+    "info": {
+        "singularName": "global-data",
+        "pluralName": "global-datas",
+        "displayName": "GlobalData",
+        "description": ""
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "siteName": {
+            "type": "string",
+            "required": true
+        },
+        "defaultSeo": {
+            "displayName": "defaultSeo",
+            "type": "component",
+            "repeatable": false,
+            "component": "shared.default-seo",
+            "required": true
+        },
+        "favicon": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        },
+        "logo": {
+            "type": "media",
+            "multiple": false,
+            "required": true,
+            "allowedTypes": [
+                "images"
+            ]
+        }
+    }
+}

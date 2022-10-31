@@ -27,12 +27,6 @@
         "slug": {
             "type": "uid",
             "targetField": "name"
-        },
-        "articles": {
-            "type": "relation",
-            "relation": "oneToMany",
-            "target": "api::article.article",
-            "mappedBy": "left_nav"
         }
     }
 }

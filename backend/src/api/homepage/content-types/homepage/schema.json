@@ -27,11 +27,12 @@
       "required": true
     },
     "videoBanner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
