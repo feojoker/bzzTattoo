@@ -68,13 +68,13 @@ export type shareMedia = {
 }
 
 export type Seo = {
-  id: number,
+  id?: number,
   metaTitle: string,
   metaDescription: string,
   shareImage?: shareMedia,
 }
 
-export type Global = {
+export type GlobalData = {
   id: number,
   attributes: {
     siteName: string,
@@ -110,6 +110,9 @@ export type Navs = {
     createdAt: string,
     updatedAt: string,
     locale: string,
+    localizations?: {
+      data: Navs[]
+    }
   }
 }
 
@@ -121,5 +124,39 @@ export type Lang = {
     createdAt: string,
     updatedAt: string,
     icon: shareMedia,
+  }
+}
+
+export type BriefInfo = {
+  id: number,
+  attributes: {
+    title: string,
+    subTitle: string,
+    createdAt: string,
+    updatedAt: string,
+    locale: string,
+    slug: string,
+    linkTitle: string,
+    link: string,
+    longText: string,
+    localizations?: {
+      data: BriefInfo[]
+    }
+  }
+}
+
+
+export type NotFound = {
+  id: number,
+  attributes: {
+    title: string,
+    description: string,
+    buttonText: string,
+    createdAt: string,
+    updatedAt: string,
+    locale: string,
+    localizations?: {
+      data: NotFound[]
+    }
   }
 }
