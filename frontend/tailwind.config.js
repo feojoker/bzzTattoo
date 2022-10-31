@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -5,7 +7,18 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'modernist': ['Modernist'],
+      'regular': ['Mukta Mahee', 'Arial', 'sans-serif'],
+    },
+    colors: {
+      primary: '#d2a200',
+      secondary: '#18181b',
+      white: colors.white,
+      black: colors.black,
+      yellow: colors.yellow,
+      zinc: colors.zinc
+    }
   },
   plugins: [],
 }
