@@ -5,22 +5,22 @@ import Head from "next/head";
 import "../../styles/style.css";
 import { fetchAPI } from "./api/api";
 import { getStrapiMedia } from "./api/media";
-import { Global } from "../types";
-import { GlobalDataProvider } from "../context/GlobalDataContext"
-import { MediaQueryProvider } from "../context/MediaQueryContext"
-import { useMediaQuery } from "../hooks/useMediaQuery";
+import { GlobalData } from "../types";
+import { GlobalDataProvider } from "../context/GlobalDataContext";
+import { MediaQueryProvider } from "../context/MediaQueryContext";
 
 type TProps = Pick<AppProps, "Component" | "pageProps">
 
 const MyApp = ({ Component, pageProps }: TProps) => {
-  const global: Global = pageProps.global;
+  const global: GlobalData = pageProps.global;
+  const faviconHref = getStrapiMedia(global.attributes.favicon)
 
   return (
     <>
       <Head>
         <link
           rel="shortcut icon"
-          href={getStrapiMedia(global.attributes.favicon)}
+          href={faviconHref}
         />
       </Head>
       <MediaQueryProvider>
@@ -40,13 +40,14 @@ MyApp.getInitialProps = async (context: AppContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(context);
   // Fetch global site settings from Strapi
-  const globalRes = await fetchAPI<Global>("/global", {
+  const globalRes = await fetchAPI<GlobalData>("/global-data", {
     populate: {
-      favicon: "*",
       defaultSeo: {
-        populate: "*",
+        populate: { shareImage: { populate: "*" } }
       },
-    },
+      favicon: { populate: "*" },
+      logo: { populate: "*" },
+    }
   });
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global: globalRes } };

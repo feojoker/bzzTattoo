@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect, useState, useContext } from "react";
+import React from "react";
 import Link from "next/link";
 import { getStrapiMedia } from "../pages/api/media";
-import { Navs, Global, Lang } from "../types";
+import { Navs, GlobalData, Lang } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
 
@@ -10,17 +10,17 @@ type Props = {
   leftNavs: Navs[],
   rightNavs: Navs[],
   langs: Lang[],
-  logo: Global
+  globalLogo: GlobalData
 }
 
-const Nav = ({ leftNavs, rightNavs, logo, langs }: Props) => {
-  const logoLink = getStrapiMedia(logo.attributes.logo)
+const Nav = ({ leftNavs, rightNavs, globalLogo, langs }: Props) => {
+  const logoSrc = getStrapiMedia(globalLogo.attributes.logo)
 
   const scrolled = useOnScroll()
 
   return (
     <nav className={`flex justify-between items-center w-full h-[80px] sticky top-0 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
-      <div className="flex flex-row justify-center py-3 container mx-auto">
+      <div className="flex flex-row justify-center py-3 container mx-auto opacity-100">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
             return (
@@ -36,7 +36,7 @@ const Nav = ({ leftNavs, rightNavs, logo, langs }: Props) => {
           <div className={`relative transition-all ease ${scrolled ? 'w-[70px]' : 'w-[150px] mx-[50px]'}`}>
             <Link href='/'>
               <a>
-                <img className="absolute top-[-35px] left-0" src={logoLink} alt="logo" />
+                <img className="absolute top-[-35px] left-0" src={logoSrc} alt="logo" />
               </a>
             </Link>
           </div>

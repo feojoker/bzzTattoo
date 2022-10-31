@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { useOnScroll } from '../hooks/useOnScroll';
+import React, { useContext } from 'react';
 import { getStrapiMedia } from "../pages/api/media";
 import { shareMedia } from "../types";
 import { MediaQueryContext } from "../context/MediaQueryContext";
@@ -7,26 +6,31 @@ import { MediaQueryContext } from "../context/MediaQueryContext";
 
 type Props = {
   src: shareMedia,
-}
+};
 
 function VideoBanner({ src }: Props) {
 
-  const videoBannerSrc = getStrapiMedia(src)
-
-  const scrolled = useOnScroll()
+  const videoBannerSrc = getStrapiMedia(src);
   const isDesktopMedia = useContext(MediaQueryContext);
 
   return (
-    <div className={`relative flex items-center justify-center w-full ${isDesktopMedia ? 'h-[85vh]' : 'h-[40vh]'}`}>
+    <div className={`relative flex items-center justify-center w-full bg-black -z-20
+     ${isDesktopMedia
+        ? 'h-[100vh]'
+        : 'h-[40vh]'
+      }`}>
+      <div className={`absolute inset-x-0 bottom-0 opacity-60 bg-black w-full h-full 
+      ${isDesktopMedia
+          ? 'top-[-80px]'
+          : 'top-[-50px]'
+        }`}></div>
       <video className={
-        `absolute inset-x-0 bottom-0 object-cover w-full h-full -z-10 
-        ${scrolled
-          ? 'top-0'
-          : isDesktopMedia
-            ? 'top-[-80px]'
-            : 'top-[-50px]'
-        }`
-      } loop autoPlay muted>
+        `absolute inset-x-0 bottom-0 object-cover w-full h-full -z-10
+        ${isDesktopMedia
+          ? 'top-[-80px]'
+          : 'top-[-50px]'
+        }`}
+        loop autoPlay muted>
         <source
           src={videoBannerSrc}
           type="video/mp4"
