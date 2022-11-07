@@ -107,6 +107,7 @@ export type Navs = {
   attributes: {
     name: string,
     slug: string,
+    link: string,
     createdAt: string,
     updatedAt: string,
     locale: string,
