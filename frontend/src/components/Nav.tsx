@@ -25,7 +25,7 @@ const Nav = ({ leftNavs, rightNavs, globalLogo, langs }: Props) => {
           {leftNavs.map((category: Navs) => {
             return (
               <li key={category.id}>
-                <Link href={`/${category.attributes.slug}`}>
+                <Link href={`${category.attributes.link}`}>
                   <a className="whitespace-nowrap">{category.attributes.name}</a>
                 </Link>
               </li>
@@ -46,7 +46,7 @@ const Nav = ({ leftNavs, rightNavs, globalLogo, langs }: Props) => {
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id}>
-                  <Link href={`/${category.attributes.slug}`}>
+                  <Link href={`${category.attributes.link}`}>
                     <a className="whitespace-nowrap">{category.attributes.name}</a>
                   </Link>
                 </li>
