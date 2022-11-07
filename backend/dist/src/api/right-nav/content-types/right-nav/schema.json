@@ -4,7 +4,8 @@
     "info": {
         "singularName": "right-nav",
         "pluralName": "right-navs",
-        "displayName": "RightNav"
+        "displayName": "RightNav",
+        "description": ""
     },
     "options": {
         "draftAndPublish": false
@@ -33,6 +34,17 @@
             "type": "uid",
             "targetField": "name",
             "required": true
+        },
+        "link": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": false
+                }
+            },
+            "type": "string",
+            "required": true,
+            "regex": "^/",
+            "default": "/"
         }
     }
 }
