@@ -4,6 +4,7 @@ import mapStyles from "./mapStyles"
 import { useRouter } from "next/router";
 import MapUserLocation from "./MapUserLocation";
 import MapDirectionsRenderer from "./MapDirectionsRenderer";
+import { SvgLoader } from "../Loader/ImgLoader";
 
 
 type Map = google.maps.Map;
@@ -61,7 +62,12 @@ function Map({ googleMapsApiKey }: Props) {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: googleMapsApiKey,
   });
-  if (!isLoaded) return <div>Loading...</div>;
+
+  if (!isLoaded) return (
+    <div className="absolute inset-0 flex justify-center items-center bg-black">
+      <SvgLoader />
+    </div>
+  );
 
 
   return (
