@@ -1,8 +1,8 @@
 import React, { createContext } from "react";
-import { GlobalData } from "../types";
+import { GlobalData, GlobalDataAttr } from "../types";
 
 // Store Strapi Global object in context
-export const GlobalDataContext = createContext({});
+export const GlobalDataContext = createContext<GlobalDataAttr>(undefined!);
 
 type Props = {
   children: React.ReactNode,
@@ -10,7 +10,8 @@ type Props = {
 };
 
 export const GlobalDataProvider = ({ children, globalData }: Props) => {
-  const { attributes } = globalData;
+  const attributes: GlobalDataAttr = globalData.attributes;
+
   return (
     <GlobalDataContext.Provider value={attributes}>
       {children}

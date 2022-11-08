@@ -74,16 +74,18 @@ export type Seo = {
   shareImage?: shareMedia,
 }
 
+export type GlobalDataAttr = {
+  siteName: string,
+  createdAt: string,
+  updatedAt: string,
+  favicon: shareMedia,
+  defaultSeo: Seo,
+  logo: shareMedia,
+}
+
 export type GlobalData = {
   id: number,
-  attributes: {
-    siteName: string,
-    createdAt: string,
-    updatedAt: string,
-    favicon: shareMedia,
-    defaultSeo: Seo,
-    logo: shareMedia,
-  }
+  attributes: GlobalDataAttr
 }
 
 
