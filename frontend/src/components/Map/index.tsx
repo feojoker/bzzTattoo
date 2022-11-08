@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { GoogleMap, useLoadScript, MarkerF, } from "@react-google-maps/api";
-import mapStyles from "../../helpers/mapStyles"
+import mapStyles from "./mapStyles"
 import { useRouter } from "next/router";
 import MapUserLocation from "./MapUserLocation";
 import MapDirectionsRenderer from "./MapDirectionsRenderer";
