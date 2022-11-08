@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 
-function UserMapLocation({ location, setLocation }) {
+type LatLngLiteral = google.maps.LatLngLiteral;
+
+type Props = {
+  location: LatLngLiteral | undefined,
+  setLocation: Dispatch<LatLngLiteral | undefined>,
+}
+
+function MapUserLocation({ location, setLocation }: Props) {
   return (
     <button
       className="locate"
@@ -13,7 +20,7 @@ function UserMapLocation({ location, setLocation }) {
             () => null
           );
         } else {
-          setLocation(null)
+          setLocation(undefined)
         }
       }}
     >
@@ -22,6 +29,6 @@ function UserMapLocation({ location, setLocation }) {
   );
 }
 
-export default UserMapLocation
+export default MapUserLocation
 
 

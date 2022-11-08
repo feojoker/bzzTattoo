@@ -1,18 +1,12 @@
 import { useCallback, useMemo, useRef, useState } from "react";
-import { GoogleMap, useLoadScript, MarkerF, DirectionsRenderer, } from "@react-google-maps/api";
-import MyDirectionsRenderer from "./MyDirectionsRenderer"
-import mapStyles from "../helpers/mapStyles"
+import { GoogleMap, useLoadScript, MarkerF, } from "@react-google-maps/api";
+import mapStyles from "../../helpers/mapStyles"
 import { useRouter } from "next/router";
-import UserMapLocation from "./UserMapLocation";
+import MapUserLocation from "./MapUserLocation";
+import MapDirectionsRenderer from "./MapDirectionsRenderer";
 
-type Coordinates = {
-  lat: number;
-  lng: number;
-};
-type MapProps = {
-  googleMapsApiKey: string;
-};
 
+type Map = google.maps.Map;
 type MapOptions = google.maps.MapOptions;
 type LatLngLiteral = google.maps.LatLngLiteral;
 
@@ -31,9 +25,14 @@ export default function GoogleMaps() {
   return <Map googleMapsApiKey={googleMapsApiKey} />;
 }
 
-function Map({ googleMapsApiKey }: MapProps) {
-  const mapRef = useRef<GoogleMap>();
-  const onMapLoad = useCallback((map: GoogleMap) => {
+
+type Props = {
+  googleMapsApiKey: string;
+};
+
+function Map({ googleMapsApiKey }: Props) {
+  const mapRef = useRef<Map>();
+  const onMapLoad = useCallback((map: Map) => {
     mapRef.current = map;
   }, []);
 
@@ -46,7 +45,7 @@ function Map({ googleMapsApiKey }: MapProps) {
   }, []);
 
 
-  const [userLocation, setUserLocation] = useState(null);
+  const [userLocation, setUserLocation] = useState<LatLngLiteral | undefined>();
 
   const center = useMemo<LatLngLiteral>(() => ({ lat: 41.706622514946055, lng: 44.79686802535099 }), []);
   const options = useMemo<MapOptions>(
@@ -67,7 +66,7 @@ function Map({ googleMapsApiKey }: MapProps) {
 
   return (
     <>
-      <UserMapLocation location={userLocation} setLocation={setUserLocation} />
+      <MapUserLocation location={userLocation} setLocation={setUserLocation} />
       <button
         className="center"
         onClick={() => {
@@ -90,7 +89,7 @@ function Map({ googleMapsApiKey }: MapProps) {
       >
         <MarkerF position={center} />
         {userLocation && (
-          <MyDirectionsRenderer
+          <MapDirectionsRenderer
             origin={userLocation}
             destination={center}
             travelMode={google.maps.TravelMode.DRIVING}
