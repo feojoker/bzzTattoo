@@ -3,9 +3,10 @@ import { GlobalDataContext } from "../../context/GlobalDataContext";
 import { getStrapiMedia } from "../../pages/api/media";
 import Image from "next/image";
 
+
 export const SvgLoader = () => {
-  const { logo } = useContext(GlobalDataContext);
-  const logoHref = getStrapiMedia(logo);
+  const globalContext = useContext(GlobalDataContext);
+  const logoHref = getStrapiMedia(globalContext.logo);
 
   return (
     <div className="flex flex-col items-center justify-center" style={{ width: '100px' }}>

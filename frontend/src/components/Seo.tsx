@@ -9,7 +9,6 @@ type Props = {
 }
 
 const Seo = ({ seo }: Props) => {
-  // @ts-ignore
   const { defaultSeo, siteName } = useContext(GlobalDataContext);
   const seoWithDefaults = {
     ...defaultSeo,
@@ -46,7 +45,6 @@ const Seo = ({ seo }: Props) => {
           <meta name="image" content={fullSeo.shareImage} />
         </>
       )}
-      {fullSeo.article && <meta property="og:type" content="article" />}
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );

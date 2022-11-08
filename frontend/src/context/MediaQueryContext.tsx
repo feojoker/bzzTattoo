@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 // Store boolean `isDesktopMedia` from useMediaQuery in context
-export const MediaQueryContext = createContext({});
+export const MediaQueryContext = createContext<boolean>(undefined!);
 
 type Props = {
   children: React.ReactNode,
