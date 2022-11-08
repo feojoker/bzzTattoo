@@ -8,8 +8,10 @@ import { getStrapiMedia } from "./api/media";
 import { GlobalData } from "../types";
 import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
+import { Loader } from '../components/Loader';
 
 type TProps = Pick<AppProps, "Component" | "pageProps">
+
 
 const MyApp = ({ Component, pageProps }: TProps) => {
   const global: GlobalData = pageProps.global;
@@ -23,8 +25,10 @@ const MyApp = ({ Component, pageProps }: TProps) => {
           href={faviconHref}
         />
       </Head>
+
       <MediaQueryProvider>
         <GlobalDataProvider globalData={global}>
+          <Loader />
           <Component {...pageProps} />
         </GlobalDataProvider>
       </MediaQueryProvider>
