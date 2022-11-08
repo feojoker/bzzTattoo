@@ -6,20 +6,32 @@ export const Loader = () => {
   const router = useRouter();
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
 
-  React.useEffect(() => {
-    const handleRouteChange = (url: string) => (url !== router.asPath) && setIsLoaderVisible(true)
+  const pathWithLocaleRelation = () => {
+    let editedPath;
+    const optionslPath = router.asPath === '/' ? '' : router.asPath;
 
-    const handleRouteComplete = (url: string) => (url === router.asPath) && setIsLoaderVisible(false)
+    if (router.locale !== router.defaultLocale) {
+      editedPath = '/' + router.locale + optionslPath;
+    } else {
+      editedPath = router.asPath;
+    }
+    return editedPath;
+  }
+
+  React.useEffect(() => {
+    const handleRouteChange = (url: string) => (url !== pathWithLocaleRelation()) && setIsLoaderVisible(true);
+    const handleRouteComplete = (url: string) => (url === pathWithLocaleRelation()) && setIsLoaderVisible(false);
+
     // here we subscribe to router change start and complete events
     router.events.on("routeChangeStart", handleRouteChange);
     router.events.on("routeChangeComplete", handleRouteComplete);
-    router.events.on('routeChangeError', handleRouteComplete)
+    router.events.on('routeChangeError', handleRouteComplete);
 
     // unsubscribing to router events when component unmounts to prevent memeory leaks
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
       router.events.off("routeChangeComplete", handleRouteComplete);
-      router.events.on('routeChangeError', handleRouteComplete)
+      router.events.on('routeChangeError', handleRouteComplete);
     };
   }, [router]);
 
