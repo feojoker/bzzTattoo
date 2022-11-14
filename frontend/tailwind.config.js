@@ -17,7 +17,8 @@ module.exports = {
       white: colors.white,
       black: colors.black,
       yellow: colors.yellow,
-      zinc: colors.zinc
+      zinc: colors.zinc,
+      red: colors.red,
     }
   },
   plugins: [],
