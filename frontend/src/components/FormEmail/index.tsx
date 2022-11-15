@@ -7,10 +7,14 @@ import { Inputs } from './Inputs';
 function FormEmail() {
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful } } = useForm<Inputs>({
-    mode: "onSubmit",
+    mode: "onBlur",
     shouldFocusError: false,
     criteriaMode: "all"
   });
+
+  const checkKeyDown = (e: React.KeyboardEvent<HTMLFormElement>) => {
+    if (e.code === 'Enter' && e.target instanceof HTMLInputElement) e.preventDefault();
+  };
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     await fetch(`/api/contact`, {
@@ -26,12 +30,13 @@ function FormEmail() {
   return (
     <div>
       <h1 className='w-full mb-4'>TEXT ME IN A FORM BELOW!</h1>
-      <p className='mb-10'>Address: 53 Dimitri Uznadze St, Tbilisi 0163</p>
+      <p className='mb-4'>Address: 53 Dimitri Uznadze St, Tbilisi 0163</p>
       <form
         onSubmit={handleSubmit(onSubmit)}
+        onKeyDown={(e) => checkKeyDown(e)}
         className="flex flex-col items-start w-full"
       >
-        <div className='grid grid-cols-2 gap-10 mb-10 w-full'>
+        <div className='grid grid-cols-1 gap-4 mb-4 w-full'>
           <FormEmailInput name='Name' register={register} errors={errors} isRequired={true} />
           <FormEmailInput
             name='Email'

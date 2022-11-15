@@ -5,7 +5,7 @@ import { ErrorMessage } from '@hookform/error-message';
 
 const textAreaStyling = "border-2 border-primary rounded-md p-2 placeholder:italic focus-visible:outline-offset-0 focus-visible:border-black focus-visible:outline-0 w-full h-[100px]";
 
-const errorValidationTooltipStyling = "absolute bottom-[110px] left-1 bg-white px-2 rounded-md text-center z-10 text-base text-red-600 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-t-white after:border-b-black after:border-x-black";
+const errorValidationTooltipStyling = "absolute left-[60%] top-[110%] bg-white px-2 rounded-md text-center z-10 text-base text-red-600 after:content-[''] after:absolute after:bottom-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-b-white after:border-t-black after:border-x-black";
 
 type Props = {
   name: keyof Inputs,
@@ -26,11 +26,11 @@ function FormEmailTextArea({ name, register, errors, isRequired }: Props) {
   const registerOptions: registerOptionsType = {
     required: {
       value: isRequired,
-      message: 'This field is required'
+      message: 'This field is required too ;)'
     },
   }
   return (
-    <div className='relative w-full h-[100px] mb-8'>
+    <div className='relative w-full h-[100px] mb-4'>
       <textarea
         className={textAreaStyling}
         placeholder={name}
