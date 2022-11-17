@@ -8,7 +8,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     loader: "default",
-    domains: ["localhost"],
+    domains: ["localhost", 'res.cloudinary.com'],
   },
   i18n: {
     locales: ['en', 'ru', 'ka'],
