@@ -1,1 +1,1 @@
-# bzzTattoo
+# BzzTattoo frontend made on NextJS
