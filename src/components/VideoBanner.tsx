@@ -16,7 +16,7 @@ function VideoBanner({ src }: Props) {
   return (
     <div className={`relative flex items-center justify-center w-full bg-black -z-20
      ${isDesktopMedia
-        ? 'h-[100vh]'
+        ? 'h-screen'
         : 'h-[40vh]'
       }`}>
       <div className={`absolute inset-x-0 bottom-0 opacity-60 bg-black w-full h-full 
