@@ -88,21 +88,19 @@ export type GlobalData = {
   attributes: GlobalDataAttr
 }
 
-
-export type Homepage = {
-  id: number,
-  attributes: {
-    createdAt: string,
-    updatedAt: string,
-    hero: {
-      id: number,
-      title: string
-    },
-    seo: Seo,
-    videoBanner: shareMedia,
-  }
+export type CombinedGlobalData = {
+  global: GlobalData,
+  leftNavs: Navs[],
+  rightNavs: Navs[],
+  langs: Lang[],
 }
 
+export type videoBanner = {
+  id: number,
+  title?: string,
+  smallText?: string,
+  video: shareMedia,
+}
 
 export type Navs = {
   id: number,
@@ -146,6 +144,21 @@ export type BriefInfo = {
       data: BriefInfo[]
     }
   }
+}
+
+export type FormEmail = {
+  id: number,
+  title: string,
+  subTitle: string,
+  namePlaceholder: string,
+  emailPlaceholder: string,
+  phonePlaceholder: string,
+  subjectPlaceholder: string,
+  messagePlaceholder: string,
+  requiredError: string,
+  emailError: string,
+  buttonText: string,
+  phoneError: string,
 }
 
 
