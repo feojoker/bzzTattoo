@@ -3,8 +3,26 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import FormEmailInput from './FormEmailInput';
 import FormEmailTextArea from './FormEmailTextArea';
 import { Inputs } from './Inputs';
+import { FormEmail } from '../../types'
 
-function FormEmail() {
+type Props = {
+  data: FormEmail,
+}
+function FormEmail({ data }: Props) {
+
+  const {
+    title,
+    subTitle,
+    namePlaceholder,
+    emailPlaceholder,
+    subjectPlaceholder,
+    phonePlaceholder,
+    messagePlaceholder,
+    buttonText,
+    requiredError,
+    phoneError,
+    emailError,
+  } = data;
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful } } = useForm<Inputs>({
     mode: "onBlur",
@@ -24,48 +42,72 @@ function FormEmail() {
   };
 
   useEffect(() => {
-    reset({ Name: '', Email: '', Phone: '', Subject: '', Message: '' });
+    reset({ name: '', email: '', phone: '', subject: '', message: '' });
   }, [isSubmitSuccessful]);
 
   return (
     <div>
-      <h1 className='w-full mb-4'>TEXT ME IN A FORM BELOW!</h1>
-      <p className='mb-4'>Address: 53 Dimitri Uznadze St, Tbilisi 0163</p>
+      <h1 className='w-full mb-4 uppercase'>{title}</h1>
+      <p className='mb-4'>{subTitle}</p>
       <form
         onSubmit={handleSubmit(onSubmit)}
         onKeyDown={(e) => checkKeyDown(e)}
         className="flex flex-col items-start w-full"
       >
         <div className='grid grid-cols-1 gap-4 mb-4 w-full'>
-          <FormEmailInput name='Name' register={register} errors={errors} isRequired={true} />
           <FormEmailInput
-            name='Email'
+            name='name'
+            placeholder={namePlaceholder}
             register={register}
             errors={errors}
             isRequired={true}
+            requiredMessage={requiredError}
+          />
+          <FormEmailInput
+            name='email'
+            placeholder={emailPlaceholder}
+            register={register}
+            errors={errors}
+            isRequired={true}
+            requiredMessage={requiredError}
             patternData={
               {
                 value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                message: 'Invalid email'
+                message: emailError || "Invalid email"
               }
             }
           />
           <FormEmailInput
-            name='Phone'
+            name='phone'
+            placeholder={phonePlaceholder}
             register={register}
             errors={errors}
             isRequired={false}
+            requiredMessage={requiredError}
             patternData={
               {
                 value: /\d+/,
-                message: 'Only digits acceptable'
+                message: phoneError || "Only digits acceptable"
               }
             }
           />
-          <FormEmailInput name='Subject' register={register} errors={errors} isRequired={true} />
+          <FormEmailInput
+            name='subject'
+            placeholder={subjectPlaceholder}
+            register={register}
+            errors={errors}
+            isRequired={true}
+            requiredMessage={requiredError}
+          />
         </div>
-        <FormEmailTextArea name="Message" register={register} errors={errors} isRequired={true} />
-        <button type="submit" className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center font-regular">SEND MESSAGE</button>
+        <FormEmailTextArea
+          name="message"
+          placeholder={messagePlaceholder}
+          register={register}
+          errors={errors}
+          isRequired={true}
+          requiredMessage={requiredError} />
+        <button type="submit" className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center font-regular uppercase">{buttonText || 'Send message'}</button>
       </form>
     </div>
   )

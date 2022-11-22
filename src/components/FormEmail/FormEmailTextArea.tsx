@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 import { Inputs } from './Inputs';
 import { ErrorMessage } from '@hookform/error-message';
@@ -9,9 +9,11 @@ const errorValidationTooltipStyling = "absolute left-[60%] top-[110%] bg-white p
 
 type Props = {
   name: keyof Inputs,
+  placeholder: string,
   register: UseFormRegister<Inputs>,
   errors: Partial<FieldErrorsImpl<Inputs>>,
   isRequired: boolean,
+  requiredMessage: string,
 }
 
 type registerOptionsType = {
@@ -21,19 +23,19 @@ type registerOptionsType = {
   },
 }
 
-function FormEmailTextArea({ name, register, errors, isRequired }: Props) {
+function FormEmailTextArea({ name, placeholder, register, errors, isRequired, requiredMessage }: Props) {
 
   const registerOptions: registerOptionsType = {
     required: {
       value: isRequired,
-      message: 'This field is required too ;)'
+      message: requiredMessage || "This field is required"
     },
   }
   return (
     <div className='relative w-full h-[100px] mb-4'>
       <textarea
         className={textAreaStyling}
-        placeholder={name}
+        placeholder={placeholder}
         {...register(name, registerOptions)}
       />
       <ErrorMessage

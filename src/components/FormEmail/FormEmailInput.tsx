@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 import { Inputs } from './Inputs';
-
 import { ErrorMessage } from '@hookform/error-message';
 
 const inputStyling = "max-w-[60%] border-2 border-primary rounded-md p-2 w-full placeholder:italic focus-visible:outline-offset-0 focus-visible:border-black focus-visible:outline-0";
@@ -10,6 +9,7 @@ const errorValidationTooltipStyling = "absolute top-[5px] left-[62%] max-w-[60%]
 
 type Props = {
   name: keyof Inputs,
+  placeholder: string,
   register: UseFormRegister<Inputs>,
   errors: Partial<FieldErrorsImpl<Inputs>>,
   patternData?: {
@@ -17,6 +17,7 @@ type Props = {
     message: string,
   },
   isRequired: boolean,
+  requiredMessage: string,
 }
 
 type registerOptionsType = {
@@ -30,11 +31,11 @@ type registerOptionsType = {
   }
 }
 
-function FormEmailInput({ name, register, errors, patternData, isRequired }: Props) {
+function FormEmailInput({ name, placeholder, register, errors, patternData, isRequired, requiredMessage }: Props) {
   const registerOptions: registerOptionsType = {
     required: {
       value: isRequired,
-      message: 'This field is required'
+      message: requiredMessage
     },
   }
 
@@ -47,7 +48,7 @@ function FormEmailInput({ name, register, errors, patternData, isRequired }: Pro
     <div className='relative'>
       <input
         className={inputStyling}
-        placeholder={name}
+        placeholder={placeholder}
         {...register(name, registerOptions)}
       />
 
