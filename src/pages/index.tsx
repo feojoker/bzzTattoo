@@ -2,12 +2,13 @@ import React from 'react';
 import { fetchAPI } from './api/api';
 import Layout from "../layouts/Layout";
 import Seo from "../components/Seo";
-import { GlobalData, Homepage, Navs, Lang, BriefInfo } from "../types";
+import { GlobalData, Navs, Lang, BriefInfo } from "../types";
+import { HomePage } from "../types/pages";
 import VideoBanner from "../components/VideoBanner"
 import BriefInfoWithLink from '../components/BriefInfoWithLink';
 
 type Props = {
-  homepage: Homepage,
+  homepage: HomePage,
   rightNavs: Navs[],
   leftNavs: Navs[],
   globalLogo: GlobalData,
@@ -20,7 +21,7 @@ const Home = ({ leftNavs, rightNavs, globalLogo, homepage, langs, briefAbout }: 
   return (
     <Layout rightNavs={rightNavs} leftNavs={leftNavs} globalLogo={globalLogo} langs={langs} >
       <Seo seo={homepage.attributes.seo} />
-      <VideoBanner src={homepage.attributes.videoBanner} />
+      <VideoBanner src={homepage.attributes.videoBanner.video} />
       <BriefInfoWithLink data={briefAbout} />
     </Layout>
   )
@@ -37,11 +38,10 @@ export async function getStaticProps({ locale }: { locale: string }) {
         logo: "*",
       },
     }),
-    fetchAPI<Homepage>("/homepage", {
+    fetchAPI<HomePage>("/homepage", {
       populate: {
-        hero: "*",
         seo: { populate: "*" },
-        videoBanner: "*"
+        videoBanner: { populate: { video: "*" } },
       },
     }),
     fetchAPI<Lang[]>("/language-icons", { populate: "*" }),
