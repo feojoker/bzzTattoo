@@ -5,23 +5,23 @@ import { GlobalData, Navs, Lang } from "../types";
 import { MediaQueryContext } from "../context/MediaQueryContext";
 
 
-type Props = {
-  globalLogo: GlobalData,
-  rightNavs: Navs[],
-  leftNavs: Navs[],
-  langs: Lang[],
-  children: React.ReactNode
-}
+// type Props = {
+//   globalLogo: GlobalData,
+//   rightNavs: Navs[],
+//   leftNavs: Navs[],
+//   langs: Lang[],
+//   children: React.ReactNode
+// }
 
-const Layout = ({ rightNavs, leftNavs, globalLogo, langs, children }: Props) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const isDesktopMedia = useContext(MediaQueryContext);
 
   return (
     <>
       {isDesktopMedia ? (
-        <Nav rightNavs={rightNavs} leftNavs={leftNavs} globalLogo={globalLogo} langs={langs} />
+        <Nav />
       ) : (
-        <MobileNav rightNavs={rightNavs} leftNavs={leftNavs} globalLogo={globalLogo} />
+        <MobileNav />
       )
       }
       <div className='relative'>

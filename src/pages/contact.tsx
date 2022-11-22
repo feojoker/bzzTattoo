@@ -9,22 +9,13 @@ import ImgBanner from '../components/ImgBanner';
 import { MediaQueryContext } from '../context/MediaQueryContext';
 import { ContactPage } from '../types/pages';
 
-type Props = {
-  leftNavs: Navs[],
-  rightNavs: Navs[],
-  globalLogo: GlobalData,
-  langs: Lang[],
-  contact: ContactPage
-}
-
-
-const Contact = ({ leftNavs, rightNavs, globalLogo, langs, contact }: Props) => {
+const Contact = ({ contact }: { contact: ContactPage }) => {
   const isDesktopMedia = useContext(MediaQueryContext);
 
   const formData = contact.attributes.formEmail;
 
   return (
-    <Layout rightNavs={rightNavs} leftNavs={leftNavs} globalLogo={globalLogo} langs={langs} >
+    <Layout >
       <ImgBanner src={contact.attributes.imageBanner} />
       <div className={`bg-black h-[600px]  
       ${isDesktopMedia
@@ -48,27 +39,13 @@ const Contact = ({ leftNavs, rightNavs, globalLogo, langs, contact }: Props) => 
 
 export async function getStaticProps({ locale }: { locale: string }) {
 
-  // Run API calls in parallel
-  const [leftNavsRes, rightNavsRes, globalLogoRes, langsRes, contactRes] = await Promise.all([
-    fetchAPI<Navs[]>(`/left-navs`, { populate: "*", locale: locale }),
-    fetchAPI<Navs[]>("/right-navs", { populate: "*", locale: locale }),
-    fetchAPI<GlobalData>("/global-data", {
-      populate: {
-        logo: "*",
-      },
-    }),
-    fetchAPI<Lang[]>("/language-icons", { populate: "*" }),
-    fetchAPI<ContactPage>("/contact-page", {
-      populate: "*"
-    }),
-  ]);
+  const contactRes = await fetchAPI<ContactPage>("/contact-page", {
+    populate: "*",
+    locale: locale
+  });
 
   return {
     props: {
-      leftNavs: leftNavsRes,
-      rightNavs: rightNavsRes,
-      globalLogo: globalLogoRes,
-      langs: langsRes,
       contact: contactRes,
     },
     revalidate: 1,

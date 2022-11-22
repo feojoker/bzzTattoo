@@ -1,18 +1,17 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { fetchAPI } from './api/api';
-import { GlobalData, NotFound } from "../types";
+import { NotFound } from "../types/pages";
 import { getStrapiMedia } from './api/media';
 import Seo from '../components/Seo';
 import Link from 'next/link';
+import { GlobalDataContext } from '../context/GlobalDataContext';
 
-type Props = {
-  globalLogo: GlobalData,
-  notFound: NotFound
-}
 
-const Custom404Page = ({ globalLogo, notFound }: Props) => {
-  const logoSrc = getStrapiMedia(globalLogo.attributes.logo)
+const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
+
+  const { global } = useContext(GlobalDataContext);
+  const logoSrc = getStrapiMedia(global.attributes.logo)
 
   const seo = {
     metaTitle: notFound.attributes.title,
@@ -44,22 +43,13 @@ const Custom404Page = ({ globalLogo, notFound }: Props) => {
 
 export async function getStaticProps({ locale }: { locale: string }) {
 
-  // Run API calls in parallel
-  const [globalLogoRes, notFoundRes] = await Promise.all([
-    fetchAPI<GlobalData>("/global-data", {
-      populate: {
-        logo: "*",
-      },
-    }),
-    fetchAPI<NotFound>("/not-found", {
-      populate: "*",
-      locale: locale
-    }),
-  ]);
+  const notFoundRes = await fetchAPI<NotFound>("/not-found", {
+    populate: "*",
+    locale: locale
+  });
 
   return {
     props: {
-      globalLogo: globalLogoRes,
       notFound: notFoundRes,
     },
   };

@@ -9,7 +9,8 @@ type Props = {
 }
 
 const Seo = ({ seo }: Props) => {
-  const { defaultSeo, siteName } = useContext(GlobalDataContext);
+  const { global } = useContext(GlobalDataContext);
+  const { defaultSeo, siteName } = global.attributes
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,

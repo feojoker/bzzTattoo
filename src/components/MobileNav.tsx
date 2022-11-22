@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { getStrapiMedia } from "../pages/api/media";
-import { Navs, GlobalData } from "../types";
+import { Navs } from "../types";
 import { useOnScroll } from "../hooks/useOnScroll";
+import { GlobalDataContext } from "../context/GlobalDataContext";
 
-type Props = {
-  leftNavs: Navs[],
-  rightNavs: Navs[],
-  globalLogo: GlobalData
-}
+const MobileNav = () => {
+  const { global, leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
 
-const MobileNav = ({ leftNavs, rightNavs, globalLogo }: Props) => {
-  const logoSrc = getStrapiMedia(globalLogo.attributes.logo)
+  const logoSrc = getStrapiMedia(global.attributes.logo);
 
   const scrolled = useOnScroll()
 

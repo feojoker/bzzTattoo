@@ -5,8 +5,9 @@ import Image from "next/image";
 
 
 export const SvgLoader = () => {
-  const globalContext = useContext(GlobalDataContext);
-  const logoHref = getStrapiMedia(globalContext.logo);
+  const { global } = useContext(GlobalDataContext);
+
+  const logoHref = getStrapiMedia(global.attributes.logo);
 
   return (
     <div className="flex flex-col items-center justify-center" style={{ width: '100px' }}>

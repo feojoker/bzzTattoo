@@ -1,20 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
 import { getStrapiMedia } from "../pages/api/media";
-import { Navs, GlobalData, Lang } from "../types";
+import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
+import { GlobalDataContext } from "../context/GlobalDataContext";
 
 
-type Props = {
-  leftNavs: Navs[],
-  rightNavs: Navs[],
-  langs: Lang[],
-  globalLogo: GlobalData
-}
+const Nav = () => {
+  const { global, leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
 
-const Nav = ({ leftNavs, rightNavs, globalLogo, langs }: Props) => {
-  const logoSrc = getStrapiMedia(globalLogo.attributes.logo)
+  const logoSrc = getStrapiMedia(global.attributes.logo)
 
   const scrolled = useOnScroll()
 
