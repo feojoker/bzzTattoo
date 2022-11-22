@@ -1,4 +1,4 @@
-import { FormEmail, Seo, shareMedia, videoBanner } from "."
+import { FormEmail, Seo, shareMedia, VideoBanner } from "."
 
 export type HomePage = {
   id: number,
@@ -6,7 +6,7 @@ export type HomePage = {
     createdAt: string,
     updatedAt: string,
     seo: Seo,
-    videoBanner: videoBanner,
+    videoBanner: VideoBanner,
   }
 }
 

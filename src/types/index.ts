@@ -74,18 +74,16 @@ export type Seo = {
   shareImage?: shareMedia,
 }
 
-export type GlobalDataAttr = {
-  siteName: string,
-  createdAt: string,
-  updatedAt: string,
-  favicon: shareMedia,
-  defaultSeo: Seo,
-  logo: shareMedia,
-}
-
 export type GlobalData = {
   id: number,
-  attributes: GlobalDataAttr
+  attributes: {
+    siteName: string,
+    createdAt: string,
+    updatedAt: string,
+    favicon: shareMedia,
+    defaultSeo: Seo,
+    logo: shareMedia,
+  }
 }
 
 export type CombinedGlobalData = {
@@ -95,7 +93,7 @@ export type CombinedGlobalData = {
   langs: Lang[],
 }
 
-export type videoBanner = {
+export type VideoBanner = {
   id: number,
   title?: string,
   smallText?: string,
@@ -159,20 +157,4 @@ export type FormEmail = {
   emailError: string,
   buttonText: string,
   phoneError: string,
-}
-
-
-export type NotFound = {
-  id: number,
-  attributes: {
-    title: string,
-    description: string,
-    buttonText: string,
-    createdAt: string,
-    updatedAt: string,
-    locale: string,
-    localizations?: {
-      data: NotFound[]
-    }
-  }
 }
