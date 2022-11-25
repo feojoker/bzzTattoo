@@ -93,11 +93,11 @@ export type CombinedGlobalData = {
   langs: Lang[],
 }
 
-export type VideoBanner = {
+export type MediaBanner = {
   id: number,
   title?: string,
   smallText?: string,
-  video: shareMedia,
+  media: shareMedia,
 }
 
 export type Navs = {
@@ -144,6 +144,14 @@ export type BriefInfo = {
   }
 }
 
+export type AboutDetail = {
+  id: number,
+  title: string,
+  longText: string,
+  subTitle: string,
+  image: shareMedia,
+}
+
 export type FormEmail = {
   id: number,
   title: string,
@@ -157,4 +165,12 @@ export type FormEmail = {
   emailError: string,
   buttonText: string,
   phoneError: string,
+}
+
+export type PhotoAndText = {
+  id: number,
+  title: string,
+  longText: string,
+  subTitle: string,
+  image: shareMedia,
 }

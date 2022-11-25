@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout";
 import Seo from "../components/Seo";
 import { BriefInfo } from "../types";
 import { HomePage } from "../types/pages";
-import VideoBanner from "../components/VideoBanner"
+import VideoBanner from "../components/VideoBanner";
 import BriefInfoWithLink from '../components/BriefInfoWithLink';
 
 type Props = {
@@ -14,10 +14,12 @@ type Props = {
 
 const Home = ({ homepage, briefAbout }: Props) => {
 
+  const { seo, mediaBanner } = homepage.attributes;
+
   return (
     <Layout>
-      <Seo seo={homepage.attributes.seo} />
-      <VideoBanner src={homepage.attributes.videoBanner.video} />
+      <Seo seo={seo} />
+      <VideoBanner src={mediaBanner} />
       <BriefInfoWithLink data={briefAbout} />
     </Layout>
   )
@@ -30,7 +32,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
     fetchAPI<HomePage>("/homepage", {
       populate: {
         seo: { populate: "*" },
-        videoBanner: { populate: { video: "*" } },
+        mediaBanner: { populate: { media: "*" } },
       },
     }),
     fetchAPI<BriefInfo>("/brief-about", { populate: "*", locale: locale }),
