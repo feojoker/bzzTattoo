@@ -5,7 +5,7 @@ import { getStrapiMedia } from "../pages/api/media";
 import { Seo } from "../types";
 
 type Props = {
-  seo: Seo
+  seo?: Seo
 }
 
 const Seo = ({ seo }: Props) => {
@@ -15,6 +15,7 @@ const Seo = ({ seo }: Props) => {
     ...defaultSeo,
     ...seo,
   };
+
   const fullSeo = {
     ...seoWithDefaults,
     // Add title suffix
