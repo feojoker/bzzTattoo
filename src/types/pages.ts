@@ -1,4 +1,4 @@
-import { FormEmail, Seo, shareMedia, VideoBanner } from "."
+import { AboutDetail, FormEmail, Seo, shareMedia, MediaBanner } from "."
 
 export type HomePage = {
   id: number,
@@ -6,7 +6,7 @@ export type HomePage = {
     createdAt: string,
     updatedAt: string,
     seo: Seo,
-    videoBanner: VideoBanner,
+    mediaBanner: MediaBanner,
   }
 }
 
@@ -16,11 +16,42 @@ export type ContactPage = {
     createdAt: string,
     updatedAt: string,
     locale: string,
-    // seo: Seo,
-    imageBanner: shareMedia,
+    seo?: Seo,
+    mediaBanner: MediaBanner,
     formEmail: FormEmail,
     localization?: {
       data: ContactPage[]
+    }
+  }
+}
+
+export type AboutPage = {
+  id: number,
+  attributes: {
+    createdAt: string,
+    updatedAt: string,
+    locale: string,
+    seo?: Seo,
+    mediaBanner: MediaBanner,
+    aboutDetail: AboutDetail,
+    localization?: {
+      data: AboutPage[]
+    }
+  }
+}
+
+export type ProjectsPage = {
+  id: number,
+  attributes: {
+    title: string,
+    subTitle: string,
+    createdAt: string,
+    updatedAt: string,
+    locale: string,
+    seo?: Seo,
+    mediaBanner: MediaBanner,
+    localization?: {
+      data: ProjectsPage[]
     }
   }
 }
