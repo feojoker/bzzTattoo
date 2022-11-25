@@ -1,46 +1,61 @@
 import React, { useContext } from 'react';
 import { getStrapiMedia } from "../pages/api/media";
-import { shareMedia } from "../types";
+import { MediaBanner } from "../types";
 import { MediaQueryContext } from "../context/MediaQueryContext";
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
 
 
 type Props = {
-  src: shareMedia,
+  src: MediaBanner,
+  aspectRatioH: number,
+  aspectRatioW: number,
 };
 
-function ImgBanner({ src }: Props) {
+function ImgBanner({ src, aspectRatioH, aspectRatioW }: Props) {
 
-  const imgBannerSrc = getStrapiMedia(src);
+  const { media, title, smallText } = src;
+
+  const imgBannerSrc = getStrapiMedia(media);
   const isDesktopMedia = useContext(MediaQueryContext);
 
   return (
-    <div className={`relative flex items-center justify-center w-full bg-black -z-20
+
+    <div className={`relative flex items-center justify-center bg-black -z-20
      ${isDesktopMedia
-        ? 'h-[80vh]'
+        ? 'h-[70vh]'
         : 'h-[40vh]'
       }`}>
-      {/* <div className={`absolute inset-x-0 bottom-0 opacity-60 bg-black w-full h-full 
-      ${isDesktopMedia
-          ? 'top-[-80px]'
-          : 'top-[-50px]'
-        }`}></div> */}
-      <div className={`absolute inset-x-0 bottom-0 object-cover w-full h-full -z-10
-          ${isDesktopMedia
+      {title ? (
+        <ReactMarkdown className='absolute top-[10%] left-[10%] text-white text-5xl z-10 font-garamond uppercase'>
+          {title}
+        </ReactMarkdown>
+      ) : null}
+      {smallText ? (
+        <ReactMarkdown className='absolute bottom-[25%] right-[5%] text-white text-xl z-10 font-garamond uppercase'>
+          {smallText}
+        </ReactMarkdown>
+      ) : null}
+      <div className={
+        `absolute inset-x-0 bottom-0 object-cover w-full h-full -z-10
+        ${isDesktopMedia
           ? 'top-[-80px]'
           : 'top-[-50px]'
         }`}>
         <Image
           alt="imgBanner"
           src={imgBannerSrc}
-          height={9}
-          width={16}
-          layout='responsive'
+          height={aspectRatioH}
+          width={aspectRatioW}
+          layout='fill'
           quality={100}
           objectFit='cover'
         />
       </div>
     </div>
+
+
+
   )
 }
 
