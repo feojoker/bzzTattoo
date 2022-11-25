@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'modernist': ['Modernist'],
+      'garamond': ['Cormorant Garamond'],
       'regular': ['Mukta Mahee', 'Arial', 'sans-serif'],
     },
     colors: {
