@@ -1,6 +1,6 @@
 
 import React from 'react';
-import App, { AppContext, AppProps } from "next/app";
+import App, { AppContext, AppProps as NextAppProps } from "next/app";
 import Head from "next/head";
 import "../../styles/style.css";
 import { fetchAPI } from "./api/api";
@@ -10,11 +10,21 @@ import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 import { Loader } from '../components/Loader';
 
-type TProps = Pick<AppProps, "Component" | "pageProps">;
+// type TProps = Pick<AppProps, "Component" | "pageProps">;
 
-const MyApp = ({ Component, pageProps }: TProps) => {
+type AppProps<P = any> = {
+  pageProps: P;
+} & Pick<NextAppProps<P>, "Component">;
 
-  const globalData: CombinedGlobalData = {
+type CustomPageProps = {
+  global: GlobalData,
+  leftNavs: Navs[],
+  rightNavs: Navs[],
+  langs: Lang[],
+}
+
+const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
+  const globalData = {
     global: pageProps.global,
     leftNavs: pageProps.leftNavs,
     rightNavs: pageProps.rightNavs,
