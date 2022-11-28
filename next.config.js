@@ -8,7 +8,20 @@ const nextConfig = {
   swcMinify: true,
   images: {
     loader: "default",
-    domains: ["localhost", 'res.cloudinary.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.cdninstagram.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+    ],
   },
   i18n: {
     locales: ['en', 'ru', 'ka'],
