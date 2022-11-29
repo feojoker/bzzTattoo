@@ -10,9 +10,11 @@ export const SvgLoader = () => {
   const logoHref = getStrapiMedia(global.attributes.logo);
 
   return (
-    <div className="flex flex-col items-center justify-center" style={{ width: '100px' }}>
-      <img className="mb-4" src={logoHref} alt="logo" />
-      <Image src="/circles.svg" height={30} width={30} />
+    <div className="flex flex-col items-center justify-center w-full">
+      <div className="mb-4">
+        <Image src={logoHref} alt="logo" height={150} width={150} />
+      </div>
+      <Image src="/circles.svg" height={26} width={26} />
     </div>
   );
 }

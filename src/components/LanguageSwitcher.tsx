@@ -4,6 +4,7 @@ import { getStrapiMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import useOnClickOutside from "../hooks/useOnClickOutside";
 import { Lang } from '../types';
+import Image from 'next/image';
 
 type Props = {
   langs: Lang[],
@@ -26,10 +27,17 @@ function LanguageSwitcher({ langs }: Props) {
   return (
     <div id='lang' className="relative ml-8">
       <div className={`flex items-center justify-center w-[35px] h-[35px] rounded-full bg-primary hover:opacity-100 ${openSwitcher ? 'opacity-100' : 'opacity-70'}`}>
-        <button onClick={() => setOpenSwitcher(!openSwitcher)} ref={buttonRef}>
+        <button onClick={() => setOpenSwitcher(!openSwitcher)} ref={buttonRef} className="flex items-center">
           {langs.map((lang: Lang) => {
             return lang.attributes.slug === locale ? (
-              <img key={lang.attributes.slug} src={getStrapiMedia(lang.attributes.icon)} alt="logo" />
+              <Image
+                alt="lang"
+                key={lang.attributes.slug}
+                src={getStrapiMedia(lang.attributes.icon)}
+                height={25}
+                width={25}
+                quality={100}
+              />
             ) : (null);
           })}
         </button>
@@ -42,7 +50,14 @@ function LanguageSwitcher({ langs }: Props) {
                 className="flex items-center justify-between whitespace-nowrap"
               >
                 <span>{lang.attributes.name}</span>
-                <img className="" src={getStrapiMedia(lang.attributes.icon)} alt="logo" />
+                <Image
+                  alt="lang"
+                  key={lang.attributes.slug}
+                  src={getStrapiMedia(lang.attributes.icon)}
+                  height={25}
+                  width={25}
+                  quality={100}
+                />
               </a>
             </Link>
           ) : (null);

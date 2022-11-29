@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import MapUserLocation from "./MapUserLocation";
 import MapDirectionsRenderer from "./MapDirectionsRenderer";
 import { SvgLoader } from "../Loader/ImgLoader";
+import Image from "next/image";
 
 
 type Map = google.maps.Map;
@@ -83,7 +84,7 @@ function Map({ googleMapsApiKey }: Props) {
           setZoom(15);
         }}
       >
-        <img src="/center1.png" alt="directions" />
+        <Image src="/center1.png" alt="directions" height={40} width={40} unoptimized />
       </button>
       <GoogleMap
         id="map"

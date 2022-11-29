@@ -1,4 +1,5 @@
-import React, { Dispatch } from 'react'
+import React, { Dispatch } from 'react';
+import Image from "next/image";
 
 type LatLngLiteral = google.maps.LatLngLiteral;
 
@@ -24,7 +25,7 @@ function MapUserLocation({ location, setLocation }: Props) {
         }
       }}
     >
-      <img src="/directions.png" alt="directions" />
+      <Image src="/directions.png" alt="directions" width={40} height={40} unoptimized />
     </button>
   );
 }
