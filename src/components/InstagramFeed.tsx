@@ -6,10 +6,6 @@ function InstagramFeed({ images }: { images: any }) {
 
   const filteredLastImages = images.filter((image: any) => image.media_type !== "VIDEO").slice(0, 16);
 
-
-
-
-
   return filteredLastImages && (
     <div className='bg-secondary'>
       <div className='grid grid-cols-4 gap-6 mx-auto py-6 max-w-6xl'>
@@ -19,13 +15,13 @@ function InstagramFeed({ images }: { images: any }) {
               <Image
                 src={image.media_url}
                 alt={image.caption}
-                height={1}
-                width={1}
-                layout='responsive'
+                height={300}
+                width={300}
                 quality={100}
                 objectFit='cover'
                 placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer('100%', '100%')}`}
+                priority
+                blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
               />
             </div>
           </a>
