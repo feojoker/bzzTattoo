@@ -3,10 +3,8 @@ import React from 'react';
 import { fetchAPI } from './api/api';
 import Layout from '../layouts/Layout';
 import ImgBanner from '../components/ImgBanner';
-import { MediaQueryContext } from '../context/MediaQueryContext';
 import { ProjectsPage } from '../types/pages';
 import Seo from '../components/Seo';
-import ReactMarkdown from 'react-markdown';
 import InstagramFeed from '../components/InstagramFeed';
 import { fetchInstagram } from './api/instagram';
 
@@ -24,7 +22,7 @@ const Projects = ({ instagramFeed, projects }: Props) => {
   return (
     <Layout>
       <Seo />
-      <ImgBanner src={mediaBanner} aspectRatioH={9} aspectRatioW={21} />
+      <ImgBanner src={mediaBanner} />
       <InstagramFeed images={images} />
     </Layout>
   )
