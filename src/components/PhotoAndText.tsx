@@ -4,14 +4,19 @@ import ReactMarkdown from "react-markdown";
 import Image from 'next/image';
 import { getStrapiMedia } from '../pages/api/media';
 
-function PhotoAndText({ data }: { data: PhotoAndText }) {
+type Props = {
+  data: PhotoAndText,
+  scrollAnchor?: string,
+}
+
+function PhotoAndText({ data, scrollAnchor }: Props) {
   const { title, subTitle, longText, image } = data;
 
   const imgSrc = getStrapiMedia(image);
-
-
   return (
-    <div className='container mx-auto grid grid-cols-2 gap-x-16 gap-y-8'>
+    <div
+      id={scrollAnchor && scrollAnchor}
+      className='container mx-auto grid grid-cols-2 gap-x-16 gap-y-8'>
       <h1 className='text-7xl text-right tracking-widest mx-auto'>
         <ReactMarkdown>
           {title}

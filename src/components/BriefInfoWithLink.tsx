@@ -3,7 +3,12 @@ import { MediaQueryContext } from '../context/MediaQueryContext';
 import { BriefInfo } from '../types';
 import ReactMarkdown from "react-markdown";
 
-function BriefInfoWithLink({ data }: { data: BriefInfo }) {
+type Props = {
+  data: BriefInfo,
+  scrollAnchor?: string,
+}
+
+function BriefInfoWithLink({ data, scrollAnchor }: Props) {
   const isDesktopMedia = useContext(MediaQueryContext);
   const { title, subTitle, link, linkTitle, longText } = data.attributes;
 
@@ -13,7 +18,7 @@ function BriefInfoWithLink({ data }: { data: BriefInfo }) {
         ? 'pb-[80px]'
         : 'pb-[50px]'
       }`}>
-      <div className='container mx-auto flex items-center justify-between'>
+      <div id={scrollAnchor && scrollAnchor} className='container mx-auto flex items-center justify-between'>
         <div className='flex flex-col items-center text-center max-w-[500px]' >
           <h1 className='mb-4'>{title}</h1>
           <p className='mb-4 uppercase text-3xl font-modernist'>|</p>
