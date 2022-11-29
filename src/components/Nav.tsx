@@ -5,6 +5,7 @@ import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
 import { GlobalDataContext } from "../context/GlobalDataContext";
+import Image from "next/image";
 
 
 const Nav = () => {
@@ -15,13 +16,13 @@ const Nav = () => {
   const scrolled = useOnScroll()
 
   return (
-    <nav className={`flex justify-between items-center w-full h-[80px] sticky top-0 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
+    <nav className={`flex justify-between items-center w-full h-[80px] fixed top-0 z-50 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="flex flex-row justify-center py-3 container mx-auto opacity-100">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
             return (
               <li key={category.id}>
-                <Link href={`${category.attributes.link}`}>
+                <Link href={`${category.attributes.link}`} prefetch={false}>
                   <a className="whitespace-nowrap">{category.attributes.name}</a>
                 </Link>
               </li>
@@ -29,10 +30,23 @@ const Nav = () => {
           })}
         </ul>
         <div className="flex items-center justify-center basis-[250px]">
-          <div className={`relative transition-all ease ${scrolled ? 'w-[70px]' : 'w-[150px] mx-[50px]'}`}>
-            <Link href='/'>
+          <div className={`relative transition-all ease 
+          ${scrolled ?
+              'w-[70px] h-[70px]' :
+              'w-[150px] h-[150px] pt-[40px] mx-[50px]'
+            }
+            `}>
+            <Link href='/' prefetch={false}>
               <a>
-                <img className="absolute top-[-35px] left-0" src={logoSrc} alt="logo" />
+                <div className="absolute left-0 right-0 w-full h-full">
+                  <Image
+                    alt="logo"
+                    src={logoSrc}
+                    layout='fill'
+                    quality={100}
+                    objectFit='cover'
+                  />
+                </div>
               </a>
             </Link>
           </div>
@@ -42,7 +56,7 @@ const Nav = () => {
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id}>
-                  <Link href={`${category.attributes.link}`}>
+                  <Link href={`${category.attributes.link}`} prefetch={false}>
                     <a className="whitespace-nowrap">{category.attributes.name}</a>
                   </Link>
                 </li>
