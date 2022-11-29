@@ -10,8 +10,6 @@ import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 import { Loader } from '../components/Loader';
 
-// type TProps = Pick<AppProps, "Component" | "pageProps">;
-
 type AppProps<P = any> = {
   pageProps: P;
 } & Pick<NextAppProps<P>, "Component">;
