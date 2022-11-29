@@ -8,11 +8,9 @@ import ReactMarkdown from 'react-markdown';
 
 type Props = {
   src: MediaBanner,
-  aspectRatioH: number,
-  aspectRatioW: number,
 };
 
-function ImgBanner({ src, aspectRatioH, aspectRatioW }: Props) {
+function ImgBanner({ src }: Props) {
 
   const { media, title, smallText } = src;
 
@@ -45,8 +43,6 @@ function ImgBanner({ src, aspectRatioH, aspectRatioW }: Props) {
         <Image
           alt="imgBanner"
           src={imgBannerSrc}
-          height={aspectRatioH}
-          width={aspectRatioW}
           layout='fill'
           quality={100}
           objectFit='cover'
