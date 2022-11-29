@@ -6,6 +6,7 @@ import { getStrapiMedia } from './api/media';
 import Seo from '../components/Seo';
 import Link from 'next/link';
 import { GlobalDataContext } from '../context/GlobalDataContext';
+import Image from 'next/image';
 
 
 const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
@@ -35,7 +36,7 @@ const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
           </Link>
         </div>
         <div className="max-w-[200px] mt-20 md:ml-20 md:mt-0">
-          <img src={logoSrc} alt="logo" />
+          <Image src={logoSrc} alt="logo" width={250} height={250} />
         </div>
       </div>
     </div>
