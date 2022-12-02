@@ -36,7 +36,7 @@ function VideoBanner({ src, scrollAnchor }: Props) {
           {smallText}
         </ReactMarkdown>
       ) : null}
-      <div className="absolute inset-0 bottom-0 opacity-60 bg-black w-full h-full z-10"></div>
+      <div className="absolute inset-0 opacity-60 bg-black w-full h-full z-10"></div>
       <video
         className="absolute inset-0 bottom-0 object-cover w-full h-full z-5"
         loop autoPlay muted>

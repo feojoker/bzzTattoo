@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
 // Store boolean `isDesktopMedia` from useMediaQuery in context
@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const MediaQueryProvider = ({ children }: Props) => {
-  const isDesktopMedia = useMediaQuery(768)
+  const isDesktopMedia = useMediaQuery(768);
 
   return (
     <MediaQueryContext.Provider value={isDesktopMedia}>

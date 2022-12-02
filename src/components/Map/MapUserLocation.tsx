@@ -1,11 +1,11 @@
-import React, { Dispatch } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import Image from "next/image";
 
-type LatLngLiteral = google.maps.LatLngLiteral;
+type LatLngLiteral = google.maps.LatLngLiteral | undefined;
 
 type Props = {
-  location: LatLngLiteral | undefined,
-  setLocation: Dispatch<LatLngLiteral | undefined>,
+  location: LatLngLiteral,
+  setLocation: Dispatch<SetStateAction<LatLngLiteral>>,
 }
 
 function MapUserLocation({ location, setLocation }: Props) {
