@@ -16,12 +16,12 @@ function MobileLanguageSwitcher({ langs }: Props) {
       {langs.map((lang: Lang) => {
         const isActiveLang = lang.attributes.slug === locale;
         return (
-          <div className="relative flex items-center justify-center w-[35px] h-[35px] rounded-full bg-primary">
+          <div key={lang.attributes.slug} className="relative flex items-center justify-center w-[35px] h-[35px] rounded-full bg-primary">
             {isActiveLang && (
               <div className='absolute inset-0 opacity-80 bg-black w-full h-full z-10'>
               </div>
             )}
-            <Link href={`${asPath}`} locale={lang.attributes.slug} key={lang.attributes.slug}>
+            <Link href={`${asPath}`} locale={lang.attributes.slug} >
               <a className="flex items-center justify-between whitespace-nowrap">
                 <Image
                   alt="lang"
