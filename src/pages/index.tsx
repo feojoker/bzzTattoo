@@ -1,31 +1,22 @@
-import React from 'react';
 import { fetchAPI } from './api/api';
 import Layout from "../layouts/Layout";
 import Seo from "../components/Seo";
-import { BriefInfo } from "../types";
-import { AboutPage, ContactPage, HomePage } from "../types/pages";
+import { BriefInfo, InstagramFeedType } from "../types";
+import { HomePage } from "../types/pages";
 import VideoBanner from "../components/VideoBanner";
 import BriefInfoWithLink from '../components/BriefInfoWithLink';
-import PhotoAndText from '../components/PhotoAndText';
-// import GoogleMaps from '../components/Map';
-import FormEmail from '../components/FormEmail';
-import dynamic from 'next/dynamic';
-import { Loader } from '../components/Loader';
-
-const GoogleMaps = dynamic(() => import('../components/Map'), { loading: () => <Loader /> })
+import FolowInstagram from '../components/FollowInstagram';
+import { fetchInstagram } from './api/instagram';
 
 type Props = {
   homepage: HomePage,
-  briefAbout: BriefInfo
-  about: AboutPage,
-  contact: ContactPage,
+  briefAbout: BriefInfo,
+  instagramFeed: InstagramFeedType,
 }
 
-const Home = ({ homepage, briefAbout, about, contact }: Props) => {
+const Home = ({ homepage, briefAbout, instagramFeed }: Props) => {
   const { seo, mediaBanner } = homepage.attributes;
-  const { aboutDetail } = about.attributes;
-  const { formEmail } = contact.attributes;
-
+  const images = instagramFeed.data;
   const scrollAnchor = 'home';
 
   return (
@@ -33,17 +24,7 @@ const Home = ({ homepage, briefAbout, about, contact }: Props) => {
       <Seo seo={seo} />
       <VideoBanner src={mediaBanner} scrollAnchor={scrollAnchor} />
       <BriefInfoWithLink data={briefAbout} scrollAnchor={scrollAnchor} />
-      <div className="bg-secondary h-[600px]">
-        <div className='flex items-center justify-between h-full'>
-          <div className='relative flex flex-col items-center text-center w-[50vw] h-full' >
-            <GoogleMaps />
-          </div>
-          <div className='w-[50vw] text-xl font-regular whitespace-pre-line p-8'>
-            <FormEmail data={formEmail} />
-          </div>
-        </div>
-      </div>
-      <PhotoAndText data={aboutDetail} />
+      <FolowInstagram images={images} />
     </Layout>
   )
 };
@@ -51,7 +32,7 @@ const Home = ({ homepage, briefAbout, about, contact }: Props) => {
 export async function getStaticProps({ locale }: { locale: string }) {
 
   // Run API calls in parallel
-  const [homepageRes, briefAboutRes, aboutDetailRes, contactFormRes] = await Promise.all([
+  const [homepageRes, briefAboutRes] = await Promise.all([
     fetchAPI<HomePage>("/homepage", {
       populate: {
         seo: { populate: "*" },
@@ -59,26 +40,15 @@ export async function getStaticProps({ locale }: { locale: string }) {
       },
     }),
     fetchAPI<BriefInfo>("/brief-about", { populate: "*", locale: locale }),
-    fetchAPI<AboutPage>("/about-page", {
-      populate: {
-        aboutDetail: { populate: "*" }
-      },
-      locale: locale
-    }),
-    fetchAPI<ContactPage>("/contact-page", {
-      populate: {
-        formEmail: "*"
-      },
-      locale: locale
-    })
   ]);
+
+  const instagramFeed = await fetchInstagram();
 
   return {
     props: {
       homepage: homepageRes,
       briefAbout: briefAboutRes,
-      about: aboutDetailRes,
-      contact: contactFormRes,
+      instagramFeed,
     },
     revalidate: 1,
   };
