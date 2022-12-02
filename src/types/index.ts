@@ -174,3 +174,23 @@ export type PhotoAndText = {
   subTitle: string,
   image: shareMedia,
 }
+
+export type InstagramPostType = {
+  id: string,
+  caption: string,
+  media_url: string,
+  media_type: string,
+  permalink: string,
+}
+
+export type InstagramFeedType = {
+  data: InstagramPostType[],
+  paging: {
+    cursors: {
+      after: string,
+      before: string,
+    },
+    next: string,
+  }
+}
+
