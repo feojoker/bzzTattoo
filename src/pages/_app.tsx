@@ -3,6 +3,7 @@ import React from 'react';
 import App, { AppContext, AppProps as NextAppProps } from "next/app";
 import Head from "next/head";
 import "../../styles/style.css";
+import "../../styles/fonts.css";
 import { fetchAPI } from "./api/api";
 import { getStrapiMedia } from "./api/media";
 import { CombinedGlobalData, GlobalData, Lang, Navs } from "../types";
