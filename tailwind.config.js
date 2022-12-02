@@ -11,6 +11,7 @@ module.exports = {
       'modernist': ['Modernist'],
       'garamond': ['Cormorant Garamond'],
       'regular': ['Mukta Mahee', 'Arial', 'sans-serif'],
+      'playfair': ['Playfair Display'],
     },
     colors: {
       primary: '#d2a200',
