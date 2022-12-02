@@ -1,17 +1,8 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import Nav from "../components/Nav";
 import MobileNav from "../components/MobileNav";
-import { GlobalData, Navs, Lang } from "../types";
 import { MediaQueryContext } from "../context/MediaQueryContext";
-
-
-// type Props = {
-//   globalLogo: GlobalData,
-//   rightNavs: Navs[],
-//   leftNavs: Navs[],
-//   langs: Lang[],
-//   children: React.ReactNode
-// }
+import Footer from '../components/Footer';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const isDesktopMedia = useContext(MediaQueryContext);
@@ -27,6 +18,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <div className='relative'>
         {children}
       </div>
+      <Footer />
     </>
   );
 }
