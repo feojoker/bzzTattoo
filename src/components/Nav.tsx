@@ -16,7 +16,7 @@ const Nav = () => {
   const scrolled = useOnScroll()
 
   return (
-    <nav className={`flex justify-between items-center w-full h-[80px] fixed top-0 z-50 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
+    <nav className={`flex justify-between items-center w-full h-[80px] fixed top-0 font-modernist text-3xl uppercase z-50 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
       <div className="flex flex-row justify-center py-3 container mx-auto opacity-100">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
