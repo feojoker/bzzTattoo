@@ -23,7 +23,11 @@ const Nav = () => {
             return (
               <li key={category.id}>
                 <Link href={`${category.attributes.link}`} prefetch={false}>
-                  <a className="whitespace-nowrap">{category.attributes.name}</a>
+                  <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
+                    <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+                      {category.attributes.name}
+                    </span>
+                  </a>
                 </Link>
               </li>
             );
@@ -37,7 +41,7 @@ const Nav = () => {
             }
             `}>
             <Link href='/' prefetch={false}>
-              <a>
+              <a className="opacity-70 hover:opacity-100">
                 <div className="absolute left-0 right-0 w-full h-full">
                   <Image
                     alt="logo"
@@ -57,7 +61,11 @@ const Nav = () => {
               return (
                 <li key={category.id}>
                   <Link href={`${category.attributes.link}`} prefetch={false}>
-                    <a className="whitespace-nowrap">{category.attributes.name}</a>
+                    <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
+                      <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
+                        {category.attributes.name}
+                      </span>
+                    </a>
                   </Link>
                 </li>
               );
