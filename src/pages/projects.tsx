@@ -1,20 +1,19 @@
 
-import React from 'react';
 import { fetchAPI } from './api/api';
 import Layout from '../layouts/Layout';
 import ImgBanner from '../components/ImgBanner';
 import { ProjectsPage } from '../types/pages';
+import { InstagramFeedType } from '../types';
 import Seo from '../components/Seo';
 import InstagramFeed from '../components/InstagramFeed';
 import { fetchInstagram } from './api/instagram';
 
 type Props = {
-  instagramFeed: any,
+  instagramFeed: InstagramFeedType,
   projects: ProjectsPage,
 }
 
 const Projects = ({ instagramFeed, projects }: Props) => {
-
   const images = instagramFeed.data;
 
   const { mediaBanner, seo } = projects.attributes;
