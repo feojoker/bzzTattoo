@@ -16,8 +16,8 @@ const Nav = () => {
   const scrolled = useOnScroll()
 
   return (
-    <nav className={`flex justify-between items-center w-full h-[80px] fixed top-0 font-modernist text-3xl uppercase z-50 ${scrolled ? 'bg-black' : 'bg-transparent'}`}>
-      <div className="flex flex-row justify-center py-3 container mx-auto opacity-100">
+    <nav className={`xl:text-3xl fixed flex justify-between items-center w-full h-[80px] top-0 font-modernist text-xl uppercase shadow-secondary z-50 ${scrolled && 'bg-black shadow'}`}>
+      <div className="flex flex-row justify-center py-3 container mx-auto px-4 opacity-100">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
             return (
@@ -33,11 +33,11 @@ const Nav = () => {
             );
           })}
         </ul>
-        <div className="flex items-center justify-center basis-[250px]">
+        <div className="flex items-center justify-center basis-[170px] xl:basis-[250px]">
           <div className={`relative transition-all ease 
           ${scrolled ?
               'w-[70px] h-[70px]' :
-              'w-[150px] h-[150px] pt-[40px] mx-[50px]'
+              'w-[100px] h-[100px] pt-[15px] xl:w-[150px] xl:h-[150px] xl:pt-[40px] xl:mx-[50px]'
             }
             `}>
             <Link href='/' prefetch={false}>
