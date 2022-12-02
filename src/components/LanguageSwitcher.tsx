@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { getStrapiMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
@@ -47,9 +47,9 @@ function LanguageSwitcher({ langs }: Props) {
           return lang.attributes.slug !== locale ? (
             <Link href={`${asPath}`} locale={lang.attributes.slug} key={lang.attributes.slug}>
               <a onClick={() => setOpenSwitcher(!openSwitcher)}
-                className="flex items-center justify-between whitespace-nowrap"
+                className="flex items-center justify-between whitespace-nowrap group transition-all duration-300 ease-in-out"
               >
-                <span>{lang.attributes.name}</span>
+                <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">{lang.attributes.name}</span>
                 <Image
                   alt="lang"
                   key={lang.attributes.slug}
