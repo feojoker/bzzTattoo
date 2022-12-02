@@ -4,6 +4,7 @@ import FormEmailInput from './FormEmailInput';
 import FormEmailTextArea from './FormEmailTextArea';
 import { Inputs } from './Inputs';
 import { FormEmail } from '../../types'
+import DefaultButton from '../Buttons';
 
 type Props = {
   data: FormEmail,
@@ -107,7 +108,8 @@ function FormEmail({ data }: Props) {
           errors={errors}
           isRequired={true}
           requiredMessage={requiredError} />
-        <button type="submit" className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center font-regular uppercase">{buttonText || 'Send message'}</button>
+        <DefaultButton tag="button" linkTitle={buttonText} type="submit" />
+        {/* <button type="submit" className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center font-regular uppercase">{buttonText || 'Send message'}</button> */}
       </form>
     </div>
   )
