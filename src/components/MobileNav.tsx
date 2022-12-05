@@ -14,10 +14,6 @@ const MobileNav = () => {
   const logoSrc = getStrapiMedia(global.attributes.logo);
 
   const scrolled = useOnScroll();
-
-  console.log(scrolled);
-
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
