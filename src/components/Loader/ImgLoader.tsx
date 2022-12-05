@@ -14,6 +14,7 @@ export const ImgLoader = () => {
     <div className="flex flex-col items-center justify-center w-full">
       <div className="mb-4">
         <Image src="/logo.png" alt="logo" height={150} width={150} />
+        {/* <Image src={logoHref} alt="logo" height={150} width={150} /> */}
       </div>
       <Circles />
     </div>

@@ -30,8 +30,8 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
     langs: pageProps.langs,
   }
 
-  const global: GlobalData = pageProps.global;
-  const faviconHref = getStrapiMedia(global.attributes.favicon);
+  // const global: GlobalData = pageProps.global;
+  // const faviconHref = getStrapiMedia(global.attributes.favicon);
 
   // Hide splash screen shen we are server side 
   useEffect(() => {
@@ -47,7 +47,7 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
       <Head>
         <link
           rel="shortcut icon"
-          href={faviconHref}
+          href="/favicon.png"
         />
       </Head>
 
