@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import App, { AppContext, AppProps as NextAppProps } from "next/app";
 import Head from "next/head";
 import "../../styles/style.css";
@@ -31,7 +31,16 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
   }
 
   const global: GlobalData = pageProps.global;
-  const faviconHref = getStrapiMedia(global.attributes.favicon)
+  const faviconHref = getStrapiMedia(global.attributes.favicon);
+
+  // Hide splash screen shen we are server side 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const loader = document.getElementById('globalLoader');
+      if (loader)
+        loader.style.display = 'none';
+    }
+  }, []);
 
   return (
     <>
@@ -45,7 +54,9 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
       <MediaQueryProvider>
         <GlobalDataProvider globalData={globalData}>
           <Loader />
+
           <Component {...pageProps} />
+
         </GlobalDataProvider>
       </MediaQueryProvider>
     </>
