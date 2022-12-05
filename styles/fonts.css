@@ -1,4 +1,5 @@
 @font-face {
   font-family: "Modernist";
-  src: url("../public/fonts/Modernist-Three-Regular.ttf")
+  font-display: swap;
+  src: local(''), url("../public/fonts/Modernist-Three-Regular.ttf")
 }
