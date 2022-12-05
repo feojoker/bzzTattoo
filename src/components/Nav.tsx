@@ -11,7 +11,7 @@ import Image from "next/image";
 const Nav = () => {
   const { global, leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
 
-  // const logoSrc = getStrapiMedia(global.attributes.logo)
+  const logoSrc = getStrapiMedia(global.attributes.logo)
 
   const scrolled = useOnScroll()
 
@@ -45,7 +45,7 @@ const Nav = () => {
                 <div className="absolute left-0 right-0 w-full h-full">
                   <Image
                     alt="logo"
-                    src="/logo.png"
+                    src={logoSrc}
                     layout='fill'
                     quality={100}
                     objectFit='cover'
