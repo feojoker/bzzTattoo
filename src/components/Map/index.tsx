@@ -4,7 +4,7 @@ import mapStyles from "./mapStyles"
 import { useRouter } from "next/router";
 import MapUserLocation from "./MapUserLocation";
 import MapDirectionsRenderer from "./MapDirectionsRenderer";
-import { SvgLoader } from "../Loader/ImgLoader";
+import { ImgLoader } from "../Loader/ImgLoader";
 import Image from "next/image";
 
 
@@ -66,7 +66,7 @@ function Map({ googleMapsApiKey }: Props) {
 
   if (!isLoaded) return (
     <div className="absolute inset-0 flex justify-center items-center bg-black">
-      <SvgLoader />
+      <ImgLoader />
     </div>
   );
 
@@ -84,7 +84,7 @@ function Map({ googleMapsApiKey }: Props) {
           setZoom(15);
         }}
       >
-        <Image src="/center1.png" alt="directions" height={40} width={40} unoptimized />
+        <Image src="/center.png" alt="directions" height={40} width={40} unoptimized />
       </button>
       <GoogleMap
         id="map"

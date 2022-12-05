@@ -2,19 +2,20 @@ import { useContext } from "react";
 import { GlobalDataContext } from "../../context/GlobalDataContext";
 import { getStrapiMedia } from "../../pages/api/media";
 import Image from "next/image";
+import Circles from "../../../public/circles.svg";
 
 
-export const SvgLoader = () => {
-  const { global } = useContext(GlobalDataContext);
+export const ImgLoader = () => {
+  // const { global } = useContext(GlobalDataContext);
 
-  const logoHref = getStrapiMedia(global.attributes.logo);
+  // const logoHref = getStrapiMedia(global.attributes.logo);
 
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="mb-4">
-        <Image src={logoHref} alt="logo" height={150} width={150} />
+        <Image src="/logo.png" alt="logo" height={150} width={150} />
       </div>
-      <Image src="/circles.svg" height={26} width={26} />
+      <Circles />
     </div>
   );
 }

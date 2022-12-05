@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { SvgLoader } from "./ImgLoader";
+import { ImgLoader } from "./ImgLoader";
 
 export const Loader = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ export const Loader = () => {
 
   return isLoaderVisible ? (
     <div className="h-[100vh] w-[100vw] fixed inset-0 flex justify-center items-center z-[9999] bg-black">
-      <SvgLoader />
+      <ImgLoader />
     </div >
   ) : null
 };
