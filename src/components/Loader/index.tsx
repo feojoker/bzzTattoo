@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 import { SvgLoader } from "./ImgLoader";
 
 export const Loader = () => {
@@ -8,17 +8,17 @@ export const Loader = () => {
 
   const pathWithLocaleRelation = () => {
     let editedPath;
-    const optionslPath = router.asPath === '/' ? '' : router.asPath;
+    const optionsPath = router.asPath === '/' ? '' : router.asPath;
 
     if (router.locale !== router.defaultLocale) {
-      editedPath = '/' + router.locale + optionslPath;
+      editedPath = '/' + router.locale + optionsPath;
     } else {
       editedPath = router.asPath;
     }
     return editedPath;
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleRouteChange = (url: string) => (url !== pathWithLocaleRelation()) && setIsLoaderVisible(true);
     const handleRouteComplete = (url: string) => (url === pathWithLocaleRelation()) && setIsLoaderVisible(false);
 
