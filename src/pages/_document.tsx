@@ -1,6 +1,7 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import loader from '../../styles/loader';
+import Circles from "../../public/circles.svg";
 
 type Props = {}
 
@@ -16,7 +17,7 @@ class MyDocument extends Document<Props> {
           </head>
           <link
             rel="preload"
-            href="/public/fonts/Modernist-Three-Regular.ttf"
+            href="/fonts/Modernist-Three-Regular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin=""
@@ -31,10 +32,7 @@ class MyDocument extends Document<Props> {
         </Head>
         <body>
           <div id={'globalLoader'}>
-            <div className="loader">
-              <div />
-              <div />
-            </div>
+            <div className='loader'></div>
           </div>
           <Main />
           <NextScript />
