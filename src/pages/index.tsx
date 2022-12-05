@@ -3,14 +3,11 @@ import Layout from "../layouts/Layout";
 import Seo from "../components/Seo";
 import { BriefInfo, InstagramFeedType } from "../types";
 import { HomePage } from "../types/pages";
+
 import BriefInfoWithLink from '../components/BriefInfoWithLink';
 import FolowInstagram from '../components/FollowInstagram';
 import { fetchInstagram } from './api/instagram';
-
-import dynamic from 'next/dynamic';
-const VideoBanner = dynamic(import('../components/VideoBanner'), {
-  ssr: false
-})
+import VideoBanner from '../components/VideoBanner';
 
 type Props = {
   homepage: HomePage,
