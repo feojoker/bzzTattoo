@@ -21,7 +21,6 @@ function FolowInstagram({ images }: { images: InstagramPostType[] }) {
               quality={100}
               objectFit='cover'
               placeholder="blur"
-              priority
               blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
             />
           )
