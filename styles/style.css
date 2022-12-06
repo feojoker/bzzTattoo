@@ -56,3 +56,8 @@ h1 {
   width: 40px;
   cursor: pointer;
 }
+
+.videoBannerHeight {
+  height: 100vh;
+  max-height: -webkit-fill-available;
+}

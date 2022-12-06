@@ -23,7 +23,7 @@ function VideoBanner({ src, scrollAnchor }: Props) {
     <div className={`
     relative w-full bg-black mb-12 z-1
      ${isDesktopMedia
-        ? 'h-screen'
+        ? 'videoBannerHeight'
         : 'h-[40vh]'
       }`}>
       {title ? (
@@ -32,7 +32,7 @@ function VideoBanner({ src, scrollAnchor }: Props) {
         </ReactMarkdown>
       ) : null}
       {smallText ? (
-        <ReactMarkdown className='absolute bottom-[5%] right-[10%] text-white text-m z-20'>
+        <ReactMarkdown className='absolute bottom-[7%] right-[10%] text-white text-m z-20'>
           {smallText}
         </ReactMarkdown>
       ) : null}
