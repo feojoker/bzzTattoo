@@ -1,12 +1,10 @@
 
 import React, { useEffect } from 'react';
 import App, { AppContext, AppProps as NextAppProps } from "next/app";
-import Head from "next/head";
 import "../../styles/style.css";
 import "../../styles/fonts.css";
 import { fetchAPI } from "./api/api";
-import { getStrapiMedia } from "./api/media";
-import { CombinedGlobalData, GlobalData, Lang, Navs } from "../types";
+import { GlobalData, Lang, Navs } from "../types";
 import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 import { Loader } from '../components/Loader';
@@ -30,9 +28,6 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
     langs: pageProps.langs,
   }
 
-  const global: GlobalData = pageProps.global;
-  const faviconHref = getStrapiMedia(global.attributes.favicon);
-
   // Hide splash screen shen we are server side 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -44,19 +39,10 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
 
   return (
     <>
-      <Head>
-        <link
-          rel="shortcut icon"
-          href={faviconHref}
-        />
-      </Head>
-
       <MediaQueryProvider>
         <GlobalDataProvider globalData={globalData}>
           <Loader />
-
           <Component {...pageProps} />
-
         </GlobalDataProvider>
       </MediaQueryProvider>
     </>
