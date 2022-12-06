@@ -63,7 +63,6 @@ MyApp.getInitialProps = async (context: AppContext) => {
       defaultSeo: {
         populate: { shareImage: { populate: "*" } }
       },
-      favicon: { populate: "*" },
       logo: { populate: "*" },
     }
   });

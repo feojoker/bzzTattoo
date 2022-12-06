@@ -80,7 +80,6 @@ export type GlobalData = {
     siteName: string,
     createdAt: string,
     updatedAt: string,
-    favicon: shareMedia,
     defaultSeo: Seo,
     logo: shareMedia,
   }
