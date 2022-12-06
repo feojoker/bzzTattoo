@@ -1,6 +1,8 @@
 import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import loader from '../../styles/loader';
+import Circles from "../../public/circles.svg";
+import Favicon from '../components/Favicon';
 
 type Props = {}
 
@@ -9,13 +11,16 @@ class MyDocument extends Document<Props> {
     return (
       <Html>
         <Head>
+
+          <meta charSet="utf-8" />
+          <Favicon />
+
           {/* <head>
             <style>
               {loader}
             </style>
           </head> */}
           <link
-            // rel="preload"
             href="/fonts/Modernist-Three-Regular.ttf"
             as="style"
             rel="stylesheet preload prefetch"
@@ -29,6 +34,7 @@ class MyDocument extends Document<Props> {
             href="https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@200;400;700&display=swap"
           />
           <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display&display=swap" rel="stylesheet" />
+
         </Head>
         <body>
           {/* <div id={'globalLoader'}>
