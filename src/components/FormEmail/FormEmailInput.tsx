@@ -3,9 +3,9 @@ import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 import { Inputs } from './Inputs';
 import { ErrorMessage } from '@hookform/error-message';
 
-const inputStyling = "max-w-[60%] border-2 border-primary rounded-md p-2 w-full placeholder:italic focus-visible:outline-offset-0 focus-visible:border-black focus-visible:outline-0";
+const inputStyling = "w-[60%] border-2 border-primary rounded-md p-2 w-full placeholder:italic focus-visible:outline-offset-0 focus-visible:border-black focus-visible:outline-0";
 
-const errorValidationTooltipStyling = "absolute top-[5px] left-[62%] max-w-[60%] bg-white p-2 rounded-md text-center  z-10 text-base leading-5 text-red-600 after:content-[''] after:absolute after:top-1/2 after:right-full after:mt-[-5px] after:border-[5px] after:border-r-white after:border-l-black after:border-y-black";
+const errorValidationTooltipStyling = "absolute top-[0px] left-[60%] max-w-[40%] bg-white ml-3 p-2 rounded-md text-center  z-10 text-base leading-5 text-red-600 after:content-[''] after:absolute after:top-1/2 after:right-full after:mt-[-5px] after:border-[5px] after:border-r-white after:border-l-black after:border-y-black";
 
 type Props = {
   name: keyof Inputs,

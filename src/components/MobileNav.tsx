@@ -30,7 +30,7 @@ const MobileNav = () => {
         <div className={`relative transition-all ease 
           ${scrolled ?
             'w-[70px] h-[70px]' :
-            'w-[100px] h-[100px] mt-[40px] ml-[20px]'
+            'w-[90px] h-[90px] mt-[40px] ml-[10px]'
           }`}>
           <Link href='/'>
             <a className="opacity-70 hover:opacity-100">

@@ -8,7 +8,7 @@ function InstagramFeed({ images }: { images: InstagramPostType[] }) {
 
   return filteredLastImages && (
     <div className='bg-secondary'>
-      <div className='grid grid-cols-4 gap-6 mx-auto py-6 max-w-6xl'>
+      <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-6 mx-auto py-6 max-w-6xl'>
         {filteredLastImages.map((image: InstagramPostType) => (
           <a key={image.id} href={image.permalink} target="_blank" rel="noreferrer">
             <div className='brightness-75 hover:filter-none transition duration-150'>

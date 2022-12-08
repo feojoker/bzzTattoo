@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
 import { getStrapiMedia } from "../pages/api/media";
 import { MediaBanner } from "../types";
-import { MediaQueryContext } from "../context/MediaQueryContext";
 import ReactMarkdown from "react-markdown";
 import DoubleDown from '../../public/doubleDown.svg';
 import { Link as ScrollLink } from 'react-scroll';
@@ -16,30 +14,32 @@ function VideoBanner({ src, scrollAnchor }: Props) {
   const { media, title, smallText } = src;
 
   const videoBannerSrc = getStrapiMedia(media);
-  const isDesktopMedia = useContext(MediaQueryContext);
 
 
   return (
-    <div className={`
-    relative w-full bg-black mb-12 z-1
-     ${isDesktopMedia
-        ? 'videoBannerHeight'
-        : 'h-[40vh]'
-      }`}>
+    <div className="relative font-garamond uppercase w-full mb-12 z-1 fullHeight">
       {title ? (
-        <ReactMarkdown className='absolute top-[20%] left-[10%] text-white text-5xl z-20 font-garamond'>
+        <ReactMarkdown className='
+        absolute text-white z-20 
+        top-[25%] left-[5%] text-2xl 
+        md:left-[10%] md:text-5xl
+        '>
           {title}
         </ReactMarkdown>
       ) : null}
       {smallText ? (
-        <ReactMarkdown className='absolute bottom-[7%] right-[10%] text-white text-m z-20'>
+        <ReactMarkdown className='
+        absolute text-white z-20 
+        bottom-[20%] right-[5%] text-xs 
+        md:bottom-[7%] md:right-[10%] md:text-sm
+        '>
           {smallText}
         </ReactMarkdown>
       ) : null}
       <div className="absolute inset-0 opacity-60 bg-black w-full h-full z-10"></div>
       <video
         className="absolute inset-0 bottom-0 object-cover w-full h-full z-5"
-        loop autoPlay muted>
+        loop autoPlay muted playsInline>
         <source
           src={videoBannerSrc}
           type="video/mp4"

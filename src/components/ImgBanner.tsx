@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
 import { getStrapiMedia } from "../pages/api/media";
 import { MediaBanner } from "../types";
-import { MediaQueryContext } from "../context/MediaQueryContext";
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
-
 
 type Props = {
   src: MediaBanner,
@@ -13,35 +10,35 @@ type Props = {
 function ImgBanner({ src }: Props) {
 
   const { media, title, smallText } = src;
-
   const imgBannerSrc = getStrapiMedia(media);
-  const isDesktopMedia = useContext(MediaQueryContext);
 
   return (
-    <div className={`relative flex items-center justify-center bg-black -z-20
-     ${isDesktopMedia
-        ? 'h-[80vh]'
-        : 'h-[40vh]'
-      }`}>
+    <div className="relative font-garamond uppercase -z-20 h-[60vh] md:h-[80vh]">
       {title ? (
-        <ReactMarkdown className='absolute top-[20%] left-[10%] text-white text-5xl z-10 font-garamond uppercase'>
+        <ReactMarkdown className='
+        absolute text-white z-10
+        top-[35%] left-[5%] text-2xl 
+        md:top-[20%] md:left-[10%] md:text-5xl
+        '>
           {title}
         </ReactMarkdown>
       ) : null}
       {smallText ? (
-        <ReactMarkdown className='absolute bottom-[5%] right-[10%] text-white text-xl z-10 font-garamond uppercase'>
+        <ReactMarkdown className='
+        absolute text-white z-10
+         bottom-[10%] right-[5%] text-xs
+         md:bottom-[5%] md:right-[10%] md:text-base
+         '>
           {smallText}
         </ReactMarkdown>
       ) : null}
-      <div className="absolute inset-x-0 bottom-0 object-cover w-full h-full -z-10">
-        <Image
-          alt="imgBanner"
-          src={imgBannerSrc}
-          layout='fill'
-          quality={100}
-          objectFit='cover'
-        />
-      </div>
+      <Image
+        alt="imgBanner"
+        src={imgBannerSrc}
+        layout='fill'
+        quality={100}
+        objectFit='cover'
+      />
     </div>
   )
 }

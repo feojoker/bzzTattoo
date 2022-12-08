@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import { PhotoAndText } from '../types';
 import ReactMarkdown from "react-markdown";
 import Image from 'next/image';
@@ -10,22 +9,21 @@ type Props = {
 }
 
 function PhotoAndText({ data, scrollAnchor }: Props) {
-  const { title, subTitle, longText, image } = data;
 
+  const { title, subTitle, longText, image } = data;
   const imgSrc = getStrapiMedia(image);
   return (
     <div
       id={scrollAnchor && scrollAnchor}
-      className='container mx-auto grid grid-cols-2 gap-x-16 gap-y-8'>
-      <h1 className='text-7xl text-right tracking-widest mx-auto'>
+      className='container mx-auto grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-x-16 md:gap-y-8'>
+      <h1 className='text-7xl text-right tracking-widest mr-auto md:mx-auto'>
         <ReactMarkdown>
           {title}
         </ReactMarkdown>
       </h1>
-      <p className='text-5xl font-garamond font-bold self-end'>
+      <p className='text-5xl font-garamond font-bold self-end ml-auto italic md:ml-0 md:non-italic'>
         {subTitle}
       </p>
-
       <Image
         alt="img"
         src={imgSrc}

@@ -10,7 +10,7 @@ function FolowInstagram({ images }: { images: InstagramPostType[] }) {
     <div>
       <h1 className='text-center text-sm tracking-wider font-garamond py-6 border-t border-t-primary'>FOLLOW ME ON INSTAGRAM</h1>
       <div className='relative'>
-        <div className='grid grid-cols-6'>
+        <div className='grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-0'>
           {filteredRandomImages.map((image: InstagramPostType) => (
             <Image
               key={image.id}

@@ -109,7 +109,6 @@ function FormEmail({ data }: Props) {
           isRequired={true}
           requiredMessage={requiredError} />
         <DefaultButton tag="button" linkTitle={buttonText} type="submit" />
-        {/* <button type="submit" className="text-primary hover:text-white border border-primary hover:bg-primary focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg text-sm px-5 py-2.5 text-center font-regular uppercase">{buttonText || 'Send message'}</button> */}
       </form>
     </div>
   )

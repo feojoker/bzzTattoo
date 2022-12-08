@@ -37,7 +37,7 @@ export const Loader = () => {
 
 
   return isLoaderVisible ? (
-    <div className="h-[100vh] w-[100vw] fixed inset-0 flex justify-center items-center z-[9999] bg-black">
+    <div className="fullHeight w-screen fixed inset-0 flex justify-center items-center z-[9999] bg-black">
       <ImgLoader />
     </div >
   ) : null

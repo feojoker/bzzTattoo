@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .fullHeight {
+    height: 100vh;
+    /* experemental viewport unit for mobile devices  */
+    height: 100dvh;
+  }
+}
 
 body {
   font-family: 'Mukta Mahee', "Arial", sans-serif;
@@ -42,10 +49,9 @@ h1 {
   cursor: pointer;
 }
 
-
 .center {
   position: absolute;
-  top: 270px;
+  top: 40%;
   right: 10px;
   background: none;
   border: none;
@@ -55,9 +61,4 @@ h1 {
 .center img {
   width: 40px;
   cursor: pointer;
-}
-
-.videoBannerHeight {
-  height: 100vh;
-  max-height: -webkit-fill-available;
 }

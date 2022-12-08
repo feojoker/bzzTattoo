@@ -20,12 +20,12 @@ const Contact = ({ contact }: { contact: ContactPage }) => {
     <Layout>
       <Seo />
       <ImgBanner src={mediaBanner} />
-      <div className="bg-secondary h-[600px]">
-        <div className='flex items-center justify-between h-full'>
-          <div className='relative flex flex-col items-center text-center w-[50vw] h-full' >
+      <div className="bg-secondary md:h-[700px]">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between md:h-full">
+          <div className="relative flex flex-col items-center text-center h-[350px] w-full md:w-[50vw] md:h-full">
             <GoogleMaps />
           </div>
-          <div className='w-[50vw] text-xl font-regular whitespace-pre-line p-8'>
+          <div className="text-xl font-regular whitespace-pre-line p-8 md:w-[50vw]">
             <FormEmail data={formEmail} />
           </div>
         </div>

@@ -17,7 +17,7 @@ const Nav = () => {
 
   return (
     <nav className={`xl:text-3xl fixed flex justify-between items-center w-full h-[80px] top-0 font-modernist text-xl uppercase shadow-secondary z-50 ${scrolled && 'bg-black shadow'}`}>
-      <div className="flex flex-row justify-center py-3 container mx-auto px-4 opacity-100">
+      <div className="container mx-auto flex flex-row justify-center py-3 px-12 opacity-100">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
             return (
