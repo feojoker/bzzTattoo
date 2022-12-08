@@ -1,7 +1,4 @@
-import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import loader from '../../styles/loader';
-import Circles from "../../public/circles.svg";
 import Favicon from '../components/Favicon';
 
 type Props = {}
@@ -11,16 +8,9 @@ class MyDocument extends Document<Props> {
     return (
       <Html>
         <Head>
-
           <meta charSet="utf-8" />
-          {/* <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> */}
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
           <Favicon />
-
-          {/* <head>
-            <style>
-              {loader}
-            </style>
-          </head> */}
           <link
             href="/fonts/Modernist-Three-Regular.ttf"
             as="style"
@@ -38,9 +28,6 @@ class MyDocument extends Document<Props> {
 
         </Head>
         <body>
-          {/* <div id={'globalLoader'}>
-            <div className='loader'></div>
-          </div> */}
           <Main />
           <NextScript />
         </body>

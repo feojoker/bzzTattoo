@@ -1,13 +1,12 @@
 
-import React, { useEffect } from 'react';
 import App, { AppContext, AppProps as NextAppProps } from "next/app";
-import "../../styles/style.css";
-import "../../styles/fonts.css";
 import { fetchAPI } from "./api/api";
 import { Footer, GlobalData, Lang, Navs } from "../types";
 import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 import { Loader } from '../components/Loader';
+import "../../styles/style.css";
+import "../../styles/fonts.css";
 
 type AppProps<P = any> = {
   pageProps: P;
@@ -29,15 +28,6 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
     langs: pageProps.langs,
     footer: pageProps.footer,
   }
-
-  // Hide splash screen shen we are server side 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const loader = document.getElementById('globalLoader');
-      if (loader)
-        loader.style.display = 'none';
-    }
-  }, []);
 
   return (
     <>
