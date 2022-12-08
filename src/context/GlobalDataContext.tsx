@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import { CombinedGlobalData } from "../types";
 
 // Store Strapi Global object in context

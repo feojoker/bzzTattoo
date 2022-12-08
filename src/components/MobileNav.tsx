@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { getStrapiMedia } from "../pages/api/media";
 import { Navs } from "../types";

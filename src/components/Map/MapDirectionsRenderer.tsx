@@ -1,5 +1,4 @@
 import { DirectionsRenderer } from "@react-google-maps/api";
-import React from "react";
 import { useEffect, useState } from "react";
 
 type LatLngLiteral = google.maps.LatLngLiteral;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 import { Inputs } from './Inputs';
 import { ErrorMessage } from '@hookform/error-message';

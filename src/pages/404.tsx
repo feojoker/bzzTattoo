@@ -1,5 +1,5 @@
 
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { fetchAPI } from './api/api';
 import { NotFound } from "../types/pages";
 import { getStrapiMedia } from './api/media';
