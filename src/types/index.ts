@@ -90,6 +90,7 @@ export type CombinedGlobalData = {
   leftNavs: Navs[],
   rightNavs: Navs[],
   langs: Lang[],
+  footer: Footer,
 }
 
 export type MediaBanner = {
@@ -122,6 +123,27 @@ export type Lang = {
     createdAt: string,
     updatedAt: string,
     icon: shareMedia,
+  }
+}
+
+export type Footer = {
+  id: number,
+  attributes: {
+    addressTitle: string,
+    addressStreet: string,
+    addressCity: string,
+    phoneNumber: string,
+    email: string,
+    buttonText: string,
+    copyright: string,
+    name: string,
+    aboutArtist: string,
+    createdAt: string,
+    updatedAt: string,
+    locale: string,
+    localizations?: {
+      data: Footer[]
+    }
   }
 }
 

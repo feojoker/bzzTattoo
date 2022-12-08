@@ -4,7 +4,7 @@ import App, { AppContext, AppProps as NextAppProps } from "next/app";
 import "../../styles/style.css";
 import "../../styles/fonts.css";
 import { fetchAPI } from "./api/api";
-import { GlobalData, Lang, Navs } from "../types";
+import { Footer, GlobalData, Lang, Navs } from "../types";
 import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 import { Loader } from '../components/Loader';
@@ -18,6 +18,7 @@ type CustomPageProps = {
   leftNavs: Navs[],
   rightNavs: Navs[],
   langs: Lang[],
+  footer: Footer,
 }
 
 const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
@@ -26,6 +27,7 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
     leftNavs: pageProps.leftNavs,
     rightNavs: pageProps.rightNavs,
     langs: pageProps.langs,
+    footer: pageProps.footer,
   }
 
   // Hide splash screen shen we are server side 
@@ -55,20 +57,23 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
 MyApp.getInitialProps = async (context: AppContext) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(context);
-
   const locale = context.router.locale;
 
-  const globalRes = await fetchAPI<GlobalData>("/global-data", {
-    populate: {
-      defaultSeo: {
-        populate: { shareImage: { populate: "*" } }
-      },
-      logo: { populate: "*" },
-    }
-  });
-  const leftNavsRes = await fetchAPI<Navs[]>(`/left-navs`, { populate: "*", locale: locale });
-  const rightNavsRes = await fetchAPI<Navs[]>("/right-navs", { populate: "*", locale: locale });
-  const langRes = await fetchAPI<Lang[]>("/language-icons", { populate: "*" });
+  // Run API calls in parallel
+  const [globalRes, leftNavsRes, rightNavsRes, langRes, footerRes] = await Promise.all([
+    fetchAPI<GlobalData>("/global-data", {
+      populate: {
+        defaultSeo: {
+          populate: { shareImage: { populate: "*" } }
+        },
+        logo: { populate: "*" },
+      }
+    }),
+    fetchAPI<Navs[]>(`/left-navs`, { populate: "*", locale: locale }),
+    fetchAPI<Navs[]>("/right-navs", { populate: "*", locale: locale }),
+    fetchAPI<Lang[]>("/language-icons", { populate: "*" }),
+    fetchAPI<Footer>("/footer", { populate: "*", locale: locale })
+  ]);
 
   return {
     ...appProps, pageProps:
@@ -76,7 +81,8 @@ MyApp.getInitialProps = async (context: AppContext) => {
       global: globalRes,
       leftNavs: leftNavsRes,
       rightNavs: rightNavsRes,
-      langs: langRes
+      langs: langRes,
+      footer: footerRes,
     }
   };
 };
