@@ -22,7 +22,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.38.0",
     "react-markdown": "^8.0.3",
-    "react-scroll": "^1.8.8"
+    "react-scroll": "^1.8.8",
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.5.1",
