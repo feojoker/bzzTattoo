@@ -15,8 +15,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   `;
 
   const data = {
-    to: 'feojoker@gmail.com',
-    from: 'feojoker@gmail.com',
+    to: process.env.SENDGRID_EMAIL_TO,
+    from: process.env.SENDGRID_EMAIL_FROM,
     subject: `${body.subject}`,
     text: message,
     html: message.replace(/\r\n/g, '<br />'),
