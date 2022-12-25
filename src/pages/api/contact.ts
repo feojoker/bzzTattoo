@@ -22,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     html: message.replace(/\r\n/g, '<br />'),
   };
 
-  sgMail
+  await sgMail
     .send(data)
     .then(() => {
       console.log('Email sent')
