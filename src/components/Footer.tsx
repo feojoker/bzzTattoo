@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 function Footer() {
   const { leftNavs, rightNavs, footer } = useContext(GlobalDataContext);
-  console.log(footer.attributes);
   const { addressTitle, addressStreet, addressCity, phoneNumber, email, buttonText, copyright, name, aboutArtist } = footer.attributes;
 
   return (

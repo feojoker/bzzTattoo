@@ -3,9 +3,6 @@ import { InstagramPostType } from '../types';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 
 function InstagramFeed({ images }: { images: InstagramPostType[] }) {
-  console.log(images);
-
-
   const filteredLastImages = images.filter((image: InstagramPostType) => image.media_type !== "VIDEO").slice(0, 16);
 
   return filteredLastImages && (
