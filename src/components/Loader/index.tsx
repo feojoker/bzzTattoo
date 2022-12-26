@@ -6,19 +6,18 @@ export const Loader = () => {
   const router = useRouter();
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
 
-  const pathWithLocaleRelation = () => {
-    let editedPath;
-    const optionsPath = router.asPath === '/' ? '' : router.asPath;
-
-    if (router.locale !== router.defaultLocale) {
-      editedPath = '/' + router.locale + optionsPath;
-    } else {
-      editedPath = router.asPath;
-    }
-    return editedPath;
-  }
-
   useEffect(() => {
+    const pathWithLocaleRelation = () => {
+      let editedPath;
+      const optionsPath = router.asPath === '/' ? '' : router.asPath;
+
+      if (router.locale !== router.defaultLocale) {
+        editedPath = '/' + router.locale + optionsPath;
+      } else {
+        editedPath = router.asPath;
+      }
+      return editedPath;
+    }
     const handleRouteChange = (url: string) => (url !== pathWithLocaleRelation()) && setIsLoaderVisible(true);
     const handleRouteComplete = (url: string) => (url === pathWithLocaleRelation()) && setIsLoaderVisible(false);
 
@@ -33,6 +32,7 @@ export const Loader = () => {
       router.events.off("routeChangeComplete", handleRouteComplete);
       router.events.on('routeChangeError', handleRouteComplete);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
 

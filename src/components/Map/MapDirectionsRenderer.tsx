@@ -34,7 +34,7 @@ export default function MapDirectionsRenderer({ origin, destination, travelMode 
     } else {
       setDirections(undefined)
     }
-  }, [origin]);
+  }, [origin, destination, travelMode]);
 
   return (
     <DirectionsRenderer directions={directions} />

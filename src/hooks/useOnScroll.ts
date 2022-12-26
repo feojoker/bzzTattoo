@@ -3,9 +3,11 @@ import { useCallback, useEffect, useState } from "react";
 export const useOnScroll = () => {
   const [scrolled, setScrolled] = useState(false);
 
+
   const onScroll: EventListener = useCallback((event: Event) => {
     const win: Window = window;
     const { scrollY } = win;
+
     if (scrollY >= 10) {
       setScrolled(true)
     } else {
@@ -15,11 +17,16 @@ export const useOnScroll = () => {
 
   useEffect(() => {
     const win: Window = window;
-    //add eventlistener to window
+
+    //add eventlisteners to window
     win.addEventListener("scroll", onScroll);
-    // remove event on unmount to prevent a memory leak with the cleanup
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    win.addEventListener("resize", onScroll);
+    // remove events on unmount to prevent a memory leak with the cleanup
+    return () => {
+      win.removeEventListener("scroll", onScroll);
+      win.removeEventListener("resize", onScroll);
+    }
+  }, [onScroll]);
 
   return scrolled
 }

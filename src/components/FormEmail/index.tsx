@@ -44,7 +44,7 @@ function FormEmail({ data }: Props) {
 
   useEffect(() => {
     reset({ name: '', email: '', phone: '', subject: '', message: '' });
-  }, [isSubmitSuccessful]);
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <div>
