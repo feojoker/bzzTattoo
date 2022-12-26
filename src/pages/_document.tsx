@@ -10,13 +10,6 @@ class MyDocument extends Document<Props> {
         <Head>
           <meta charSet="utf-8" />
           <Favicon />
-          <link
-            href="/fonts/Modernist-Three-Regular.ttf"
-            as="style"
-            rel="stylesheet preload prefetch"
-            type="text/css"
-            crossOrigin="anonymous"
-          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='' />
           <link
