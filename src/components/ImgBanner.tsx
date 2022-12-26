@@ -38,6 +38,7 @@ function ImgBanner({ src }: Props) {
         layout='fill'
         quality={100}
         objectFit='cover'
+        priority
       />
     </div>
   )
