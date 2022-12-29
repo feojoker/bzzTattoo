@@ -1,9 +1,43 @@
+const isProd = process.env.NODE_ENV === 'production'
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+const securityHeaders = [
+  {
+    key: 'Content-Security-Policy',
+    value:
+      "default-src 'self' https://maps.googleapis.com/; script-src 'self' https://maps.googleapis.com/; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src 'self' https://res.cloudinary.com https://*.cdninstagram.com; font-src 'self' fonts.gstatic.com; img-src data: 'self' https://res.cloudinary.com  maps.gstatic.com *.googleapis.com *.ggpht.com",
+  },
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY',
+  },
+  {
+    key: 'X-Content-Type-Options',
+    value: 'nosniff',
+  },
+  {
+    key: 'Permissions-Policy',
+    value: "camera=(), geolocation=*, microphone=()",
+  },
+  {
+    key: 'Referrer-Policy',
+    value: 'origin-when-cross-origin',
+  },
+]
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async headers() {
+    return isProd ? [
+      {
+        source: '/:path*',
+        headers: securityHeaders,
+      },
+    ] : [];
+  },
   reactStrictMode: true,
   swcMinify: true,
   images: {
