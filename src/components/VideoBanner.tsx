@@ -47,7 +47,7 @@ function VideoBanner({ src, scrollAnchor }: Props) {
         Your browser does not support the video tag.
       </video>
       <ScrollLink to={scrollAnchor} spy={true} smooth={true} offset={-100} duration={500} >
-        <DoubleDown className="animate-bounce absolute text-white text-center inset-x-0 mx-auto bottom-[5%] z-20 border hover:bg-primary hover:border-primary focus:ring-2 focus:outline-none focus:ring-primary rounded-full" />
+        <DoubleDown className="w-[48px] h-[48px] animate-bounce absolute text-white text-center inset-x-0 mx-auto bottom-[5%] z-20 border hover:bg-primary hover:border-primary focus:ring-2 focus:outline-none focus:ring-primary rounded-full" />
       </ScrollLink>
     </div>
   )
