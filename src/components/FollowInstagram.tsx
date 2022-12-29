@@ -1,25 +1,31 @@
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import Image from 'next/future/image';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 import { InstagramPostType } from '../types';
 
 
 function FolowInstagram({ images }: { images: InstagramPostType[] }) {
-  const filteredRandomImages = images.filter((image: InstagramPostType) => image.media_type !== "VIDEO").sort(() => 0.5 - Math.random()).slice(0, 6);
+  const [randomImage, setRandomImage] = useState<InstagramPostType[]>([])
+
+  useEffect(() => {
+    const filteredRandomImages = images.filter((image: InstagramPostType) => image.media_type !== "VIDEO").sort(() => 0.5 - Math.random()).slice(0, 6);
+    setRandomImage(filteredRandomImages)
+  }, [images])
 
   return (
     <div>
       <h1 className='text-center text-sm tracking-wider font-garamond py-6 border-t border-t-primary'>FOLLOW ME ON INSTAGRAM</h1>
       <div className='relative'>
         <div className='grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-0'>
-          {filteredRandomImages.map((image: InstagramPostType) => (
+          {randomImage.map((image: InstagramPostType) => (
             <Image
               key={image.id}
+              className="aspect-square object-cover"
               src={image.media_url}
               alt={image.caption}
               height={300}
               width={300}
               quality={100}
-              objectFit='cover'
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
             />
