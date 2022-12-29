@@ -5,8 +5,7 @@ import { useRouter } from "next/router";
 import MapUserLocation from "./MapUserLocation";
 import MapDirectionsRenderer from "./MapDirectionsRenderer";
 import { ImgLoader } from "../Loader/ImgLoader";
-import Image from "next/image";
-
+import Image from 'next/future/image';
 
 type Map = google.maps.Map;
 type MapOptions = google.maps.MapOptions;

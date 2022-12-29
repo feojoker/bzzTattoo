@@ -6,7 +6,7 @@ import { getStrapiMedia } from './api/media';
 import Seo from '../components/Seo';
 import Link from 'next/link';
 import { GlobalDataContext } from '../context/GlobalDataContext';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 
 const Custom404Page = ({ notFound }: { notFound: NotFound }) => {

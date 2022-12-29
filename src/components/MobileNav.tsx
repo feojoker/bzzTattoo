@@ -5,7 +5,7 @@ import { Navs } from "../types";
 import { useOnScroll } from "../hooks/useOnScroll";
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";
-import Image from "next/image";
+import Image from "next/future/image";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
 
 const MobileNav = () => {
@@ -37,9 +37,9 @@ const MobileNav = () => {
               <Image
                 alt="logo"
                 src={logoSrc}
-                layout='fill'
+                height={500}
+                width={500}
                 quality={100}
-                objectFit='cover'
               />
             </a>
           </Link>

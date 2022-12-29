@@ -4,7 +4,7 @@ import { getStrapiMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import useOnClickOutside from "../hooks/useOnClickOutside";
 import { Lang } from '../types';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 type Props = {
   langs: Lang[],
@@ -29,7 +29,7 @@ function LanguageSwitcher({ langs }: Props) {
       <div className={`flex items-center justify-center w-[35px] h-[35px] rounded-full bg-primary hover:opacity-100 ${openSwitcher ? 'opacity-100' : 'opacity-70'}`}>
         <button onClick={() => setOpenSwitcher(!openSwitcher)} ref={buttonRef} className="flex items-center">
           {langs.map((lang: Lang) => {
-            return lang.attributes.slug === locale ? (
+            return lang.attributes.slug === locale && (
               <Image
                 alt="lang"
                 key={lang.attributes.slug}
@@ -37,14 +37,15 @@ function LanguageSwitcher({ langs }: Props) {
                 height={25}
                 width={25}
                 quality={100}
+                priority
               />
-            ) : (null);
+            );
           })}
         </button>
       </div>
       <div className={`absolute rounded-xl shadow-lg w-[180px] right-[-18px] top-[60px] px-6 py-2 bg-black ${openSwitcher ? 'block' : 'hidden'}`} ref={dropdownRef}>
         {langs.map((lang: Lang) => {
-          return lang.attributes.slug !== locale ? (
+          return lang.attributes.slug !== locale && (
             <Link href={`${asPath}`} locale={lang.attributes.slug} key={lang.attributes.slug}>
               <a onClick={() => setOpenSwitcher(!openSwitcher)}
                 className="flex items-center justify-between whitespace-nowrap group transition-all duration-300 ease-in-out"
@@ -57,10 +58,11 @@ function LanguageSwitcher({ langs }: Props) {
                   height={25}
                   width={25}
                   quality={100}
+                  priority
                 />
               </a>
             </Link>
-          ) : (null);
+          );
         })}
       </div>
     </div>

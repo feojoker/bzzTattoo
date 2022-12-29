@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from 'next/future/image';
 import { InstagramPostType } from '../types';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 
@@ -12,12 +12,12 @@ function InstagramFeed({ images }: { images: InstagramPostType[] }) {
           <a key={image.id} href={image.permalink} target="_blank" rel="noreferrer">
             <div className='brightness-75 hover:filter-none transition duration-150'>
               <Image
+                className="aspect-square object-cover"
                 src={image.media_url}
                 alt={image.caption}
                 height={400}
                 width={400}
                 quality={100}
-                objectFit='cover'
                 placeholder="blur"
                 blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
               />

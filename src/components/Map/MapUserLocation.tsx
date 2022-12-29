@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import Image from "next/image";
+import Image from 'next/future/image';
 
 type LatLngLiteral = google.maps.LatLngLiteral | undefined;
 

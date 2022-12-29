@@ -5,7 +5,7 @@ import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
 import { GlobalDataContext } from "../context/GlobalDataContext";
-import Image from "next/image";
+import Image from 'next/future/image';
 
 
 const Nav = () => {
@@ -22,7 +22,7 @@ const Nav = () => {
           {leftNavs.map((category: Navs) => {
             return (
               <li key={category.id}>
-                <Link href={`${category.attributes.link}`} prefetch={false}>
+                <Link href={`${category.attributes.link}`}>
                   <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
                     <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                       {category.attributes.name}
@@ -40,27 +40,28 @@ const Nav = () => {
               'w-[100px] h-[100px] pt-[15px] xl:w-[150px] xl:h-[150px] xl:pt-[40px] xl:mx-[50px]'
             }
             `}>
-            <Link href='/' prefetch={false}>
+            <Link href='/'>
               <a className="opacity-70 hover:opacity-100">
                 <div className="absolute left-0 right-0 w-full h-full">
                   <Image
-                    alt="logo"
+                    alt="logoNav"
                     src={logoSrc}
-                    layout='fill'
+                    width={150}
+                    height={150}
                     quality={100}
-                    objectFit='cover'
+                    priority
                   />
                 </div>
               </a>
             </Link>
           </div>
         </div>
-        <div className="basis-2/4 flex items-center  justify-between">
+        <div className="basis-2/4 flex items-center justify-between">
           <ul className="flex items-center justify-start space-x-8 space-y-0">
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id}>
-                  <Link href={`${category.attributes.link}`} prefetch={false}>
+                  <Link href={`${category.attributes.link}`}>
                     <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
                       <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                         {category.attributes.name}

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getStrapiMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import { Lang } from '../types';
-import Image from 'next/image';
+import Image from 'next/future/image';
 
 type Props = {
   langs: Lang[],

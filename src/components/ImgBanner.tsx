@@ -1,6 +1,6 @@
 import { getStrapiMedia } from "../pages/api/media";
 import { MediaBanner } from "../types";
-import Image from 'next/image';
+import Image from 'next/future/image';
 import ReactMarkdown from 'react-markdown';
 
 type Props = {
@@ -33,11 +33,12 @@ function ImgBanner({ src }: Props) {
         </ReactMarkdown>
       ) : null}
       <Image
+        className='absolute inset-0 object-cover h-full'
         alt="imgBanner"
         src={imgBannerSrc}
-        layout='fill'
+        height={824}
+        width={1920}
         quality={100}
-        objectFit='cover'
         priority
       />
     </div>
