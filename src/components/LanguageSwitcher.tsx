@@ -37,7 +37,6 @@ function LanguageSwitcher({ langs }: Props) {
                 height={25}
                 width={25}
                 quality={100}
-                priority
               />
             );
           })}
@@ -58,7 +57,6 @@ function LanguageSwitcher({ langs }: Props) {
                   height={25}
                   width={25}
                   quality={100}
-                  priority
                 />
               </a>
             </Link>
