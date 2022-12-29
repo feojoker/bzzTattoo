@@ -1,17 +1,14 @@
 import { useContext } from "react";
 import Link from "next/link";
-import { getStrapiMedia } from "../pages/api/media";
 import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
 import { GlobalDataContext } from "../context/GlobalDataContext";
-import Image from 'next/future/image';
+import Logo from '../../public/logo.svg';
 
 
 const Nav = () => {
-  const { global, leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
-
-  const logoSrc = getStrapiMedia(global.attributes.logo)
+  const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
 
   const scrolled = useOnScroll()
 
@@ -37,21 +34,12 @@ const Nav = () => {
           <div className={`relative transition-all ease 
           ${scrolled ?
               'w-[70px] h-[70px]' :
-              'w-[100px] h-[100px] pt-[15px] xl:w-[150px] xl:h-[150px] xl:pt-[40px] xl:mx-[50px]'
+              'w-[100px] h-[100px] mt-[30px] xl:w-[150px] xl:h-[150px] xl:mt-[80px] xl:mx-[50px]'
             }
             `}>
             <Link href='/'>
               <a className="opacity-70 hover:opacity-100">
-                <div className="absolute left-0 right-0 w-full h-full">
-                  <Image
-                    alt="logoNav"
-                    src={logoSrc}
-                    width={150}
-                    height={150}
-                    quality={100}
-                    priority
-                  />
-                </div>
+                <Logo className="absolute inset-0" />
               </a>
             </Link>
           </div>

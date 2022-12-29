@@ -1,17 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { getStrapiMedia } from "../pages/api/media";
 import { Navs } from "../types";
 import { useOnScroll } from "../hooks/useOnScroll";
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";
-import Image from "next/future/image";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
+import Logo from '../../public/logo.svg';
 
 const MobileNav = () => {
-  const { global, leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
-
-  const logoSrc = getStrapiMedia(global.attributes.logo);
+  const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
 
   const scrolled = useOnScroll();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,13 +31,7 @@ const MobileNav = () => {
           }`}>
           <Link href='/'>
             <a className="opacity-70 hover:opacity-100">
-              <Image
-                alt="logo"
-                src={logoSrc}
-                height={500}
-                width={500}
-                quality={100}
-              />
+              <Logo className="absolute inset-0" />
             </a>
           </Link>
         </div>
