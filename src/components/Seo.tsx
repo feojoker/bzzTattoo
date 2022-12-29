@@ -26,6 +26,7 @@ const Seo = ({ seo }: Props) => {
 
   return (
     <Head>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
       {fullSeo.metaTitle && (
         <>
           <title>{fullSeo.metaTitle}</title>
