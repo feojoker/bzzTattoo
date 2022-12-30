@@ -37,6 +37,7 @@ const MobileNav = () => {
                 height={150}
                 width={150}
                 quality={100}
+                priority
               />
             </a>
           </Link>
