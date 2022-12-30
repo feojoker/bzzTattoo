@@ -16,13 +16,13 @@ type Props = {
 const Projects = ({ instagramFeed, projects }: Props) => {
   const images = instagramFeed.data;
 
-  const { mediaBanner, seo } = projects.attributes;
+  const { title, subtitle, mediaBanner, seo } = projects.attributes;
 
   return (
     <Layout>
-      <Seo />
+      <Seo seo={seo} />
       <ImgBanner src={mediaBanner} />
-      <InstagramFeed images={images} />
+      <InstagramFeed title={title} subtitle={subtitle} images={images} />
     </Layout>
   )
 }
