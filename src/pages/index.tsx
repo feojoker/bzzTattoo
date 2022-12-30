@@ -39,6 +39,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
         seo: { populate: "*" },
         mediaBanner: { populate: { media: "*" } },
       },
+      locale: locale
     }),
     fetchAPI<BriefInfo>("/brief-about", { populate: "*", locale: locale }),
   ]);

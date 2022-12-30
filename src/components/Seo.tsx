@@ -1,14 +1,12 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useContext } from "react";
 import { DefaultSeoContext } from "../context/DefaultSeoContext";
 import { getStrapiMedia } from "../pages/api/media";
 import { Seo } from "../types";
 
-type Props = {
-  seo?: Seo
-}
 
-const Seo = ({ seo }: Props) => {
+const Seo = ({ seo }: { seo?: Seo }) => {
   const global = useContext(DefaultSeoContext);
   const { defaultSeo, siteName } = global.attributes
 
@@ -25,9 +23,13 @@ const Seo = ({ seo }: Props) => {
     shareImage: getStrapiMedia(seoWithDefaults.shareImage),
   };
 
+  const { locale, asPath } = useRouter();
+  const url = "https://www.bzztattoo.com" + asPath;
+
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+
       {fullSeo.metaTitle && (
         <>
           <title>{fullSeo.metaTitle}</title>
@@ -50,6 +52,11 @@ const Seo = ({ seo }: Props) => {
         </>
       )}
       <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content={locale} />
+      <meta property="og:url" content={url} />
+      <meta name="twitter:site" content="@bzztattoo" />
+
     </Head>
   );
 };

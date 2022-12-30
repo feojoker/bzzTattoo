@@ -11,11 +11,11 @@ const GoogleMaps = dynamic(() => import('../components/Map'), { loading: () => <
 
 const Contact = ({ contact }: { contact: ContactPage }) => {
 
-  const { formEmail, mediaBanner } = contact.attributes;
+  const { formEmail, mediaBanner, seo } = contact.attributes;
 
   return (
     <Layout>
-      <Seo />
+      <Seo seo={seo} />
       <ImgBanner src={mediaBanner} />
       <div className="bg-secondary md:h-[700px]">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between md:h-full">
@@ -36,9 +36,10 @@ export async function getStaticProps({ locale }: { locale: string }) {
   const contactRes = await fetchAPI<ContactPage>("/contact-page", {
     populate: {
       mediaBanner: { populate: { media: "*" } },
-      formEmail: "*"
+      formEmail: "*",
+      seo: "*",
     },
-    locale: locale
+    locale: locale,
   });
 
   return {
