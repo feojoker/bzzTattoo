@@ -23,6 +23,7 @@ function NotFoundComponent({ data }: { data: NotFound }) {
           height={200}
           width={200}
           quality={100}
+          priority
         />
       </div>
     </div>
