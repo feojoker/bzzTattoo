@@ -17,11 +17,6 @@ class MyDocument extends Document<Props> {
             href="https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@200;400;700&display=swap"
           />
           <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display&display=swap" rel="stylesheet" />
-
-          <meta name="theme-color" content="#07070f" />
-          <meta name="msapplication-navbutton-color" content="#07070f" />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
-          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         </Head>
         <body>
           <Main />
