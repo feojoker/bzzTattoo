@@ -31,7 +31,7 @@ function LanguageSwitcher({ langs }: Props) {
           {langs.map((lang: Lang) => {
             return lang.attributes.slug === locale && (
               <Image
-                alt="lang"
+                alt={lang.attributes.slug}
                 key={lang.attributes.slug}
                 src={getStrapiMedia(lang.attributes.icon)}
                 height={25}
@@ -51,7 +51,7 @@ function LanguageSwitcher({ langs }: Props) {
               >
                 <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">{lang.attributes.name}</span>
                 <Image
-                  alt="lang"
+                  alt={lang.attributes.slug}
                   key={lang.attributes.slug}
                   src={getStrapiMedia(lang.attributes.icon)}
                   height={25}

@@ -24,13 +24,12 @@ function MobileLanguageSwitcher({ langs }: Props) {
             <Link href={`${asPath}`} locale={lang.attributes.slug} >
               <a className="flex items-center justify-between whitespace-nowrap">
                 <Image
-                  alt="lang"
+                  alt={lang.attributes.slug}
                   key={lang.attributes.slug}
                   src={getStrapiMedia(lang.attributes.icon)}
                   height={25}
                   width={25}
                   quality={100}
-                  priority
                 />
               </a>
             </Link>
