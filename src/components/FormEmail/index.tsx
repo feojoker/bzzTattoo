@@ -49,7 +49,7 @@ function FormEmail({ data }: Props) {
   return (
     <div>
       <h1 className='w-full mb-4 uppercase'>{title}</h1>
-      <p className='mb-4'>{subTitle}</p>
+      <h2 className='mb-4'>{subTitle}</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
         onKeyDown={(e) => checkKeyDown(e)}
