@@ -10,7 +10,6 @@ type Props = {
 
 const Seo = ({ seo }: Props) => {
   const global = useContext(DefaultSeoContext);
-  console.log(global)
   const { defaultSeo, siteName } = global.attributes
 
   const seoWithDefaults = {

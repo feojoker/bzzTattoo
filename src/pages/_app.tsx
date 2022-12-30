@@ -25,8 +25,6 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
 
   const { defaultSeo, leftNavs, rightNavs, langs, footer } = pageProps;
   const globalData = { leftNavs, rightNavs, langs, footer };
-  console.log(langs)
-  // const globalData = pageProps
 
   return (
     <>
