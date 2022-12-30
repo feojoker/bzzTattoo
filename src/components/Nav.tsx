@@ -4,7 +4,7 @@ import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
 import { GlobalDataContext } from "../context/GlobalDataContext";
-import Logo from '../../public/logo.svg';
+import Image from 'next/future/image';
 
 
 const Nav = () => {
@@ -31,7 +31,7 @@ const Nav = () => {
           })}
         </ul>
         <div className="flex items-center justify-center basis-[170px] xl:basis-[250px]">
-          <div className={`relative transition-all ease 
+          <div className={`transition-all ease 
           ${scrolled ?
               'w-[70px] h-[70px]' :
               'w-[100px] h-[100px] mt-[30px] xl:w-[150px] xl:h-[150px] xl:mt-[80px] xl:mx-[50px]'
@@ -39,7 +39,13 @@ const Nav = () => {
             `}>
             <Link href='/'>
               <a className="opacity-70 hover:opacity-100">
-                <Logo className="absolute inset-0" />
+                <Image
+                  alt="logo"
+                  src="/logo.png"
+                  height={150}
+                  width={150}
+                  quality={100}
+                />
               </a>
             </Link>
           </div>

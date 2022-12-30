@@ -5,7 +5,7 @@ import { useOnScroll } from "../hooks/useOnScroll";
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
-import Logo from '../../public/logo.svg';
+import Image from 'next/future/image';
 
 const MobileNav = () => {
   const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
@@ -24,14 +24,20 @@ const MobileNav = () => {
   return (
     <>
       <div className={`fixed flex justify-between items-center w-full h-[80px] top-0  shadow-secondary z-50  ${scrolled && 'bg-black shadow'}`}>
-        <div className={`relative transition-all ease 
+        <div className={`transition-all ease 
           ${scrolled ?
             'w-[70px] h-[70px]' :
             'w-[90px] h-[90px] mt-[40px] ml-[10px]'
           }`}>
           <Link href='/'>
             <a className="opacity-70 hover:opacity-100">
-              <Logo className="absolute inset-0" />
+              <Image
+                alt="logo"
+                src="/logo.png"
+                height={150}
+                width={150}
+                quality={100}
+              />
             </a>
           </Link>
         </div>

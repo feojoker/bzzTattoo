@@ -1,12 +1,18 @@
 import Circles from "../../../public/circles.svg";
-import Logo from '../../../public/logo.svg';
+import Image from 'next/future/image';
 
 
 export const ImgLoader = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="mb-4">
-        <Logo className="h-[150px] w-[150px]" />
+        <Image
+          alt="logo"
+          src="/logo.png"
+          height={150}
+          width={150}
+          quality={100}
+        />
       </div>
       <Circles />
     </div>

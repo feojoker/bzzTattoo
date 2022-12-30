@@ -3,7 +3,7 @@ import Seo from '../components/Seo';
 import { fetchAPI } from './api/api';
 import { NotFound } from "../types/pages";
 import Link from 'next/link';
-import Logo from '../../public/logo.svg';
+import Image from 'next/future/image';
 
 
 const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
@@ -28,7 +28,13 @@ const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
           </Link>
         </div>
         <div className="md:ml-20 md:mt-0">
-          <Logo className="h-[200px] w-[200px]" />
+          <Image
+            alt="logo"
+            src="/logo.png"
+            height={200}
+            width={200}
+            quality={100}
+          />
         </div>
       </div>
     </div>
