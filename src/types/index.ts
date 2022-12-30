@@ -74,19 +74,15 @@ export type Seo = {
   shareImage?: shareMedia,
 }
 
-export type GlobalData = {
+export type DefaultSeo = {
   id: number,
   attributes: {
     siteName: string,
-    createdAt: string,
-    updatedAt: string,
     defaultSeo: Seo,
-    logo: shareMedia,
   }
 }
 
 export type CombinedGlobalData = {
-  global: GlobalData,
   leftNavs: Navs[],
   rightNavs: Navs[],
   langs: Lang[],
