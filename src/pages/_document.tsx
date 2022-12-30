@@ -18,12 +18,16 @@ class MyDocument extends Document<Props> {
           />
           <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Playfair+Display&display=swap" rel="stylesheet" />
 
+          <meta name="theme-color" content="#000000" />
+          <meta name="msapplication-navbutton-color" content="#000000" />
+          <meta name="apple-mobile-web-app-status-bar-style" content="#000000" />
+
         </Head>
         <body>
           <Main />
           <NextScript />
         </body>
-      </Html>
+      </Html >
     )
   }
 }
