@@ -71,7 +71,11 @@ export type Seo = {
   id?: number,
   metaTitle: string,
   metaDescription: string,
+  locale?: string,
   shareImage?: shareMedia,
+  localization?: {
+    data: Seo[]
+  }
 }
 
 export type DefaultSeo = {

@@ -44,7 +44,7 @@ export type ProjectsPage = {
   id: number,
   attributes: {
     title: string,
-    subTitle: string,
+    subtitle: string,
     createdAt: string,
     updatedAt: string,
     locale: string,
