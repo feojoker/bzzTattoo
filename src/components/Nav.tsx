@@ -40,11 +40,12 @@ const Nav = () => {
             <Link href='/'>
               <a className="opacity-70 hover:opacity-100">
                 <Image
-                  alt="logo"
+                  alt="logoDesktop"
                   src="/logo.png"
                   height={150}
                   width={150}
                   quality={100}
+                  priority
                 />
               </a>
             </Link>

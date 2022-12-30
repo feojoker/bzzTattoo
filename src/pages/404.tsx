@@ -29,11 +29,12 @@ const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
         </div>
         <div className="md:ml-20 md:mt-0">
           <Image
-            alt="logo"
+            alt="logo404"
             src="/logo.png"
             height={200}
             width={200}
             quality={100}
+            priority
           />
         </div>
       </div>

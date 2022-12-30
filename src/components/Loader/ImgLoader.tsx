@@ -7,11 +7,12 @@ export const ImgLoader = () => {
     <div className="flex flex-col items-center justify-center w-full">
       <div className="mb-4">
         <Image
-          alt="logo"
+          alt="logoLoader"
           src="/logo.png"
           height={150}
           width={150}
           quality={100}
+          priority
         />
       </div>
       <Circles />

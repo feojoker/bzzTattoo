@@ -29,11 +29,12 @@ const Store = ({ store }: { store: NotFound }) => {
         </div>
         <div className="max-w-[200px] md:ml-20 md:mt-0">
           <Image
-            alt="logo"
+            alt="logoStore"
             src="/logo.png"
             height={200}
             width={200}
             quality={100}
+            priority
           />
         </div>
       </div>
