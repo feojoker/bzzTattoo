@@ -19,7 +19,7 @@ const Nav = () => {
           {leftNavs.map((category: Navs) => {
             return (
               <li key={category.id}>
-                <Link href={`${category.attributes.link}`}>
+                <Link href={`${category.attributes.link}`} rel="canonical">
                   <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
                     <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                       {category.attributes.name}
@@ -56,7 +56,7 @@ const Nav = () => {
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id}>
-                  <Link href={`${category.attributes.link}`}>
+                  <Link href={`${category.attributes.link}`} rel="canonical">
                     <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
                       <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                         {category.attributes.name}

@@ -55,7 +55,7 @@ const MobileNav = () => {
             {leftNavs.map((category: Navs) => {
               return (
                 <li key={category.id} className="mb-2">
-                  <Link href={`${category.attributes.link}`}>
+                  <Link href={`${category.attributes.link}`} rel="canonical">
                     <a className="whitespace-nowrap">{category.attributes.name}</a>
                   </Link>
                 </li>
@@ -66,7 +66,7 @@ const MobileNav = () => {
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id} className="mb-2">
-                  <Link href={`${category.attributes.link}`}>
+                  <Link href={`${category.attributes.link}`} rel="canonical">
                     <a className="whitespace-nowrap">{category.attributes.name}</a>
                   </Link>
                 </li>
