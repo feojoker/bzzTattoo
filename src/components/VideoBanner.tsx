@@ -1,6 +1,5 @@
 import { getStrapiMedia } from "../pages/api/media";
 import { MediaBanner } from "../types";
-import ReactMarkdown from "react-markdown";
 import DoubleDown from '../../public/doubleDown.svg';
 import { Link as ScrollLink } from 'react-scroll';
 
@@ -19,22 +18,22 @@ function VideoBanner({ src, scrollAnchor }: Props) {
   return (
     <div className="relative font-garamond uppercase w-full mb-12 z-1 fullHeight">
       {title ? (
-        <ReactMarkdown className='
-        absolute text-white z-20 
+        <p className='
+        absolute text-white z-20 whitespace-pre-wrap
         top-[25%] left-[5%] text-2xl 
         md:left-[10%] md:text-5xl
         '>
           {title}
-        </ReactMarkdown>
+        </p>
       ) : null}
       {smallText ? (
-        <ReactMarkdown className='
-        absolute text-white z-20 
+        <p className='
+        absolute text-white z-20 whitespace-pre-wrap
         bottom-[20%] right-[5%] text-xs 
         md:bottom-[7%] md:right-[10%] md:text-sm
         '>
           {smallText}
-        </ReactMarkdown>
+        </p>
       ) : null}
       <div className="absolute inset-0 opacity-60 bg-black w-full h-full z-10"></div>
       <video
