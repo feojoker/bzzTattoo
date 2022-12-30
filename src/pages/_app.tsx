@@ -1,19 +1,20 @@
 
 import App, { AppContext, AppProps as NextAppProps } from "next/app";
 import { fetchAPI } from "./api/api";
-import { Footer, GlobalData, Lang, Navs } from "../types";
+import { Footer, DefaultSeo, Lang, Navs } from "../types";
 import { GlobalDataProvider } from "../context/GlobalDataContext";
 import { MediaQueryProvider } from "../context/MediaQueryContext";
 import { Loader } from '../components/Loader';
 import "../../styles/style.css";
 import "../../styles/fonts.css";
+import { DefaultSeoProvider } from "../context/DefaultSeoContext";
 
 type AppProps<P = any> = {
   pageProps: P;
 } & Pick<NextAppProps<P>, "Component">;
 
 type CustomPageProps = {
-  global: GlobalData,
+  defaultSeo: DefaultSeo,
   leftNavs: Navs[],
   rightNavs: Navs[],
   langs: Lang[],
@@ -21,21 +22,21 @@ type CustomPageProps = {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
-  const globalData = {
-    global: pageProps.global,
-    leftNavs: pageProps.leftNavs,
-    rightNavs: pageProps.rightNavs,
-    langs: pageProps.langs,
-    footer: pageProps.footer,
-  }
+
+  const { defaultSeo, leftNavs, rightNavs, langs, footer } = pageProps;
+  const globalData = { leftNavs, rightNavs, langs, footer };
+  console.log(langs)
+  // const globalData = pageProps
 
   return (
     <>
       <MediaQueryProvider>
-        <GlobalDataProvider globalData={globalData}>
-          <Loader />
-          <Component {...pageProps} />
-        </GlobalDataProvider>
+        <DefaultSeoProvider defaultSeo={defaultSeo}>
+          <GlobalDataProvider globalData={globalData}>
+            <Loader />
+            <Component {...pageProps} />
+          </GlobalDataProvider>
+        </DefaultSeoProvider>
       </MediaQueryProvider>
     </>
   );
@@ -50,16 +51,16 @@ MyApp.getInitialProps = async (context: AppContext) => {
   const locale = context.router.locale;
 
   // Run API calls in parallel
-  const [globalRes, leftNavsRes, rightNavsRes, langRes, footerRes] = await Promise.all([
-    fetchAPI<GlobalData>("/global-data", {
+  const [defaultSeoRes, leftNavsRes, rightNavsRes, langRes, footerRes] = await Promise.all([
+    fetchAPI<DefaultSeo>("/default-seo", {
       populate: {
         defaultSeo: {
           populate: { shareImage: { populate: "*" } }
         },
-        logo: { populate: "*" },
-      }
+      },
+      locale: locale
     }),
-    fetchAPI<Navs[]>(`/left-navs`, { populate: "*", locale: locale }),
+    fetchAPI<Navs[]>("/left-navs", { populate: "*", locale: locale }),
     fetchAPI<Navs[]>("/right-navs", { populate: "*", locale: locale }),
     fetchAPI<Lang[]>("/language-icons", { populate: "*" }),
     fetchAPI<Footer>("/footer", { populate: "*", locale: locale })
@@ -68,7 +69,7 @@ MyApp.getInitialProps = async (context: AppContext) => {
   return {
     ...appProps, pageProps:
     {
-      global: globalRes,
+      defaultSeo: defaultSeoRes,
       leftNavs: leftNavsRes,
       rightNavs: rightNavsRes,
       langs: langRes,
@@ -78,3 +79,4 @@ MyApp.getInitialProps = async (context: AppContext) => {
 };
 
 export default MyApp;
+
