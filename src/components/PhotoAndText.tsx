@@ -19,7 +19,9 @@ function PhotoAndText({ data, scrollAnchor }: Props) {
       className='container mx-auto grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8'
     >
       <h1 className='text-7xl text-right tracking-widest whitespace-pre-wrap'>
-        {title}
+        <strong>
+          {title}
+        </strong>
       </h1>
       <h2 className='text-5xl font-garamond font-bold self-end ml-auto italic lg:ml-0 lg:non-italic'>
         {subTitle}
@@ -27,7 +29,7 @@ function PhotoAndText({ data, scrollAnchor }: Props) {
       <div className='relative h-[400px] sm:h-[500px] md:h-[600px]'>
         <Image
           className='absolute inset-0 h-full object-cover'
-          alt="img"
+          alt="Image near from text"
           src={imgSrc}
           height={1000}
           width={1000}

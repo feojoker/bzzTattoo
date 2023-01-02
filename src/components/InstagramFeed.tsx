@@ -16,7 +16,9 @@ function InstagramFeed({ title, subtitle, images }: Props) {
       <div className='container mx-auto'>
         <div className='mx-auto pt-6 max-w-7xl lg:flex lg:items-end'>
           <h1 className='text-7xl tracking-widest whitespace-pre-wrap px-5 md:px-0'>
-            {title}
+            <strong>
+              {title}
+            </strong>
           </h1>
           <h2 className='text-2xl font-garamond lg:ml-8'>{subtitle}</h2>
         </div>
