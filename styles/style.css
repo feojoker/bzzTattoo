@@ -27,6 +27,10 @@ h1 {
   line-height: 48px;
 }
 
+strong {
+  font-weight: initial;
+}
+
 #lang {
   font-family: 'Mukta Mahee', "Arial", sans-serif;
   line-height: 40px;
