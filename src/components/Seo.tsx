@@ -24,11 +24,14 @@ const Seo = ({ seo }: { seo?: Seo }) => {
   };
 
   const { locale, asPath } = useRouter();
-  const url = "https://www.bzztattoo.com" + asPath;
+  const canonicalURL = locale !== "en" ?
+    "https://www.bzztattoo.com/" + locale + asPath
+    : "https://www.bzztattoo.com" + asPath;
 
   return (
     <Head>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+      <link rel="canonical" href={canonicalURL} />
       <meta name="theme-color" content="#000000" />
       {fullSeo.metaTitle && (
         <>
@@ -54,7 +57,7 @@ const Seo = ({ seo }: { seo?: Seo }) => {
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={locale} />
-      <meta property="og:url" content={url} />
+      <meta property="og:url" content={canonicalURL} />
       <meta name="twitter:site" content="@bzztattoo" />
 
     </Head>
