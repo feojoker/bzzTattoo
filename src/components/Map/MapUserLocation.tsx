@@ -25,7 +25,7 @@ function MapUserLocation({ location, setLocation }: Props) {
         }
       }}
     >
-      <Image src="/mapButtons/directions.png" alt="directions" width={40} height={40} unoptimized />
+      <Image src="/mapButtons/directions.png" alt="Directions to studio on maps" width={40} height={40} unoptimized />
     </button>
   );
 }

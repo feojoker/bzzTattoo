@@ -7,7 +7,7 @@ export const ImgLoader = () => {
     <div className="flex flex-col items-center justify-center w-full">
       <div className="mb-4">
         <Image
-          alt="logoLoader"
+          alt="Logo showing on loader"
           src="/logo.png"
           height={150}
           width={150}

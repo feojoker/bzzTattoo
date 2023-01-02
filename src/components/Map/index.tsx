@@ -83,7 +83,7 @@ function Map({ googleMapsApiKey }: Props) {
           setZoom(15);
         }}
       >
-        <Image src="/mapButtons/center.png" alt="directions" height={40} width={40} unoptimized />
+        <Image src="/mapButtons/center.png" alt="Studio position button on maps" height={40} width={40} unoptimized />
       </button>
       <GoogleMap
         id="map"

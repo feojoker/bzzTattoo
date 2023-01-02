@@ -32,7 +32,7 @@ function ImgBanner({ src }: Props) {
       ) : null}
       <Image
         className='absolute inset-0 object-cover h-full'
-        alt="imgBanner"
+        alt="Large image banner on top of the page"
         src={imgBannerSrc}
         height={824}
         width={1920}
