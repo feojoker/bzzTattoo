@@ -24,18 +24,18 @@ const MobileNav = () => {
   return (
     <>
       <div className={`fixed flex justify-between items-center w-full h-[80px] top-0  shadow-secondary z-50  ${scrolled && 'bg-black shadow'}`}>
-        <div className={`transition-all ease 
+        <div className={`relative transition-all ease 
           ${scrolled ?
             'w-[70px] h-[70px]' :
             'w-[90px] h-[90px] mt-[40px] ml-[10px]'
           }`}>
           <Link href='/'>
-            <a className="opacity-70 hover:opacity-100">
+            <a className="absolute inset-0 opacity-70 hover:opacity-100">
               <Image
-                alt="logoMobile"
+                alt="Logo showing on mobile nav"
                 src="/logo.png"
-                height={150}
-                width={150}
+                fill
+                sizes="30vw"
                 quality={100}
                 priority
               />
@@ -55,7 +55,7 @@ const MobileNav = () => {
             {leftNavs.map((category: Navs) => {
               return (
                 <li key={category.id} className="mb-2">
-                  <Link href={`${category.attributes.link}`} rel="canonical">
+                  <Link href={`${category.attributes.link}`}>
                     <a className="whitespace-nowrap">{category.attributes.name}</a>
                   </Link>
                 </li>
@@ -66,7 +66,7 @@ const MobileNav = () => {
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id} className="mb-2">
-                  <Link href={`${category.attributes.link}`} rel="canonical">
+                  <Link href={`${category.attributes.link}`}>
                     <a className="whitespace-nowrap">{category.attributes.name}</a>
                   </Link>
                 </li>

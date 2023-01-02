@@ -19,7 +19,7 @@ const Nav = () => {
           {leftNavs.map((category: Navs) => {
             return (
               <li key={category.id}>
-                <Link href={`${category.attributes.link}`} rel="canonical">
+                <Link href={`${category.attributes.link}`}>
                   <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
                     <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                       {category.attributes.name}
@@ -31,19 +31,19 @@ const Nav = () => {
           })}
         </ul>
         <div className="flex items-center justify-center basis-[170px] xl:basis-[250px]">
-          <div className={`transition-all ease 
+          <div className={`relative transition-all ease 
           ${scrolled ?
               'w-[70px] h-[70px]' :
               'w-[100px] h-[100px] mt-[30px] xl:w-[150px] xl:h-[150px] xl:mt-[80px] xl:mx-[50px]'
             }
             `}>
             <Link href='/'>
-              <a className="opacity-70 hover:opacity-100">
+              <a className="absolute inset-0  opacity-70 hover:opacity-100">
                 <Image
-                  alt="logoDesktop"
+                  alt="Logo showing on desktop nav"
                   src="/logo.png"
-                  height={150}
-                  width={150}
+                  fill
+                  sizes="20vw"
                   quality={100}
                   priority
                 />
@@ -56,7 +56,7 @@ const Nav = () => {
             {rightNavs.map((category: Navs) => {
               return (
                 <li key={category.id}>
-                  <Link href={`${category.attributes.link}`} rel="canonical">
+                  <Link href={`${category.attributes.link}`}>
                     <a className="whitespace-nowrap opacity-70 hover:opacity-100 group text-primary transition-all duration-300 ease-in-out">
                       <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">
                         {category.attributes.name}
