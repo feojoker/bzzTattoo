@@ -49,9 +49,7 @@ function FormEmail({ data }: Props) {
   return (
     <div>
       <h1 className='w-full mb-4 uppercase'>
-        <strong>
-          {title}
-        </strong>
+        {title}
       </h1>
       <h2 className='mb-4'>{subTitle}</h2>
       <form

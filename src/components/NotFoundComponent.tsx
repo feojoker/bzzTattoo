@@ -11,9 +11,8 @@ function NotFoundComponent({ data }: { data: NotFound }) {
       <div className="max-w-md">
         <p className="text-5xl font-dark font-bold">404</p>
         <h1 className="text-2xl md:text-3xl font-light leading-normal mb-4">
-          <strong>
-            {title}
-          </strong>
+          {title}
+
         </h1>
         <h2 className="mb-8 text-lg font-garamond">{description}</h2>
         <Link href="/">

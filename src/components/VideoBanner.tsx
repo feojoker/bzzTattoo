@@ -23,7 +23,9 @@ function VideoBanner({ src, scrollAnchor }: Props) {
         top-[25%] left-[5%] text-2xl 
         md:left-[10%] md:text-5xl
         '>
-          {title}
+          <strong>
+            {title}
+          </strong>
         </p>
       ) : null}
       {smallText ? (

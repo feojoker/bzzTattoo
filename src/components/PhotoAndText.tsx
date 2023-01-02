@@ -19,9 +19,7 @@ function PhotoAndText({ data, scrollAnchor }: Props) {
       className='container mx-auto grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8'
     >
       <h1 className='text-7xl text-right tracking-widest whitespace-pre-wrap'>
-        <strong>
-          {title}
-        </strong>
+        {title}
       </h1>
       <h2 className='text-5xl font-garamond font-bold self-end ml-auto italic lg:ml-0 lg:non-italic'>
         {subTitle}

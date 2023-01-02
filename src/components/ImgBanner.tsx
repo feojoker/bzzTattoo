@@ -18,7 +18,9 @@ function ImgBanner({ src }: Props) {
         top-[35%] left-[5%] text-2xl 
         md:top-[20%] md:left-[10%] md:text-5xl
         '>
-          {title}
+          <strong>
+            {title}
+          </strong>
         </p>
       ) : null}
       {smallText ? (
