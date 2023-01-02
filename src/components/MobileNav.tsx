@@ -31,6 +31,7 @@ const MobileNav = () => {
           }`}>
           <Link href='/'>
             <a className="absolute inset-0 opacity-70 hover:opacity-100">
+              <span className="hidden">Link to homepage</span>
               <Image
                 alt="Logo showing on mobile nav"
                 src="/logo.png"
