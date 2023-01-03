@@ -7,7 +7,7 @@ import { NotFound } from "../types/pages";
 
 const Custom404Page = ({ notFound }: { notFound: NotFound }) => {
 
-  const { title, description, buttonText } = notFound.attributes;
+  const { title, description } = notFound.attributes;
 
   const seo = {
     metaTitle: title,
@@ -33,6 +33,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
     props: {
       notFound: notFoundRes,
     },
+    revalidate: 60 * 60,
   };
 }
 

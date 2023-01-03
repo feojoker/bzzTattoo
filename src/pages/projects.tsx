@@ -45,7 +45,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
       instagramFeed,
       projects: projectsRes,
     },
-    revalidate: 1,
   };
 }
 

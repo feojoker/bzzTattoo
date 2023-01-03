@@ -46,7 +46,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
     props: {
       contact: contactRes,
     },
-    revalidate: 1,
   };
 }
 

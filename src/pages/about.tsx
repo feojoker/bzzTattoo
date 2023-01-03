@@ -33,7 +33,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
     props: {
       about: aboutRes,
     },
-    revalidate: 1,
   };
 }
 
