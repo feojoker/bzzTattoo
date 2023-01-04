@@ -7,11 +7,29 @@ import BurgerButton from "./Buttons/BurgerButton";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
 import Image from 'next/future/image';
 
+const initialStyle = {
+  container: "",
+  logo: "w-[90px] h-[90px] mt-[40px] ml-[10px]"
+}
+
 const MobileNav = () => {
   const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
 
-  const scrolled = useOnScroll();
+  const [scrolledStyle, setScrolledStyle] = useState(initialStyle);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const scrolled = useOnScroll();
+
+  useEffect(() => {
+    if (scrolled) {
+      setScrolledStyle({
+        container: "bg-black shadow",
+        logo: "w-[70px] h-[70px]"
+      })
+    } else {
+      setScrolledStyle(initialStyle)
+    }
+  }, [scrolled])
 
   useEffect(() => {
     if (menuOpen) {
@@ -23,12 +41,10 @@ const MobileNav = () => {
 
   return (
     <>
-      <div className={`fixed flex justify-between items-center w-full h-[80px] top-0  shadow-secondary z-50  ${scrolled && 'bg-black shadow'}`}>
+      <div className={`fixed flex justify-between items-center w-full h-[80px] top-0 shadow-secondary z-50 
+      ${scrolledStyle.container}`}>
         <div className={`relative transition-all ease 
-          ${scrolled ?
-            'w-[70px] h-[70px]' :
-            'w-[90px] h-[90px] mt-[40px] ml-[10px]'
-          }`}>
+          ${scrolledStyle.logo}`}>
           <Link href='/'>
             <a className="absolute inset-0 opacity-70 hover:opacity-100">
               <span className="hidden">Link to homepage</span>

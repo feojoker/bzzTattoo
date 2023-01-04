@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
@@ -9,11 +9,19 @@ import Image from 'next/future/image';
 
 const Nav = () => {
   const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
+  const [scrolledStyle, setScrolledStyle] = useState("");
 
   const scrolled = useOnScroll()
+  useEffect(() => {
+    if (scrolled) {
+      setScrolledStyle("bg-black shadow")
+    } else {
+      setScrolledStyle("")
+    }
+  }, [scrolled])
 
   return (
-    <nav className={`xl:text-3xl fixed flex justify-between items-center w-full h-[80px] top-0 font-modernist text-xl uppercase shadow-secondary z-50 ${scrolled && 'bg-black shadow'}`}>
+    <nav className={`xl:text-3xl fixed flex justify-between items-center w-full h-[80px] top-0 font-modernist text-xl uppercase z-50 ${scrolledStyle}`}>
       <div className="container mx-auto flex flex-row justify-center py-3 px-12 opacity-100">
         <ul className="basis-2/4 flex items-center justify-end space-x-8 space-y-0">
           {leftNavs.map((category: Navs) => {
