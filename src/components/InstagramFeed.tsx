@@ -1,6 +1,8 @@
 import Image from 'next/future/image';
 import { InstagramPostType } from '../types';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
+import { getExternalLoader } from '../helpers/imageLoaders';
+
 
 type Props = {
   title: string,
@@ -14,7 +16,7 @@ function InstagramFeed({ title, subtitle, images }: Props) {
   return filteredLastImages && (
     <div className='bg-secondary '>
       <div className='container mx-auto'>
-        <div className='mx-auto pt-6 max-w-7xl lg:flex lg:items-end'>
+        <div className='hidden'>
           <h1 className='text-7xl tracking-widest whitespace-pre-wrap px-5 md:px-0'>
             {title}
           </h1>
@@ -26,6 +28,7 @@ function InstagramFeed({ title, subtitle, images }: Props) {
               <div className='brightness-75 hover:filter-none transition duration-150'>
                 <Image
                   className="aspect-square object-cover"
+                  loader={getExternalLoader}
                   src={image.media_url}
                   alt={image.caption}
                   height={400}
@@ -33,7 +36,6 @@ function InstagramFeed({ title, subtitle, images }: Props) {
                   quality={100}
                   placeholder="blur"
                   blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
-                  unoptimized
                 />
               </div>
             </a>
