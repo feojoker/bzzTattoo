@@ -1,6 +1,6 @@
 import { PhotoAndText } from '../types';
-import Image from 'next/future/image';
-import { getStrapiMedia } from '../pages/api/media';
+import Image from 'next/image';
+import { getCloudinaryMedia, getStrapiMedia } from '../pages/api/media';
 
 
 type Props = {
@@ -12,7 +12,6 @@ type Props = {
 function PhotoAndText({ data, scrollAnchor }: Props) {
 
   const { title, subTitle, longText, image } = data;
-  const imgSrc = getStrapiMedia(image);
   return (
     <div
       id={scrollAnchor && scrollAnchor}
@@ -26,12 +25,13 @@ function PhotoAndText({ data, scrollAnchor }: Props) {
       </h2>
       <div className='relative h-[400px] sm:h-[500px] md:h-[600px]'>
         <Image
-          className='absolute inset-0 h-full object-cover'
           alt="Image near from text"
-          src={imgSrc}
+          src={getCloudinaryMedia(image)}
           height={1000}
           width={1000}
           quality={100}
+          layout="fill"
+          objectFit='cover'
         />
       </div>
       <div className='text-2xl font-garamond whitespace-pre-line pl-10 border-l-2 border-primary'>

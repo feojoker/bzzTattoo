@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
-import { getStrapiMedia } from "../pages/api/media";
+import { getCloudinaryMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import useOnClickOutside from "../hooks/useOnClickOutside";
 import { Lang } from '../types';
-import Image from 'next/future/image';
+import Image from 'next/image';
 
 type Props = {
   langs: Lang[],
@@ -33,7 +33,7 @@ function LanguageSwitcher({ langs }: Props) {
               <Image
                 alt={`Switch to ${lang.attributes.name} language`}
                 key={lang.attributes.slug}
-                src={getStrapiMedia(lang.attributes.icon)}
+                src={getCloudinaryMedia(lang.attributes.icon)}
                 height={25}
                 width={25}
                 quality={100}
@@ -53,7 +53,7 @@ function LanguageSwitcher({ langs }: Props) {
                 <Image
                   alt={`Switch to ${lang.attributes.name} language`}
                   key={lang.attributes.slug}
-                  src={getStrapiMedia(lang.attributes.icon)}
+                  src={getCloudinaryMedia(lang.attributes.icon)}
                   height={25}
                   width={25}
                   quality={100}

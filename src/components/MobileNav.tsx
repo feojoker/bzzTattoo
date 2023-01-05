@@ -6,6 +6,7 @@ import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
 import Image from 'next/future/image';
+import { getLocalLoader } from "../helpers/imageLoaders";
 
 const initialStyle = {
   container: "",
@@ -49,6 +50,7 @@ const MobileNav = () => {
             <a className="absolute inset-0 opacity-70 hover:opacity-100">
               <span className="hidden">Link to homepage</span>
               <Image
+                loader={getLocalLoader}
                 alt="Logo showing on mobile nav"
                 src="/logo.png"
                 fill

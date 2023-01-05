@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/future/image';
 import { NotFound } from "../types/pages";
+import { getLocalLoader } from '../helpers/imageLoaders';
 
 
 function NotFoundComponent({ data }: { data: NotFound }) {
@@ -21,6 +22,7 @@ function NotFoundComponent({ data }: { data: NotFound }) {
       </div>
       <div className="md:ml-20 md:mt-0">
         <Image
+          loader={getLocalLoader}
           alt="Logo showing on 404"
           src="/logo.png"
           height={200}

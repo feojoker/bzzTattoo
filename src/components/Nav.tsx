@@ -5,6 +5,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useOnScroll } from '../hooks/useOnScroll'
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import Image from 'next/future/image';
+import { getLocalLoader } from "../helpers/imageLoaders";
 
 
 const Nav = () => {
@@ -49,6 +50,7 @@ const Nav = () => {
               <a className="absolute inset-0  opacity-70 hover:opacity-100">
                 <span className="hidden">Link to homepage</span>
                 <Image
+                  loader={getLocalLoader}
                   alt="Logo showing on desktop nav"
                   src="/logo.png"
                   fill

@@ -8,7 +8,7 @@ const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value:
-      "default-src 'self' https://maps.googleapis.com/; script-src 'self' https://maps.googleapis.com/; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src 'self' https://res.cloudinary.com *.cdninstagram.com; font-src 'self' fonts.gstatic.com; img-src data: 'self' *.cdninstagram.com https://res.cloudinary.com  maps.gstatic.com *.googleapis.com *.ggpht.com",
+      "default-src 'self' https://maps.googleapis.com/ vitals.vercel-insights.com; script-src 'self' https://maps.googleapis.com/; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src 'self' https://res.cloudinary.com *.cdninstagram.com; font-src 'self' fonts.gstatic.com; img-src data: 'self' *.cdninstagram.com https://res.cloudinary.com  maps.gstatic.com *.googleapis.com *.ggpht.com",
   },
   {
     key: 'X-Frame-Options',
@@ -41,21 +41,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    loader: "default",
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '*.cdninstagram.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'localhost',
-      },
-      {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
-      },
-    ],
+    loader: 'cloudinary',
+    path: 'https://res.cloudinary.com/dx2vbnmiz/image/upload',
+    domains: ['res.cloudinary.com']
   },
   i18n: {
     locales: ['en', 'ru', 'ka'],

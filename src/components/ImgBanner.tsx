@@ -1,6 +1,7 @@
-import { getStrapiMedia } from "../pages/api/media";
+import { getCloudinaryMedia } from "../pages/api/media";
 import { MediaBanner } from "../types";
-import Image from 'next/future/image';
+import Image from 'next/image';
+
 type Props = {
   src: MediaBanner,
 };
@@ -8,7 +9,6 @@ type Props = {
 function ImgBanner({ src }: Props) {
 
   const { media, title, smallText } = src;
-  const imgBannerSrc = getStrapiMedia(media);
 
   return (
     <div className="relative font-garamond uppercase -z-20 h-[60vh] md:h-[80vh]">
@@ -18,9 +18,7 @@ function ImgBanner({ src }: Props) {
         top-[35%] left-[5%] text-2xl 
         md:top-[20%] md:left-[10%] md:text-5xl
         '>
-          <strong>
-            {title}
-          </strong>
+          {title}
         </p>
       ) : null}
       {smallText ? (
@@ -35,10 +33,10 @@ function ImgBanner({ src }: Props) {
       <Image
         className='absolute inset-0 object-cover h-full'
         alt="Large image banner on top of the page"
-        src={imgBannerSrc}
-        height={824}
-        width={1920}
+        src={getCloudinaryMedia(media)}
         quality={100}
+        layout="fill"
+        objectFit='cover'
         priority
       />
     </div>
