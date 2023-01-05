@@ -7,8 +7,7 @@ type Props = {
 
 
 export function getLocalLoader({ src, width, quality = 75 }: Props): string {
-  return `${process.env.PROJECT_PUBLIC_URL || "http://localhost:3000"
-    }${src}?w=${width}&q=${quality}`;
+  return `${src}?w=${width}&q=${quality}`;
 }
 
 
