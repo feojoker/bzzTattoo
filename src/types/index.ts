@@ -100,6 +100,12 @@ export type MediaBanner = {
   media: shareMedia,
 }
 
+export type BannerText = {
+  id: number,
+  title?: string,
+  smallText?: string,
+}
+
 export type Navs = {
   id: number,
   attributes: {
