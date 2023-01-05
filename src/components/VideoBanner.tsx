@@ -1,19 +1,16 @@
-import { getStrapiMedia } from "../pages/api/media";
-import { MediaBanner } from "../types";
+import { BannerText } from "../types";
 import DoubleDown from '../../public/doubleDown.svg';
 import { Link as ScrollLink } from 'react-scroll';
 
 type Props = {
-  src: MediaBanner,
+  srcVideo: string,
+  srcText: BannerText,
   scrollAnchor: string,
 }
 
-function VideoBanner({ src, scrollAnchor }: Props) {
+function VideoBanner({ srcVideo, srcText, scrollAnchor }: Props) {
 
-  const { media, title, smallText } = src;
-
-  const videoBannerSrc = getStrapiMedia(media);
-
+  const { title, smallText } = srcText;
 
   return (
     <div className="relative font-garamond uppercase w-full mb-12 z-1 fullHeight">
@@ -42,7 +39,7 @@ function VideoBanner({ src, scrollAnchor }: Props) {
         className="absolute inset-0 bottom-0 object-cover w-full h-full z-5"
         loop autoPlay muted playsInline>
         <source
-          src={videoBannerSrc}
+          src={srcVideo}
           type="video/mp4"
         />
         Your browser does not support the video tag.

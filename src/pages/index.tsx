@@ -16,14 +16,16 @@ type Props = {
 }
 
 const Home = ({ homepage, briefAbout, instagramFeed }: Props) => {
-  const { seo, mediaBanner } = homepage.attributes;
+  const { seo, bannerText } = homepage.attributes;
   const images = instagramFeed.data;
   const scrollAnchor = 'home';
+
+  const videoSrc = '/video/homepageVideo.mp4'
 
   return (
     <Layout>
       <Seo seo={seo} />
-      <VideoBanner src={mediaBanner} scrollAnchor={scrollAnchor} />
+      <VideoBanner srcVideo={videoSrc} srcText={bannerText} scrollAnchor={scrollAnchor} />
       <BriefInfoWithLink data={briefAbout} scrollAnchor={scrollAnchor} />
       <FolowInstagram images={images} />
     </Layout>
@@ -37,7 +39,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
     fetchAPI<HomePage>("/homepage", {
       populate: {
         seo: { populate: "*" },
-        mediaBanner: { populate: { media: "*" } },
+        bannerText: { populate: "*" },
       },
       locale: locale
     }),

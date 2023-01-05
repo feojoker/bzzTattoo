@@ -7,12 +7,13 @@ import Seo from '../components/Seo';
 import PhotoAndText from '../components/PhotoAndText';
 
 const About = ({ about }: { about: AboutPage }) => {
-  const { mediaBanner, aboutDetail, seo } = about.attributes;
+  const { bannerText, aboutDetail, seo } = about.attributes;
   const scrollAnchor = 'about';
+  const videoSrc = '/video/aboutVideo.mp4'
   return (
     <Layout>
       <Seo seo={seo} />
-      <VideoBanner src={mediaBanner} scrollAnchor={scrollAnchor} />
+      <VideoBanner srcVideo={videoSrc} srcText={bannerText} scrollAnchor={scrollAnchor} />
       <PhotoAndText data={aboutDetail} scrollAnchor={scrollAnchor} />
     </Layout>
   )
@@ -22,7 +23,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
   const aboutRes = await fetchAPI<AboutPage>("/about-page", {
     populate: {
-      mediaBanner: { populate: { media: "*" } },
+      bannerText: { populate: "*" },
       seo: { populate: "*" },
       aboutDetail: { populate: "*" }
     },
