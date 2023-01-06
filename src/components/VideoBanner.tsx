@@ -37,6 +37,7 @@ function VideoBanner({ srcVideo, srcText, scrollAnchor }: Props) {
       <div className="absolute inset-0 opacity-60 bg-black w-full h-full z-10"></div>
       <video
         className="absolute inset-0 bottom-0 object-cover w-full h-full z-5"
+        poster="/video/posterGIF.gif"
         loop autoPlay muted playsInline>
         <source
           src={srcVideo}
