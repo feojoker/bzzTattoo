@@ -12,6 +12,10 @@ type Props = {
 function PhotoAndText({ data, scrollAnchor }: Props) {
 
   const { title, subTitle, longText, image } = data;
+  console.log(image);
+
+  console.log(getCloudinaryMedia(image));
+
   return (
     <div
       id={scrollAnchor && scrollAnchor}
@@ -27,9 +31,7 @@ function PhotoAndText({ data, scrollAnchor }: Props) {
         <Image
           alt="Image near from text"
           src={getCloudinaryMedia(image)}
-          height={1000}
-          width={1000}
-          quality={100}
+          // quality={100}
           layout="fill"
           objectFit='cover'
         />

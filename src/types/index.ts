@@ -83,6 +83,7 @@ export type DefaultSeo = {
   attributes: {
     siteName: string,
     defaultSeo: Seo,
+    logo: shareMedia,
   }
 }
 
@@ -98,6 +99,7 @@ export type MediaBanner = {
   title?: string,
   smallText?: string,
   media: shareMedia,
+  poster?: shareMedia,
 }
 
 export type BannerText = {

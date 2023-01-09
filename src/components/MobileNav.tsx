@@ -5,8 +5,9 @@ import { useOnScroll } from "../hooks/useOnScroll";
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
-import Image from 'next/future/image';
-import { getLocalLoader } from "../helpers/imageLoaders";
+import Image from 'next/image';
+import { getCloudinaryMedia } from "../pages/api/media";
+import { LogoContext } from "../context/LogoContext";
 
 const initialStyle = {
   container: "",
@@ -15,6 +16,7 @@ const initialStyle = {
 
 const MobileNav = () => {
   const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
+  const logo = useContext(LogoContext);
 
   const [scrolledStyle, setScrolledStyle] = useState(initialStyle);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,12 +52,10 @@ const MobileNav = () => {
             <a className="absolute inset-0 opacity-70 hover:opacity-100">
               <span className="hidden">Link to homepage</span>
               <Image
-                loader={getLocalLoader}
                 alt="Logo showing on mobile nav"
-                src="/logo.png"
-                fill
+                src={getCloudinaryMedia(logo)}
+                layout='fill'
                 sizes="30vw"
-                quality={100}
                 priority
               />
             </a>

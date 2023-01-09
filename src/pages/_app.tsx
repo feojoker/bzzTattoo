@@ -8,6 +8,7 @@ import { Loader } from '../components/Loader';
 import "../../styles/style.css";
 import "../../styles/fonts.css";
 import { DefaultSeoProvider } from "../context/DefaultSeoContext";
+import { LogoProvider } from "../context/LogoContext";
 
 type AppProps<P = any> = {
   pageProps: P;
@@ -24,17 +25,20 @@ type CustomPageProps = {
 const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
 
   const { defaultSeo, leftNavs, rightNavs, langs, footer } = pageProps;
+  const { logo } = defaultSeo.attributes
   const globalData = { leftNavs, rightNavs, langs, footer };
 
   return (
     <>
       <MediaQueryProvider>
-        <DefaultSeoProvider defaultSeo={defaultSeo}>
-          <GlobalDataProvider globalData={globalData}>
-            <Loader />
-            <Component {...pageProps} />
-          </GlobalDataProvider>
-        </DefaultSeoProvider>
+        <LogoProvider logo={logo}>
+          <DefaultSeoProvider defaultSeo={defaultSeo}>
+            <GlobalDataProvider globalData={globalData}>
+              <Loader />
+              <Component {...pageProps} />
+            </GlobalDataProvider>
+          </DefaultSeoProvider>
+        </LogoProvider>
       </MediaQueryProvider>
     </>
   );
@@ -53,8 +57,9 @@ MyApp.getInitialProps = async (context: AppContext) => {
     fetchAPI<DefaultSeo>("/default-seo", {
       populate: {
         defaultSeo: {
-          populate: { shareImage: { populate: "*" } }
+          populate: { shareImage: { populate: "*" }, }
         },
+        logo: { populate: "*" }
       },
       locale: locale
     }),

@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
+import Image from 'next/image';
 import Link from "next/link";
 import { Navs } from "../types";
 import LanguageSwitcher from './LanguageSwitcher';
-import { useOnScroll } from '../hooks/useOnScroll'
 import { GlobalDataContext } from "../context/GlobalDataContext";
-import Image from 'next/future/image';
-import { getLocalLoader } from "../helpers/imageLoaders";
+import { LogoContext } from "../context/LogoContext";
+import { getCloudinaryMedia } from "../pages/api/media";
+import { useOnScroll } from '../hooks/useOnScroll'
 
 
 const Nav = () => {
   const { leftNavs, rightNavs, langs } = useContext(GlobalDataContext);
+  const logo = useContext(LogoContext);
   const [scrolledStyle, setScrolledStyle] = useState("");
 
   const scrolled = useOnScroll()
@@ -50,12 +52,10 @@ const Nav = () => {
               <a className="absolute inset-0  opacity-70 hover:opacity-100">
                 <span className="hidden">Link to homepage</span>
                 <Image
-                  loader={getLocalLoader}
                   alt="Logo showing on desktop nav"
-                  src="/logo.png"
-                  fill
+                  src={getCloudinaryMedia(logo)}
+                  layout='fill'
                   sizes="20vw"
-                  quality={100}
                   priority
                 />
               </a>

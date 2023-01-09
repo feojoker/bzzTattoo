@@ -1,19 +1,20 @@
+import { useContext } from "react";
+import { LogoContext } from "../../context/LogoContext";
+import Image from 'next/image';
+import { getCloudinaryMedia } from "../../pages/api/media";
 import Circles from "../../../public/circles.svg";
-import Image from 'next/future/image';
-import { getLocalLoader } from "../../helpers/imageLoaders";
 
 
 export const ImgLoader = () => {
+  const logo = useContext(LogoContext);
   return (
     <div className="flex flex-col items-center justify-center w-full">
       <div className="mb-4">
         <Image
-          loader={getLocalLoader}
           alt="Logo showing on loader"
-          src="/logo.png"
+          src={getCloudinaryMedia(logo)}
           height={150}
           width={150}
-          quality={100}
           priority
         />
       </div>

@@ -1,10 +1,13 @@
 import Link from 'next/link';
-import Image from 'next/future/image';
+import Image from 'next/image';
 import { NotFound } from "../types/pages";
-import { getLocalLoader } from '../helpers/imageLoaders';
+import { LogoContext } from '../context/LogoContext';
+import { useContext } from 'react';
+import { getCloudinaryMedia } from '../pages/api/media';
 
 
 function NotFoundComponent({ data }: { data: NotFound }) {
+  const logo = useContext(LogoContext);
   const { title, description, buttonText } = data.attributes;
 
   return (
@@ -22,12 +25,10 @@ function NotFoundComponent({ data }: { data: NotFound }) {
       </div>
       <div className="md:ml-20 md:mt-0">
         <Image
-          loader={getLocalLoader}
           alt="Logo showing on 404"
-          src="/logo.png"
+          src={getCloudinaryMedia(logo)}
           height={200}
           width={200}
-          quality={100}
           priority
         />
       </div>

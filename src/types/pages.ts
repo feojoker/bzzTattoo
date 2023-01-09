@@ -1,4 +1,4 @@
-import { AboutDetail, FormEmail, Seo, MediaBanner, BannerText } from "."
+import { AboutDetail, FormEmail, Seo, MediaBanner } from "."
 
 export type HomePage = {
   id: number,
@@ -6,7 +6,7 @@ export type HomePage = {
     createdAt: string,
     updatedAt: string,
     seo: Seo,
-    bannerText: BannerText,
+    mediaBanner: MediaBanner,
   }
 }
 
@@ -32,7 +32,7 @@ export type AboutPage = {
     updatedAt: string,
     locale: string,
     seo?: Seo,
-    bannerText: BannerText,
+    mediaBanner: MediaBanner,
     aboutDetail: AboutDetail,
     localization?: {
       data: AboutPage[]
