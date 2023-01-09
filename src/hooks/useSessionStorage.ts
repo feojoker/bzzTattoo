@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react"
 
-export default function useLocalStorage(
+export default function useSessionStorage(
   key: string,
   initialValue: number
 ) {
   const [value, setValue] = useState(() => {
     if (typeof window !== 'undefined') {
-      const jsonValue = localStorage.getItem(key)
+      const jsonValue = sessionStorage.getItem(key)
       if (jsonValue != null) return JSON.parse(jsonValue)
     }
     return initialValue
   })
 
   useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(value))
+    sessionStorage.setItem(key, JSON.stringify(value))
+    return () => {
+      sessionStorage.removeItem(key)
+    };
   }, [value])
 
   return [value, setValue]
