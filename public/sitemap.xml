@@ -1,6 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!--  generator="Inspyder Sitemap Creator 5.1.4"  -->
-<!-- Last Updated 1/6/2023 10:07:51 AM -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd http://www.google.com/schemas/sitemap-mobile/1.0/sitemap-mobile.xsd http://www.google.com/schemas/sitemap-video/1.1/sitemap-video.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url>
 	<loc>https://www.bzztattoo.com/</loc>
@@ -8,24 +6,32 @@
 	<changefreq>monthly</changefreq>
 	<priority>0.9</priority>
 	<image:image>
-		<image:loc>https://www.bzztattoo.com/logo.png?w=3840&amp;q=100</image:loc>
-		<image:caption>Logo showing on mobile nav</image:caption>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
 	</image:image>
 	<video:video>
-		<video:thumbnail_loc>https://www.bzztattoo.com/video/posterGIF.gif</video:thumbnail_loc>
+		<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 		<video:title>Homepage | Bzz Tattoo</video:title>
 		<video:description>Bzztattoo.com is a virtual studio of #1 engraving and ornamental tattoo artist in Tbilisi.</video:description>
-		<video:content_loc>https://www.bzztattoo.com/video/homepageVideo.mp4</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.webm?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.mp4?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.ogv?_a=ATRSRAA0</video:content_loc>
 		<video:publication_date>2023-01-06T06:05:10Z</video:publication_date>
 	</video:video>
-	<mobile:mobile/>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/projects</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.8</priority>
-	<mobile:mobile/>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_100/in_Dirt_b8c0150298</image:loc>
+		<image:caption>My latest projects</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/store</loc>
@@ -33,10 +39,9 @@
 	<changefreq>monthly</changefreq>
 	<priority>0.8</priority>
 	<image:image>
-		<image:loc>https://www.bzztattoo.com/logo.png?w=640&amp;q=100</image:loc>
-		<image:caption>Logo showing on 404</image:caption>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
 	</image:image>
-	<mobile:mobile/>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/contact</loc>
@@ -44,79 +49,194 @@
 	<changefreq>monthly</changefreq>
 	<priority>0.8</priority>
 	<image:image>
-		<image:loc>https://www.bzztattoo.com/logo.png?w=384&amp;q=100</image:loc>
-		<image:caption>Logo showing on loader</image:caption>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
 	</image:image>
-	<mobile:mobile/>
-</url>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_100/smoking_Banner_2c3852f07b</image:loc>
+		<image:caption>My contacts</image:caption>
+	</image:image>
 <url>
 	<loc>https://www.bzztattoo.com/about</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
 	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
 	<video:video>
-		<video:thumbnail_loc>https://www.bzztattoo.com/video/posterGIF.gif</video:thumbnail_loc>
+		<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 		<video:title>About Me | Bzz Tattoo</video:title>
 		<video:description>I am professional tattoo artist with more that 3 years of experience.</video:description>
-		<video:content_loc>https://www.bzztattoo.com/video/aboutVideo.mp4</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.webm?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.mp4?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.ogv?_a=ATRSRAA0</video:content_loc>
 		<video:publication_date>2023-01-06T06:05:15Z</video:publication_date>
 	</video:video>
-	<mobile:mobile/>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/about_6dcf34ec52</image:loc>
+		<image:caption>About picture</image:caption>
+	</image:image>
+</url>
+<url>
+	<loc>https://www.bzztattoo.com/ka/</loc>
+	<lastmod>2023-01-06</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.9</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<video:video>
+		<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
+		<video:title>Homepage | Bzz Tattoo</video:title>
+		<video:description>Bzztattoo.com is a virtual studio of #1 engraving and ornamental tattoo artist in Tbilisi.</video:description>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.webm?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.mp4?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.ogv?_a=ATRSRAA0</video:content_loc>
+		<video:publication_date>2023-01-06T06:05:10Z</video:publication_date>
+	</video:video>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ka/store</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ka/contact</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_100/smoking_Banner_2c3852f07b</image:loc>
+		<image:caption>My contacts</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ka/about</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<video:video>
+		<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
+		<video:title>About Me | Bzz Tattoo</video:title>
+		<video:description>I am professional tattoo artist with more that 3 years of experience.</video:description>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.webm?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.mp4?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.ogv?_a=ATRSRAA0</video:content_loc>
+		<video:publication_date>2023-01-06T06:05:15Z</video:publication_date>
+	</video:video>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/about_6dcf34ec52</image:loc>
+		<image:caption>About picture</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ka/projects</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_100/in_Dirt_b8c0150298</image:loc>
+		<image:caption>My latest projects</image:caption>
+	</image:image>
+</url>
+<url>
+	<loc>https://www.bzztattoo.com/ru/</loc>
+	<lastmod>2023-01-06</lastmod>
+	<changefreq>monthly</changefreq>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<video:video>
+		<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
+		<video:title>Homepage | Bzz Tattoo</video:title>
+		<video:description>Bzztattoo.com is a virtual studio of #1 engraving and ornamental tattoo artist in Tbilisi.</video:description>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.webm?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.mp4?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/homepage_Video_05228c0d8d.ogv?_a=ATRSRAA0</video:content_loc>
+		<video:publication_date>2023-01-06T06:05:10Z</video:publication_date>
+	</video:video>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ru/about</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<video:video>
+		<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
+		<video:title>About Me | Bzz Tattoo</video:title>
+		<video:description>I am professional tattoo artist with more that 3 years of experience.</video:description>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.webm?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.mp4?_a=ATRSRAA0</video:content_loc>
+		<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/about_Video_72b1be51b1.ogv?_a=ATRSRAA0</video:content_loc>
+		<video:publication_date>2023-01-06T06:05:15Z</video:publication_date>
+	</video:video>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/about_6dcf34ec52</image:loc>
+		<image:caption>About picture</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ru/contact</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_100/smoking_Banner_2c3852f07b</image:loc>
+		<image:caption>Мои контакты</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ru/store</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
 </url>
 <url>
 	<loc>https://www.bzztattoo.com/ru/projects</loc>
 	<lastmod>2023-01-06</lastmod>
 	<changefreq>monthly</changefreq>
-	<priority>0.7</priority>
-	<mobile:mobile/>
+	<priority>0.8</priority>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/logo_7a0e2e6530</image:loc>
+		<image:caption>Logo showing on desktop nav</image:caption>
+	</image:image>
+	<image:image>
+		<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_100/in_Dirt_b8c0150298</image:loc>
+		<image:caption>Мои последние проекты</image:caption>
+	</image:image>
 </url>
 </urlset>

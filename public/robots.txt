@@ -1,2 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://bzztattoo.com
+
+# Sitemaps
+Sitemap: https://bzztattoo.com/sitemap.xml
