@@ -2,14 +2,17 @@ import { getStrapiURL } from "./api";
 
 export function getStrapiMedia(media: any) {
   const { url } = media.data.attributes;
-  const imageUrl = url.startsWith("/") ? getStrapiURL(url) : url;
+  const mediaUrl = url.startsWith("/") ? getStrapiURL(url) : url;
 
-  return imageUrl;
+  return mediaUrl;
 }
 
 export function getCloudinaryMedia(media: any) {
-  const { url } = media.data.attributes;
-  const imageUrl = url.replace('https://res.cloudinary.com/dx2vbnmiz/image/upload', '');
+  const { resource_type, public_id } = media.data.attributes.provider_metadata;
+  // const { url } = media.data.attributes;
 
-  return imageUrl;
+  // const mediaUrl = url.replace(`https://res.cloudinary.com/dx2vbnmiz/${resource_type}/upload/`, '');
+
+  // return mediaUrl;
+  return public_id;
 }
