@@ -12,9 +12,6 @@ type Props = {
 function PhotoAndText({ data, scrollAnchor }: Props) {
 
   const { title, subTitle, longText, image } = data;
-  console.log(image);
-
-  console.log(getCloudinaryMedia(image));
 
   return (
     <div
