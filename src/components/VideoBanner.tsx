@@ -5,7 +5,9 @@ import { Link as ScrollLink } from 'react-scroll';
 
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedVideo } from '@cloudinary/react';
-import { quality } from "@cloudinary/url-gen/actions/delivery"
+import { quality } from "@cloudinary/url-gen/actions/delivery";
+import { videoCodec } from "@cloudinary/url-gen/actions/transcode";
+import { auto } from '@cloudinary/url-gen/qualifiers/videoCodec';
 
 type Props = {
   src: MediaBanner,
@@ -23,6 +25,14 @@ function VideoBanner({ src, scrollAnchor }: Props) {
       cloudName: "dx2vbnmiz"
     }
   });
+
+  const sources = [
+    {
+      type: 'mp4',
+      codecs: ['avc1.4d002a'],
+      transcode: videoCodec(auto())
+    },
+  ];
 
   const cloudinaryVideo = cld.video(videoSrc).delivery(quality(70));
 
@@ -55,6 +65,7 @@ function VideoBanner({ src, scrollAnchor }: Props) {
         cldVid={cloudinaryVideo}
         autoPlay muted loop playsInline
         poster={posterSrc ? posterSrc : ''}
+        sources={sources}
       />
       <ScrollLink to={scrollAnchor} spy={true} smooth={true} offset={-100} duration={500} >
         <DoubleDown className="w-[48px] h-[48px] animate-bounce absolute text-white text-center inset-x-0 mx-auto bottom-[5%] z-20 border hover:bg-primary hover:border-primary focus:ring-2 focus:outline-none focus:ring-primary rounded-full" />
