@@ -52,6 +52,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
       briefAbout: briefAboutRes,
       instagramFeed,
     },
+    revalidate: 60 * 60,
   };
 }
 
