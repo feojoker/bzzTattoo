@@ -30,7 +30,7 @@ const Home = ({ homepage, briefAbout, instagramFeed }: Props) => {
   )
 };
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export async function getServerSideProps({ locale }: { locale: string }) {
 
   // Run API calls in parallel
   const [homepageRes, briefAboutRes] = await Promise.all([

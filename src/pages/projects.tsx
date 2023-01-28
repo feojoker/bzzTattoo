@@ -27,7 +27,7 @@ const Projects = ({ instagramFeed, projects }: Props) => {
   )
 }
 
-export async function getStaticProps({ locale }: { locale: string }) {
+export async function getServerSideProps({ locale }: { locale: string }) {
 
   const instagramFeed = await fetchInstagram();
 
