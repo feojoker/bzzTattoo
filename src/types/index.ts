@@ -205,21 +205,19 @@ export type PhotoAndText = {
 }
 
 export type InstagramPostType = {
-  id: string,
   caption: string,
-  media_url: string,
-  media_type: string,
-  permalink: string,
+  createdAt: string,
+  id: number,
+  instagramId: string,
+  mediaId: number | null,
+  originalUrl: string,
+  publishedAt: string,
+  timestamp: string,
+  updatedAt: string,
 }
 
 export type InstagramFeedType = {
-  data: InstagramPostType[],
-  paging: {
-    cursors: {
-      after: string,
-      before: string,
-    },
-    next: string,
-  }
+  results: InstagramPostType[],
+  pagination: { page: number, pageSize: number, pageCount: number, total: number }
 }
 

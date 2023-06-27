@@ -17,8 +17,10 @@ type Props = {
 
 const Home = ({ homepage, briefAbout, instagramFeed }: Props) => {
   const { seo, mediaBanner } = homepage.attributes;
-  const images = instagramFeed.data;
+  const images = instagramFeed.results;
   const scrollAnchor = 'home';
+
+  console.log(instagramFeed)
 
   return (
     <Layout>

@@ -14,7 +14,7 @@ type Props = {
 }
 
 const Projects = ({ instagramFeed, projects }: Props) => {
-  const images = instagramFeed.data;
+  const images = instagramFeed.results;
 
   const { title, subtitle, mediaBanner, seo } = projects.attributes;
 

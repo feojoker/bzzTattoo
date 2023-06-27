@@ -8,7 +8,9 @@ function FolowInstagram({ images }: { images: InstagramPostType[] }) {
   const [randomImage, setRandomImage] = useState<InstagramPostType[]>([])
 
   useEffect(() => {
-    const filteredRandomImages = images.filter((image: InstagramPostType) => image.media_type !== "VIDEO").sort(() => 0.5 - Math.random()).slice(0, 6);
+    const filteredRandomImages = images
+      // .filter((image: InstagramPostType) => image.media_type !== "VIDEO")
+      .sort(() => 0.5 - Math.random()).slice(0, 6);
     setRandomImage(filteredRandomImages)
   }, [images])
 
@@ -21,7 +23,7 @@ function FolowInstagram({ images }: { images: InstagramPostType[] }) {
             <Image
               key={image.id}
               className="aspect-square object-cover"
-              src={image.media_url}
+              src={image.originalUrl}
               alt={image.caption}
               height={300}
               width={300}
