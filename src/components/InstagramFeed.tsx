@@ -26,22 +26,22 @@ function InstagramFeed({ title, subtitle, images }: Props) {
         </div>
         <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-6 mx-auto py-6 max-w-6xl'>
           {filteredLastImages.map((image: InstagramPostType) => (
-            // <a key={image.id} href={image.permalink} target="_blank" rel="noreferrer">
-            <div className='brightness-75 hover:filter-none transition duration-150' key={image.id}>
-              <Image
-                className="aspect-square object-cover"
-                loader={getExternalLoader}
-                src={image.originalUrl}
-                alt={image.caption}
-                height={400}
-                width={400}
-                quality={100}
-                placeholder="blur"
-                blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
-              // unoptimized
-              />
-            </div>
-            // </a>
+            <a key={image.id} href={"https://www.instagram.com/bzz.tattoo/"} target="_blank" rel="noreferrer">
+              <div className='brightness-75 hover:filter-none transition duration-150' key={image.id}>
+                <Image
+                  className="aspect-square object-cover"
+                  loader={getExternalLoader}
+                  src={image.originalUrl}
+                  alt={image.caption.slice(0, 10)}
+                  height={400}
+                  width={400}
+                  quality={100}
+                  placeholder="blur"
+                  blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
+                  unoptimized
+                />
+              </div>
+            </a>
           )
           )}
         </div>

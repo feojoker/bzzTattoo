@@ -24,7 +24,7 @@ function FolowInstagram({ images }: { images: InstagramPostType[] }) {
               key={image.id}
               className="aspect-square object-cover"
               src={image.originalUrl}
-              alt={image.caption}
+              alt={image.caption.slice(0, 10)}
               height={300}
               width={300}
               quality={100}
