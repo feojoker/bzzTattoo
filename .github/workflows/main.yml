@@ -5,7 +5,9 @@ name: Post Fetch and Deploy
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '*/5 * * * *'
+#     - cron: '0 0 * * *'
+    
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.17.x]
+        node-version: [18.17.x]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
