@@ -23,6 +23,7 @@ function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) 
           {randomImage.map((image: CloudinaryInstagramImageType) => (
             <CldImage
               width="300"
+              key={image.url}
               height="300"
               src={image.url}
               alt={image.context.caption}
