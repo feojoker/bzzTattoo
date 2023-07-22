@@ -8,7 +8,7 @@ const securityHeaders = [
   {
     key: 'Content-Security-Policy',
     value:
-      "default-src 'self' https://maps.googleapis.com/ https://www.google.com/ vitals.vercel-insights.com; script-src 'self' https://maps.googleapis.com/; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src 'self' https://res.cloudinary.com *.cdninstagram.com; font-src 'self' fonts.gstatic.com; img-src data: 'self' *.cdninstagram.com https://res.cloudinary.com  maps.gstatic.com *.googleapis.com *.ggpht.com",
+      "default-src 'self' https://maps.googleapis.com/ https://www.google.com/ vitals.vercel-insights.com; script-src 'self' https://maps.googleapis.com/; style-src 'self' 'unsafe-inline' fonts.googleapis.com; media-src 'self' res.cloudinary.com *.cdninstagram.com; font-src 'self' fonts.gstatic.com; img-src data: 'self' *.cdninstagram.com res.cloudinary.com  maps.gstatic.com *.googleapis.com *.ggpht.com",
   },
   {
     key: 'X-Frame-Options',
