@@ -22,29 +22,15 @@ function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) 
         <div className='grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-0'>
           {randomImage.map((image: CloudinaryInstagramImageType) => (
             <CldImage
-              width="300"
+              width="500"
               key={image.url}
-              height="300"
+              height="500"
               src={image.url}
               alt={image.context.caption}
-              // objectFit='cover'
+              objectFit='cover'
               placeholder='blur'
               blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
-              className="aspect-square object-cover"
-
             />
-            // <Image
-            //   key={image.id}
-            //   className="aspect-square object-cover"
-            //   src={image.originalUrl}
-            //   alt={image.caption.slice(0, 40) + '...'}
-            //   height={300}
-            //   width={300}
-            //   quality={100}
-            //   placeholder="blur"
-            //   blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
-            //   unoptimized
-            // />
           )
           )}
         </div>
