@@ -3,7 +3,7 @@ import { fetchAPI } from './api/api';
 import Layout from '../layouts/Layout';
 import ImgBanner from '../components/ImgBanner';
 import { ProjectsPage } from '../types/pages';
-import { CloudinaryInstagramImageType, InstagramFeedType } from '../types';
+import { CloudinaryInstagramImageType } from '../types';
 import Seo from '../components/Seo';
 import InstagramFeed from '../components/InstagramFeed';
 import { fetchInstagram } from './api/instagram';
@@ -42,7 +42,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
       instagramFeed,
       projects: projectsRes,
     },
-    revalidate: 10,
   };
 }
 

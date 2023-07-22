@@ -1,5 +1,5 @@
 import Image from 'next/future/image';
-import { CloudinaryInstagramImageType, InstagramPostType } from '../types';
+import { CloudinaryInstagramImageType } from '../types';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 import { getExternalLoader } from '../helpers/imageLoaders';
 import { CldImage } from 'next-cloudinary';
@@ -13,9 +13,6 @@ type Props = {
 }
 
 function InstagramFeed({ title, subtitle, images }: Props) {
-  // const filteredLastImages = images
-  //   // .filter((image: InstagramPostType) => image.media_type !== "VIDEO")
-  //   .slice(0, 16);
 
   return images && (
     <div className='bg-secondary '>

@@ -204,25 +204,6 @@ export type PhotoAndText = {
   image: shareMedia,
 }
 
-export type InstagramPostType = {
-  caption: string,
-  createdAt: string,
-  id: number,
-  instagramId: string,
-  mediaId: number | null,
-  originalUrl: string,
-  publishedAt: string,
-  timestamp: string,
-  updatedAt: string,
-}
-
-export type InstagramFeedType = {
-  results: InstagramPostType[],
-  pagination: { page: number, pageSize: number, pageCount: number, total: number }
-}
-
-
-
 export type CloudinaryInstagramImageType = {
   access_control: boolean,
   access_mode: string,

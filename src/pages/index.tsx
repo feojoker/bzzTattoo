@@ -1,7 +1,7 @@
 import { fetchAPI } from './api/api';
 import Layout from "../layouts/Layout";
 import Seo from "../components/Seo";
-import { BriefInfo, CloudinaryInstagramImageType, InstagramFeedType } from "../types";
+import { BriefInfo, CloudinaryInstagramImageType } from "../types";
 import { HomePage } from "../types/pages";
 
 import BriefInfoWithLink from '../components/BriefInfoWithLink';
@@ -30,6 +30,8 @@ const Home = ({ homepage, briefAbout, instagramFeed }: Props) => {
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
+  const instagramFeed = await fetchInstagram();
+
   // Run API calls in parallel
   const [homepageRes, briefAboutRes] = await Promise.all([
     fetchAPI<HomePage>("/homepage", {
@@ -41,8 +43,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
     }),
     fetchAPI<BriefInfo>("/brief-about", { populate: "*", locale: locale }),
   ]);
-
-  const instagramFeed = await fetchInstagram();
 
   return {
     props: {
