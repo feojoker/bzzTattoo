@@ -1,21 +1,23 @@
 import Image from 'next/future/image';
-import { InstagramPostType } from '../types';
+import { CloudinaryInstagramImageType, InstagramPostType } from '../types';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 import { getExternalLoader } from '../helpers/imageLoaders';
-
+import { CldImage } from 'next-cloudinary';
 
 type Props = {
   title: string,
   subtitle: string,
-  images: InstagramPostType[]
+  // images: InstagramPostType[]
+  images: CloudinaryInstagramImageType[]
+
 }
 
 function InstagramFeed({ title, subtitle, images }: Props) {
-  const filteredLastImages = images
-    // .filter((image: InstagramPostType) => image.media_type !== "VIDEO")
-    .slice(0, 16);
+  // const filteredLastImages = images
+  //   // .filter((image: InstagramPostType) => image.media_type !== "VIDEO")
+  //   .slice(0, 16);
 
-  return filteredLastImages && (
+  return images && (
     <div className='bg-secondary '>
       <div className='container mx-auto'>
         <div className='hidden'>
@@ -25,20 +27,17 @@ function InstagramFeed({ title, subtitle, images }: Props) {
           <h2 className='text-2xl font-garamond lg:ml-8'>{subtitle}</h2>
         </div>
         <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-6 mx-auto py-6 max-w-6xl'>
-          {filteredLastImages.map((image: InstagramPostType) => (
-            <a key={image.id} href={"https://www.instagram.com/bzz.tattoo/"} target="_blank" rel="noreferrer">
-              <div className='brightness-75 hover:filter-none transition duration-150' key={image.id}>
-                <Image
-                  className="aspect-square object-cover"
-                  loader={getExternalLoader}
-                  src={image.originalUrl}
-                  alt={image.caption.slice(0, 10)}
-                  height={400}
-                  width={400}
-                  quality={100}
-                  placeholder="blur"
+          {images.map((image: CloudinaryInstagramImageType) => (
+            <a key={image.url} href={image.context.link} target="_blank" rel="noreferrer">
+              <div className='brightness-75 hover:filter-none transition duration-150'>
+                <CldImage
+                  width="500"
+                  height="500"
+                  src={image.url}
+                  alt={image.context.caption}
+                  objectFit='cover'
+                  placeholder='blur'
                   blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
-                  unoptimized
                 />
               </div>
             </a>

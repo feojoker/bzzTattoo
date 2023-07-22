@@ -1,30 +1,21 @@
-// export async function fetchInstagram() {
+import { v2 as cloudinary } from 'cloudinary';
 
-//   const requestUrl = `https://graph.instagram.com/me/media?fields=id,caption,media_url,media_type,permalink&access_token=${process.env.INSTAGRAM_KEY}`
-
-//   return fetch(requestUrl)
-//     .then(response => {
-//       if (!response.ok) {
-//         console.error(response.statusText);
-//         throw new Error(`Failed to load instagram media`);
-//       }
-//       return response.json()
-//     })
-//     .then(data => data)
-// };
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true,
+});
 
 
 export async function fetchInstagram() {
 
-  const requestUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL || "http://localhost:3010"}` + `/api/instagram/images`;
-
-  return fetch(requestUrl)
-    .then(response => {
-      if (!response.ok) {
-        console.error(`Failed to load instagram media`);
-        throw new Error(`Failed to load instagram media`);
-      }
-      return response.json()
-    })
-    .then(data => data)
+  return await cloudinary.search
+    .expression('folder:instagram')
+    .sort_by('public_id', 'desc')
+    .max_results(16)
+    .with_field('context')
+    .with_field('tags')
+    .execute()
+    .then(data => data.resources);
 };

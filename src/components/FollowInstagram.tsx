@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/future/image';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
-import { InstagramPostType } from '../types';
+import { CloudinaryInstagramImageType, InstagramPostType } from '../types';
+import { CldImage } from 'next-cloudinary';
 
 
-function FolowInstagram({ images }: { images: InstagramPostType[] }) {
-  const [randomImage, setRandomImage] = useState<InstagramPostType[]>([])
+function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) {
+  const [randomImage, setRandomImage] = useState<CloudinaryInstagramImageType[]>([])
 
   useEffect(() => {
     const filteredRandomImages = images
@@ -19,19 +20,30 @@ function FolowInstagram({ images }: { images: InstagramPostType[] }) {
       <p className='text-center text-sm tracking-wider font-garamond py-6 border-t border-t-primary'>FOLLOW ME ON INSTAGRAM</p>
       <div className='relative'>
         <div className='grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-0'>
-          {randomImage.map((image: InstagramPostType) => (
-            <Image
-              key={image.id}
-              className="aspect-square object-cover"
-              src={image.originalUrl}
-              alt={image.caption.slice(0, 10)}
-              height={300}
-              width={300}
-              quality={100}
-              placeholder="blur"
+          {randomImage.map((image: CloudinaryInstagramImageType) => (
+            <CldImage
+              width="300"
+              height="300"
+              src={image.url}
+              alt={image.context.caption}
+              // objectFit='cover'
+              placeholder='blur'
               blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
-              unoptimized
+              className="aspect-square object-cover"
+
             />
+            // <Image
+            //   key={image.id}
+            //   className="aspect-square object-cover"
+            //   src={image.originalUrl}
+            //   alt={image.caption.slice(0, 40) + '...'}
+            //   height={300}
+            //   width={300}
+            //   quality={100}
+            //   placeholder="blur"
+            //   blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
+            //   unoptimized
+            // />
           )
           )}
         </div>

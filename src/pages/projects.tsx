@@ -3,26 +3,23 @@ import { fetchAPI } from './api/api';
 import Layout from '../layouts/Layout';
 import ImgBanner from '../components/ImgBanner';
 import { ProjectsPage } from '../types/pages';
-import { InstagramFeedType } from '../types';
+import { CloudinaryInstagramImageType, InstagramFeedType } from '../types';
 import Seo from '../components/Seo';
 import InstagramFeed from '../components/InstagramFeed';
 import { fetchInstagram } from './api/instagram';
 
 type Props = {
-  instagramFeed: InstagramFeedType,
+  instagramFeed: CloudinaryInstagramImageType[],
   projects: ProjectsPage,
 }
 
 const Projects = ({ instagramFeed, projects }: Props) => {
-  const images = instagramFeed.results;
-
   const { title, subtitle, mediaBanner, seo } = projects.attributes;
-
   return (
     <Layout>
       <Seo seo={seo} />
       <ImgBanner src={mediaBanner} />
-      <InstagramFeed title={title} subtitle={subtitle} images={images} />
+      <InstagramFeed title={title} subtitle={subtitle} images={instagramFeed} />
     </Layout>
   )
 }
