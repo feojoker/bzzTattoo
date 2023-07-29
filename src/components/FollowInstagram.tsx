@@ -26,7 +26,7 @@ function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) 
               key={image.url}
               height="500"
               src={image.url}
-              alt={image.context.caption}
+              alt={image.context.caption || ''}
               objectFit='cover'
               placeholder='blur'
               blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}

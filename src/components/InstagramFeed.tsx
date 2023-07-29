@@ -25,13 +25,13 @@ function InstagramFeed({ title, subtitle, images }: Props) {
         </div>
         <div className='grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-6 mx-auto py-6 max-w-6xl'>
           {images.map((image: CloudinaryInstagramImageType) => (
-            <a key={image.url} href={image.context.link} target="_blank" rel="noreferrer">
+            <a key={image.url} href={image.context?.link || ''} target="_blank" rel="noreferrer">
               <div className='brightness-75 hover:filter-none transition duration-150'>
                 <CldImage
                   width="500"
                   height="500"
                   src={image.url}
-                  alt={image.context.caption}
+                  alt={image.context?.caption || ''}
                   objectFit='cover'
                   placeholder='blur'
                   blurDataURL={`data:image/svg+xml;base64,${blurDataUrlShimmer(300, 300)}`}
