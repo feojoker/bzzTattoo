@@ -17,7 +17,7 @@ export default function useSessionStorage(
     return () => {
       sessionStorage.removeItem(key)
     };
-  }, [value])
+  }, [key, value])
 
   return [value, setValue]
 }

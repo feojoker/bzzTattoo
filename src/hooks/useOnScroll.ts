@@ -8,7 +8,7 @@ export const useOnScroll = () => {
     const win: Window = window;
     const { scrollY } = win;
     setScrollPosition(scrollY)
-  }, []);
+  }, [setScrollPosition]);
 
   useEffect(() => {
     const win: Window = window;
