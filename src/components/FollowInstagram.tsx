@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/future/image';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
-import { CloudinaryInstagramImageType } from '../types';
+import { CloudinaryInstagramImageType } from '@projectTypes/components';
 import { CldImage } from 'next-cloudinary';
 
 

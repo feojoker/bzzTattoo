@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { CombinedGlobalData } from "../types";
+import { CombinedGlobalData } from "@projectTypes/components";
 
 // Store Strapi Global object in context
 export const GlobalDataContext = createContext<CombinedGlobalData>(undefined!);

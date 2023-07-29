@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { DefaultSeo } from "../types";
+import { DefaultSeo } from "@projectTypes/components";
 
 export const DefaultSeoContext = createContext<DefaultSeo>(undefined!);
 

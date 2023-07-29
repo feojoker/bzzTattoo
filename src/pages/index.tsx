@@ -1,13 +1,12 @@
 import { fetchAPI } from './api/api';
-import Layout from "../layouts/Layout";
-import Seo from "../components/Seo";
-import { BriefInfo, CloudinaryInstagramImageType } from "../types";
-import { HomePage } from "../types/pages";
-
-import BriefInfoWithLink from '../components/BriefInfoWithLink';
-import FolowInstagram from '../components/FollowInstagram';
 import { fetchInstagram } from './api/instagram';
-import VideoBanner from '../components/VideoBanner';
+import Layout from "@layouts/Layout";
+import { HomePage } from "@projectTypes/pages";
+import { BriefInfo, CloudinaryInstagramImageType } from "@projectTypes/components";
+import Seo from "@components/Seo";
+import BriefInfoWithLink from '@components/BriefInfoWithLink';
+import FolowInstagram from '@components/FollowInstagram';
+import VideoBanner from '@components/VideoBanner';
 
 type Props = {
   homepage: HomePage,

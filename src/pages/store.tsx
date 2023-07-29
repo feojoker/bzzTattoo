@@ -1,7 +1,7 @@
 import { fetchAPI } from './api/api';
-import Seo from '../components/Seo';
-import NotFoundComponent from '../components/NotFoundComponent';
-import { NotFound } from "../types/pages";
+import Seo from '@components/Seo';
+import NotFoundComponent from '@components/NotFoundComponent';
+import { NotFound } from "@projectTypes/pages";
 
 
 const Store = ({ store }: { store: NotFound }) => {

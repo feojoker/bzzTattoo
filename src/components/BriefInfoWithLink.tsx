@@ -1,4 +1,4 @@
-import { BriefInfo } from '../types';
+import { BriefInfo } from '@projectTypes/components';
 import DefaultButton from './Buttons';
 
 type Props = {

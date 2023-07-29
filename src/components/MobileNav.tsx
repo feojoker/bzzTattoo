@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { Navs } from "../types";
+import { Navs } from "@projectTypes/components";
 import { useOnScroll } from "../hooks/useOnScroll";
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";

@@ -1,4 +1,4 @@
-import { PhotoAndText } from '../types';
+import { PhotoAndText } from '@projectTypes/components';
 import Image from 'next/image';
 import { getCloudinaryMedia, getStrapiMedia } from '../pages/api/media';
 

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Image from 'next/image';
 import Link from "next/link";
-import { Navs } from "../types";
+import { Navs } from "@projectTypes/components";
 import LanguageSwitcher from './LanguageSwitcher';
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import { LogoContext } from "../context/LogoContext";

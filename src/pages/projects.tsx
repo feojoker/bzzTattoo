@@ -1,12 +1,12 @@
 
 import { fetchAPI } from './api/api';
-import Layout from '../layouts/Layout';
-import ImgBanner from '../components/ImgBanner';
-import { ProjectsPage } from '../types/pages';
-import { CloudinaryInstagramImageType } from '../types';
-import Seo from '../components/Seo';
-import InstagramFeed from '../components/InstagramFeed';
 import { fetchInstagram } from './api/instagram';
+import { CloudinaryInstagramImageType } from '@projectTypes/components';
+import { ProjectsPage } from '@projectTypes/pages';
+import Layout from '@layouts/Layout';
+import ImgBanner from '@components/ImgBanner';
+import Seo from '@components/Seo';
+import InstagramFeed from '@components/InstagramFeed';
 
 type Props = {
   instagramFeed: CloudinaryInstagramImageType[],

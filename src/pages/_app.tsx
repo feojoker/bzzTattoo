@@ -1,14 +1,14 @@
 
 import App, { AppContext, AppProps as NextAppProps } from "next/app";
 import { fetchAPI } from "./api/api";
-import { Footer, DefaultSeo, Lang, Navs } from "../types";
-import { GlobalDataProvider } from "../context/GlobalDataContext";
-import { MediaQueryProvider } from "../context/MediaQueryContext";
-import { Loader } from '../components/Loader';
-import "../../styles/style.css";
-import "../../styles/fonts.css";
-import { DefaultSeoProvider } from "../context/DefaultSeoContext";
-import { LogoProvider } from "../context/LogoContext";
+import { Footer, DefaultSeo, Lang, Navs } from "@projectTypes/components";
+import { GlobalDataProvider } from "@context/GlobalDataContext";
+import { MediaQueryProvider } from "@context/MediaQueryContext";
+import { Loader } from '@components/Loader';
+import "@styles/style.css";
+import "@styles/fonts.css";
+import { DefaultSeoProvider } from "@context/DefaultSeoContext";
+import { LogoProvider } from "@context/LogoContext";
 
 type AppProps<P = any> = {
   pageProps: P;

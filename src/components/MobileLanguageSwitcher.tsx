@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getStrapiMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
-import { Lang } from '../types';
+import { Lang } from '@projectTypes/components';
 import Image from 'next/future/image';
 
 type Props = {

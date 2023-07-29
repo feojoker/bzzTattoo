@@ -25,6 +25,24 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
+    "baseUrl": ".",
+    "paths": {
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@context/*": [
+        "src/context/*"
+      ],
+      "@projectTypes/*": [
+        "src/types/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ]
+    }
   },
   "include": [
     "next-env.d.ts",

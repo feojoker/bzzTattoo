@@ -1,4 +1,4 @@
-import { AboutDetail, FormEmail, Seo, MediaBanner } from "."
+import { AboutDetail, FormEmail, Seo, MediaBanner } from "./components"
 
 export type HomePage = {
   id: number,

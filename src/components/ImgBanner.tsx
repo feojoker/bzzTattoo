@@ -1,5 +1,5 @@
 import { getCloudinaryMedia } from "../pages/api/media";
-import { MediaBanner } from "../types";
+import { MediaBanner } from "@projectTypes/components";
 import Image from 'next/image';
 
 type Props = {

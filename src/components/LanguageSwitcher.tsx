@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { getCloudinaryMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import useOnClickOutside from "../hooks/useOnClickOutside";
-import { Lang } from '../types';
+import { Lang } from '@projectTypes/components';
 import Image from 'next/image';
 
 type Props = {

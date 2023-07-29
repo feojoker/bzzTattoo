@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import FormEmailInput from './FormEmailInput';
 import FormEmailTextArea from './FormEmailTextArea';
 import { Inputs } from './Inputs';
-import { FormEmail } from '../../types'
+import { FormEmail } from '@projectTypes/components'
 import DefaultButton from '../Buttons';
 
 type Props = {

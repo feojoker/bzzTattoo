@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useContext } from "react";
 import { DefaultSeoContext } from "../context/DefaultSeoContext";
 import { getStrapiMedia } from "../pages/api/media";
-import { Seo } from "../types";
+import { Seo } from "@projectTypes/components";
 
 
 const Seo = ({ seo }: { seo?: Seo }) => {

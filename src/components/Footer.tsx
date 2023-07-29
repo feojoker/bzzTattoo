@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navs } from '../types';
+import { Navs } from '@projectTypes/components';
 import { GlobalDataContext } from '../context/GlobalDataContext';
 import Link from 'next/link';
 

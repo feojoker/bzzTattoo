@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { shareMedia } from "../types";
+import { shareMedia } from "@projectTypes/components";
 
 export const LogoContext = createContext<shareMedia>(undefined!);
 

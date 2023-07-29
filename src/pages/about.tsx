@@ -1,10 +1,10 @@
 
 import { fetchAPI } from './api/api';
-import Layout from '../layouts/Layout';
-import { AboutPage } from '../types/pages';
-import VideoBanner from '../components/VideoBanner';
-import Seo from '../components/Seo';
-import PhotoAndText from '../components/PhotoAndText';
+import Layout from '@layouts/Layout';
+import { AboutPage } from '@projectTypes/pages';
+import VideoBanner from '@components/VideoBanner';
+import Seo from '@components/Seo';
+import PhotoAndText from '@components/PhotoAndText';
 
 const About = ({ about }: { about: AboutPage }) => {
   const { mediaBanner, aboutDetail, seo } = about.attributes;

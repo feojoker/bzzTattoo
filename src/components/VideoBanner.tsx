@@ -1,5 +1,5 @@
 import { getCloudinaryMedia, getStrapiMedia } from "../pages/api/media";
-import { MediaBanner } from "../types";
+import { MediaBanner } from "@projectTypes/components";
 import DoubleDown from '../../public/doubleDown.svg';
 import { Link as ScrollLink } from 'react-scroll';
 

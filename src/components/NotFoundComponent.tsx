@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { NotFound } from "../types/pages";
+import { NotFound } from "@projectTypes/pages";
 import { LogoContext } from '../context/LogoContext';
 import { useContext } from 'react';
 import { getCloudinaryMedia } from '../pages/api/media';

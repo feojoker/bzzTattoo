@@ -1,13 +1,13 @@
 import { fetchAPI } from './api/api';
-import Layout from '../layouts/Layout';
-import FormEmail from '../components/FormEmail';
-import ImgBanner from '../components/ImgBanner';
-import { ContactPage } from '../types/pages';
-import Seo from '../components/Seo';
-import { Loader } from '../components/Loader';
+import Layout from '@layouts/Layout';
+import FormEmail from '@components/FormEmail';
+import ImgBanner from '@components/ImgBanner';
+import { ContactPage } from '@projectTypes/pages';
+import Seo from '@components/Seo';
+import { Loader } from '@components/Loader';
 import dynamic from 'next/dynamic';
-const GoogleMaps = dynamic(() => import('../components/Map'), { loading: () => <Loader /> })
 
+const GoogleMaps = dynamic(() => import('../components/Map'), { loading: () => <Loader /> })
 
 const Contact = ({ contact }: { contact: ContactPage }) => {
 

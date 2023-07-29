@@ -1,5 +1,5 @@
 import Image from 'next/future/image';
-import { CloudinaryInstagramImageType } from '../types';
+import { CloudinaryInstagramImageType } from '@projectTypes/components';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 import { getExternalLoader } from '../helpers/imageLoaders';
 import { CldImage } from 'next-cloudinary';
