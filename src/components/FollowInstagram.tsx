@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/future/image';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
 import { CloudinaryInstagramImageType } from '@projectTypes/components';
-import { CldImage } from 'next-cloudinary';
+import { CldImage, getCldImageUrl } from 'next-cloudinary';
 
 
 function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) {
@@ -17,7 +17,9 @@ function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) 
 
   return (
     <div>
-      <p className='text-center text-sm tracking-wider font-garamond py-6 border-t border-t-primary'>FOLLOW ME ON INSTAGRAM</p>
+      <p className='text-center text-sm tracking-wider font-garamond py-6 border-t border-t-primary'>
+        FOLLOW ME ON INSTAGRAM
+      </p>
       <div className='relative'>
         <div className='grid grid-cols-3 gap-2 md:grid-cols-6 md:gap-0'>
           {randomImage.map((image: CloudinaryInstagramImageType) => (
@@ -25,7 +27,8 @@ function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) 
               width="500"
               key={image.url}
               height="500"
-              src={image.url}
+              src={image.public_id}
+              format='avif'
               alt={image.context.caption || ''}
               objectFit='cover'
               placeholder='blur'

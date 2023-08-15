@@ -1,6 +1,7 @@
 import { PhotoAndText } from '@projectTypes/components';
 import Image from 'next/image';
 import { getCloudinaryMedia, getStrapiMedia } from '../pages/api/media';
+import { CldImage } from 'next-cloudinary';
 
 
 type Props = {
@@ -25,12 +26,13 @@ function PhotoAndText({ data, scrollAnchor }: Props) {
         {subTitle}
       </h2>
       <div className='relative h-[400px] sm:h-[500px] md:h-[600px]'>
-        <Image
-          alt="Image near from text"
+        <CldImage
           src={getCloudinaryMedia(image)}
-          // quality={100}
+          format='avif'
+          sizes="100vw"
+          objectFit="cover"
+          alt={image.data.attributes.caption}
           layout="fill"
-          objectFit='cover'
         />
       </div>
       <div className='text-2xl font-garamond whitespace-pre-line pl-10 border-l-2 border-primary'>

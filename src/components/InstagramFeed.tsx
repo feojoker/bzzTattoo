@@ -30,6 +30,7 @@ function InstagramFeed({ title, subtitle, images }: Props) {
                 <CldImage
                   width="500"
                   height="500"
+                  format='avif'
                   src={image.url}
                   alt={image.context?.caption || ''}
                   objectFit='cover'

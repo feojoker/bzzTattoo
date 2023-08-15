@@ -7,6 +7,7 @@ import { GlobalDataContext } from "../context/GlobalDataContext";
 import { LogoContext } from "../context/LogoContext";
 import { getCloudinaryMedia } from "../pages/api/media";
 import { useOnScroll } from '../hooks/useOnScroll'
+import { CldImage } from "next-cloudinary";
 
 
 const Nav = () => {
@@ -51,11 +52,13 @@ const Nav = () => {
             <Link href='/'>
               <a className="absolute inset-0  opacity-70 hover:opacity-100">
                 <span className="hidden">Link to homepage</span>
-                <Image
-                  alt="Logo showing on desktop nav"
+                <CldImage
+                  width="300"
+                  height="300"
                   src={getCloudinaryMedia(logo)}
-                  layout='fill'
-                  sizes="20vw"
+                  format='avif'
+                  alt="Logo showing on desktop nav"
+                  quality={100}
                   priority
                 />
               </a>

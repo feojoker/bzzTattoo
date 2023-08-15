@@ -1,6 +1,6 @@
 import { getCloudinaryMedia } from "../pages/api/media";
 import { MediaBanner } from "@projectTypes/components";
-import Image from 'next/image';
+import { CldImage } from "next-cloudinary";
 
 type Props = {
   src: MediaBanner,
@@ -30,13 +30,14 @@ function ImgBanner({ src }: Props) {
           {smallText}
         </p>
       ) : null}
-      <Image
-        className='absolute inset-0 object-cover h-full'
-        alt="Large image banner on top of the page"
+      <CldImage
         src={getCloudinaryMedia(media)}
+        format='avif'
+        sizes="100vw"
+        objectFit="cover"
+        alt="Description of my image"
         quality={100}
         layout="fill"
-        objectFit='cover'
         priority
       />
     </div>

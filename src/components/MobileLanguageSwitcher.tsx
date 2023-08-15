@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getStrapiMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import { Lang } from '@projectTypes/components';
-import Image from 'next/future/image';
+import { CldImage } from 'next-cloudinary';
 
 type Props = {
   langs: Lang[],
@@ -23,13 +23,15 @@ function MobileLanguageSwitcher({ langs }: Props) {
             )}
             <Link href={`${asPath}`} locale={lang.attributes.slug} >
               <a className="flex items-center justify-between whitespace-nowrap">
-                <Image
-                  alt={`Switch to ${lang.attributes.name} language`}
+                <CldImage
                   key={lang.attributes.slug}
+                  width="25"
+                  height="25"
                   src={getStrapiMedia(lang.attributes.icon)}
-                  height={25}
-                  width={25}
+                  format='svg'
+                  alt={`Switch to ${lang.attributes.name} language`}
                   quality={100}
+                  priority
                 />
               </a>
             </Link>

@@ -5,9 +5,9 @@ import { useOnScroll } from "../hooks/useOnScroll";
 import { GlobalDataContext } from "../context/GlobalDataContext";
 import BurgerButton from "./Buttons/BurgerButton";
 import MobileLanguageSwitcher from "./MobileLanguageSwitcher";
-import Image from 'next/image';
 import { getCloudinaryMedia } from "../pages/api/media";
 import { LogoContext } from "../context/LogoContext";
+import { CldImage } from "next-cloudinary";
 
 const initialStyle = {
   container: "",
@@ -51,11 +51,11 @@ const MobileNav = () => {
           <Link href='/'>
             <a className="absolute inset-0 opacity-70 hover:opacity-100">
               <span className="hidden">Link to homepage</span>
-              <Image
-                alt="Logo showing on mobile nav"
+              <CldImage
                 src={getCloudinaryMedia(logo)}
-                layout='fill'
-                sizes="30vw"
+                format='avif'
+                alt="Logo showing on mobile nav"
+                layout="fill"
                 priority
               />
             </a>

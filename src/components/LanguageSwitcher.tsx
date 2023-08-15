@@ -4,7 +4,7 @@ import { getCloudinaryMedia } from "../pages/api/media";
 import { useRouter } from 'next/router';
 import useOnClickOutside from "../hooks/useOnClickOutside";
 import { Lang } from '@projectTypes/components';
-import Image from 'next/image';
+import { CldImage } from 'next-cloudinary';
 
 type Props = {
   langs: Lang[],
@@ -30,13 +30,15 @@ function LanguageSwitcher({ langs }: Props) {
         <button onClick={() => setOpenSwitcher(!openSwitcher)} ref={buttonRef} className="flex items-center">
           {langs.map((lang: Lang) => {
             return lang.attributes.slug === locale && (
-              <Image
-                alt={`Switch to ${lang.attributes.name} language`}
+              <CldImage
                 key={lang.attributes.slug}
+                width="25"
+                height="25"
                 src={getCloudinaryMedia(lang.attributes.icon)}
-                height={25}
-                width={25}
+                format='svg'
+                alt={`Switch to ${lang.attributes.name} language`}
                 quality={100}
+                priority
               />
             );
           })}
@@ -50,13 +52,15 @@ function LanguageSwitcher({ langs }: Props) {
                 className="flex items-center justify-between whitespace-nowrap group transition-all duration-300 ease-in-out"
               >
                 <span className="bg-left-bottom bg-gradient-to-r from-primary to-primary bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out">{lang.attributes.name}</span>
-                <Image
-                  alt={`Switch to ${lang.attributes.name} language`}
+                <CldImage
                   key={lang.attributes.slug}
+                  width="25"
+                  height="25"
                   src={getCloudinaryMedia(lang.attributes.icon)}
-                  height={25}
-                  width={25}
+                  format='svg'
+                  alt={`Switch to ${lang.attributes.name} language`}
                   quality={100}
+                  priority
                 />
               </a>
             </Link>
