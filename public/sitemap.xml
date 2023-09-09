@@ -13,8 +13,15 @@
 			<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 			<video:title>Homepage | Bzz Tattoo</video:title>
 			<video:description>Bzztattoo.com is a virtual studio of #1 engraving and ornamental tattoo artist in Tbilisi.</video:description>
-			<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4?_a=ATRSRAA0</video:content_loc>
+			<video:content_loc>
+				https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4
+			</video:content_loc>
+			<video:player_loc>
+         https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4
+       </video:player_loc>
+			 <video:duration>7</video:duration>
 			<video:publication_date>2023-01-06T06:05:10Z</video:publication_date>
+			<video:family_friendly>yes</video:family_friendly>
 		</video:video>
 	</url>
 	<url>
@@ -68,8 +75,15 @@
 			<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 			<video:title>About Me | Bzz Tattoo</video:title>
 			<video:description>I am professional tattoo artist with more that 3 years of experience.</video:description>
-			<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4?_a=ATRSRAA0</video:content_loc>
+			<video:content_loc>
+				https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4
+			</video:content_loc>
+			<video:player_loc>
+         https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4
+       </video:player_loc>
+			 <video:duration>12</video:duration>
 			<video:publication_date>2023-01-06T06:05:15Z</video:publication_date>
+			<video:family_friendly>yes</video:family_friendly>
 		</video:video>
 		<image:image>
 			<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/about_6dcf34ec52</image:loc>
@@ -89,8 +103,15 @@
 			<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 			<video:title>Homepage | Bzz Tattoo</video:title>
 			<video:description>Bzztattoo.com is a virtual studio of #1 engraving and ornamental tattoo artist in Tbilisi.</video:description>
-			<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4?_a=ATRSRAA0</video:content_loc>
+			<video:content_loc>
+				https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4
+			</video:content_loc>
+			<video:player_loc>
+         https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4
+       </video:player_loc>
+			 <video:duration>7</video:duration>
 			<video:publication_date>2023-01-06T06:05:10Z</video:publication_date>
+			<video:family_friendly>yes</video:family_friendly>
 		</video:video>
 	</url>
 	<url>
@@ -130,8 +151,15 @@
 			<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 			<video:title>About Me | Bzz Tattoo</video:title>
 			<video:description>I am professional tattoo artist with more that 3 years of experience.</video:description>
-			<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4?_a=ATRSRAA0</video:content_loc>
+			<video:content_loc>
+				https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4
+			</video:content_loc>
+			<video:player_loc>
+         https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4
+       </video:player_loc>
+			 <video:duration>12</video:duration>
 			<video:publication_date>2023-01-06T06:05:15Z</video:publication_date>
+			<video:family_friendly>yes</video:family_friendly>
 		</video:video>
 		<image:image>
 			<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/about_6dcf34ec52</image:loc>
@@ -165,8 +193,15 @@
 			<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 			<video:title>Homepage | Bzz Tattoo</video:title>
 			<video:description>Bzztattoo.com is a virtual studio of #1 engraving and ornamental tattoo artist in Tbilisi.</video:description>
-			<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4?_a=ATRSRAA0</video:content_loc>
+			<video:content_loc>
+				https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4
+			</video:content_loc>
+			<video:player_loc>
+         https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/homepage_Video_05228c0d8d.mp4
+       </video:player_loc>
+			 <video:duration>7</video:duration>
 			<video:publication_date>2023-01-06T06:05:10Z</video:publication_date>
+			<video:family_friendly>yes</video:family_friendly>
 		</video:video>
 	</url>
 	<url>
@@ -182,8 +217,15 @@
 			<video:thumbnail_loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/v1673271812/video_Poster_6a1461463e.jpg</video:thumbnail_loc>
 			<video:title>About Me | Bzz Tattoo</video:title>
 			<video:description>I am professional tattoo artist with more that 3 years of experience.</video:description>
-			<video:content_loc>https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4?_a=ATRSRAA0</video:content_loc>
+			<video:content_loc>
+				https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4
+			</video:content_loc>
+			<video:player_loc>
+         https://res.cloudinary.com/dx2vbnmiz/video/upload/q_70/vc_auto/about_Video_72b1be51b1.mp4
+       </video:player_loc>
+			 <video:duration>12</video:duration>
 			<video:publication_date>2023-01-06T06:05:15Z</video:publication_date>
+			<video:family_friendly>yes</video:family_friendly>
 		</video:video>
 		<image:image>
 			<image:loc>https://res.cloudinary.com/dx2vbnmiz/image/upload/f_auto,c_limit,w_3840,q_auto/about_6dcf34ec52</image:loc>
