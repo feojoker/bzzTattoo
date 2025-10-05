@@ -18,10 +18,10 @@ const tattooStudioLocation = { lat: 41.701365412959866, lng: 44.794203827308415 
 
 export default function GoogleMaps() {
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+  const { locale } = useRouter();
 
   // Fallback to iframe if Google Maps API key is not set
   if (googleMapsApiKey === undefined) {
-    const { locale } = useRouter();
     const iframeLink = `https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2808.7575777462635!2d44.79356862248936!3d41.70144834246813!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQyJzA0LjgiTiA0NMKwNDcnMzkuMyJF!5e0!3m2!1sru!2sge!4v1759659942705!5m2!1s${locale}!2sge`
     return (
       <iframe src={iframeLink} width="100%" height="100%" className="border-0" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
