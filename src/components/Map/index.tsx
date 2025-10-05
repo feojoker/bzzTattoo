@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, useState } from "react";
-import { GoogleMap, useLoadScript, MarkerF, } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, MarkerF } from "@react-google-maps/api";
 import mapStyles from "./mapStyles"
 import { useRouter } from "next/router";
 import MapUserLocation from "./MapUserLocation";
@@ -11,21 +11,14 @@ type Map = google.maps.Map;
 type MapOptions = google.maps.MapOptions;
 type LatLngLiteral = google.maps.LatLngLiteral;
 
+const tattooStudioLocation = { lat: 41.701365412959866, lng: 44.794203827308415 };
 
 export default function GoogleMaps() {
-
   const { locale } = useRouter();
   const iframeLink = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.6468384980626!2d44.79472261539639!3d41.706559079236136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440deae469306d%3A0x1c64da3de2229d59!2sPortal%20tattoos%20%26%20piercing!5e0!3m2!1sru!2sge!4v1667550795855!5m2!1s${locale}!2sge`
   return (
     <iframe src={iframeLink} className="border-0" width="100%" height="100%" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
   );
-
-  // const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-  // return <Map googleMapsApiKey={googleMapsApiKey} />;
-
-  // if (googleMapsApiKey === undefined) {
-
-  // }
 }
 
 
@@ -50,7 +43,6 @@ function Map({ googleMapsApiKey }: Props) {
 
   const [userLocation, setUserLocation] = useState<LatLngLiteral | undefined>();
 
-  const center = useMemo<LatLngLiteral>(() => ({ lat: 41.706622514946055, lng: 44.79686802535099 }), []);
   const options = useMemo<MapOptions>(
     () => ({
       styles: mapStyles,
@@ -78,10 +70,7 @@ function Map({ googleMapsApiKey }: Props) {
       <button
         className="center"
         onClick={() => {
-          panTo({
-            lat: 41.706622514946055,
-            lng: 44.79686802535099,
-          });
+          panTo(tattooStudioLocation);
           setZoom(15);
         }}
       >
@@ -90,16 +79,16 @@ function Map({ googleMapsApiKey }: Props) {
       <GoogleMap
         id="map"
         zoom={15}
-        center={center}
+        center={tattooStudioLocation}
         options={options}
         mapContainerClassName="w-full h-full"
         onLoad={onMapLoad}
       >
-        <MarkerF position={center} />
+        <MarkerF position={tattooStudioLocation} />
         {userLocation && (
           <MapDirectionsRenderer
             origin={userLocation}
-            destination={center}
+            destination={tattooStudioLocation}
             travelMode={google.maps.TravelMode.DRIVING}
           />
         )

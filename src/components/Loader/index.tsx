@@ -32,7 +32,6 @@ export const Loader = () => {
       router.events.off("routeChangeComplete", handleRouteComplete);
       router.events.on('routeChangeError', handleRouteComplete);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
 

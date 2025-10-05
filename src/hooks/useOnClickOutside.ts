@@ -2,9 +2,16 @@ import { useEffect } from 'react';
 
 // Take hook here: https://stackoverflow.com/questions/63723421/mouseevent-target-type
 
-const hasIgnoredClass = (element: SVGAElement, ignoredClass: string) =>
-  // @ts-ignore
-  (element.correspondingElement ? element.correspondingElement : element).classList.contains(ignoredClass)
+// Type for SVG elements that might have a correspondingElement property
+type SVGElementWithCorresponding = SVGAElement & {
+  correspondingElement?: SVGAElement;
+};
+
+const hasIgnoredClass = (element: SVGAElement, ignoredClass: string) => {
+  const elementWithCorresponding = element as SVGElementWithCorresponding;
+  const targetElement = elementWithCorresponding.correspondingElement || element;
+  return targetElement.classList?.contains(ignoredClass) || false;
+}
 
 const isInIgnoredElement = (element: Node, ignoredClass: string) => {
   if (element === null) return;

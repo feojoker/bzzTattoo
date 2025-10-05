@@ -1,15 +1,11 @@
-import Image from 'next/future/image';
 import { CloudinaryInstagramImageType } from '@projectTypes/components';
 import blurDataUrlShimmer from '../helpers/blurDataUrlShimmer';
-import { getExternalLoader } from '../helpers/imageLoaders';
 import { CldImage } from 'next-cloudinary';
 
 type Props = {
   title: string,
   subtitle: string,
-  // images: InstagramPostType[]
   images: CloudinaryInstagramImageType[]
-
 }
 
 function InstagramFeed({ title, subtitle, images }: Props) {

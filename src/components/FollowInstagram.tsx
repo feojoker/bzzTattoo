@@ -10,7 +10,6 @@ function FolowInstagram({ images }: { images: CloudinaryInstagramImageType[] }) 
 
   useEffect(() => {
     const filteredRandomImages = images
-      // .filter((image: InstagramPostType) => image.media_type !== "VIDEO")
       .sort(() => 0.5 - Math.random()).slice(0, 6);
     setRandomImage(filteredRandomImages)
   }, [images])

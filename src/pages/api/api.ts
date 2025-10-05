@@ -13,7 +13,7 @@ export function getStrapiURL(path: string = ""): string {
 //  * @returns Parsed API call response
 //  */
 export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = {}) {
-  // Merge default and user options
+
   const mergedOptions = {
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function fetchAPI<T>(path: string, urlParamsObject = {}, options = 
     ...options,
   };
 
-  // Build request URL
+
   const queryString = qs.stringify(urlParamsObject);
 
   const requestUrl = `${getStrapiURL(

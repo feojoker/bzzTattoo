@@ -1,4 +1,3 @@
-
 type Props = {
   src: string,
   width?: number,
@@ -8,10 +7,4 @@ type Props = {
 
 export function getLocalLoader({ src, width, quality = 75 }: Props): string {
   return `${src}?w=${width}&q=${quality}`;
-}
-
-
-
-export function getExternalLoader({ src }: { src: string }): string {
-  return `${src}`
 }

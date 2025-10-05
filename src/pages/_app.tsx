@@ -48,7 +48,6 @@ const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
 // Hopefully we can replace this with getStaticProps once this issue is fixed:
 // https://github.com/vercel/next.js/discussions/10949
 MyApp.getInitialProps = async (context: AppContext) => {
-  // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(context);
   const locale = context.router.locale;
 

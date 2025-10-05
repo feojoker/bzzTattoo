@@ -12,7 +12,6 @@ export const useMediaQuery = (width: number) => {
     const media: MediaQueryList = window.matchMedia(`(min-width: ${width}px)`)
     media.addEventListener('change', updateTarget)
 
-    // Check on mount (callback is not called until a change occurs)
     if (media.matches) setTargetReached(true)
 
     return () => media.removeEventListener('change', updateTarget)
