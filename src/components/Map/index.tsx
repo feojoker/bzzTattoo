@@ -15,7 +15,8 @@ const tattooStudioLocation = { lat: 41.701365412959866, lng: 44.794203827308415 
 
 export default function GoogleMaps() {
   const { locale } = useRouter();
-  const iframeLink = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.6468384980626!2d44.79472261539639!3d41.706559079236136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440deae469306d%3A0x1c64da3de2229d59!2sPortal%20tattoos%20%26%20piercing!5e0!3m2!1sru!2sge!4v1667550795855!5m2!1s${locale}!2sge`
+  const iframeLink = `https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d186.1808109245161!2d44.794253068286764!3d41.7012460780451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDQyJzA0LjgiTiA0NMKwNDcnMzkuMyJF!5e0!3m2!1sru!2sge!4v1759657555339!5m2!1s${locale}!2sge`;
+
   return (
     <iframe src={iframeLink} className="border-0" width="100%" height="100%" allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
   );
